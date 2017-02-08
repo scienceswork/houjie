@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh_CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +182,8 @@ return [
         \Encore\Admin\Providers\AdminServiceProvider::class,
         // Ide智能提示
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        // debugBar调试栏
+        \Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -230,7 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Debugbar' => \Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

@@ -24,13 +24,12 @@ class HomeController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-
-            $content->header('Dashboard');
-            $content->description('Description...');
+            $content->header('仪表盘');
+            $content->description('常用操作，数据报表等');
 
             $content->row(function ($row) {
-                $row->column(3, new InfoBox('New Users', 'users', 'aqua', '/admin/users', '1024'));
-                $row->column(3, new InfoBox('New Orders', 'shopping-cart', 'green', '/admin/orders', '150%'));
+                $row->column(3, new InfoBox('新用户数', 'users', 'aqua', '/admin/users', '1024'));
+                $row->column(3, new InfoBox('新订单数', 'shopping-cart', 'green', '/admin/orders', '150%'));
                 $row->column(3, new InfoBox('Articles', 'book', 'yellow', '/admin/articles', '2786'));
                 $row->column(3, new InfoBox('Documents', 'file', 'red', '/admin/files', '698726'));
             });

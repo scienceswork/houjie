@@ -5,7 +5,7 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name'  => '后街胡同-管理后台',
+    'name'  => '后街胡同',
 
     /*
      * Laravel-admin url prefix.
@@ -20,7 +20,7 @@ return [
     /*
      * Laravel-admin title.
      */
-    'title'  => '后街胡同-管理后台',
+    'title'  => '后街胡同',
 
     /*
      * Laravel-admin auth setting.
