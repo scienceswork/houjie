@@ -14,12 +14,20 @@ require('laravel-elixir-vue-2');
  */
 // 基础js文件
 var basejs = [
-    'resources/assets/lib/jquery/dist/jquery.min.js'
+    'resources/assets/lib/jquery/dist/jquery.min.js',
+    'resources/assets/lib/bootstrap/dist/js/bootstrap.min.js'
 ];
 
 // 使用elixir合并js和css，并且对其进行压缩
 elixir(function (mix) {
-    mix.scripts(basejs, 'public/assets/js/scripts.js', './');
+    mix
+        .copy([
+            'resources/assets/lib/bootstrap'
+        ], 'public/assets/bootstrap')
+        .sass([
+            'base.scss'
+        ], 'public/assets/css/app.css')
+        .scripts(basejs, 'public/assets/js/scripts.js', './');
 });
 
 // elixir((mix) => {

@@ -1,0 +1,14 @@
+.footer {
+  margin-top: 20px;
+  background-color: #eee;
+}
+
+.wrap > .container {
+  padding: 70px 10px 0;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+/*# sourceMappingURL=app.css.map */

@@ -1,0 +1,1 @@
+{"version":3,"sources":["base.scss"],"names":[],"mappings":"AAAA;EACE,iBAAiB;EACjB,uBAAuB;CACxB;;AAED;EAEI,qBAAqB;CACtB;;AAGH;EACE,UAAU;CACX","file":"app.css","sourcesContent":[".footer {\n  margin-top: 20px;\n  background-color: #eee;\n}\n// wrap\n.wrap {\n  &>.container {\n    padding: 70px 10px 0;\n  }\n}\n// 取消margin\n.no-margin {\n  margin: 0;\n}"]}
