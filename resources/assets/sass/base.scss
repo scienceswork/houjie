@@ -1,14 +1,70 @@
+body {
+  background-color: #f0f2f5;
+}
+
+.navbar-white {
+  background-color: #fff;
+}
+
 .footer {
   margin-top: 20px;
   background-color: #eee;
 }
+
 // wrap
 .wrap {
-  &>.container {
+  & > .container {
     padding: 70px 10px 0;
   }
 }
+
 // 取消margin
 .no-margin {
   margin: 0;
+}
+
+// 中屏下的padding
+.padding-md {
+  padding: 15px;
+}
+
+// box
+.box {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+}
+
+.user-show {
+
+}
+
+.list-group {
+  margin-bottom: 0;
+  // 取消圆角
+  .list-group-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+.list-group-item {
+  border: none;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #f2f2f2;
+  &.active, &.active:hover, &.active:focus {
+    background-color: #00b5ad;
+    border-color: #00b5ad;
+  }
+}
+// 修改默认按钮样式
+.btn-primary {
+  color: #fff;
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+  &:hover {
+    color: #fff;
+    background-color: #00c4bc;
+    border-color: #00c4bc;
+  }
 }

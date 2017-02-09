@@ -12,18 +12,18 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="{{ route('login') }}" method="post">
+                    <form role="form" method="POST" action="{{ route('auth.login.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="control-label">邮箱</label>
-                            <input class="form-control" type="email" placeholder="请填写电子邮箱">
+                            <input class="form-control" name="email" type="email" placeholder="请填写电子邮箱">
                             @if($errors->has('email'))
                                 <span class="help-block">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="control-label">密码</label>
-                            <input class="form-control" type="password" placeholder="请填写账户密码">
+                            <input class="form-control" name="password" type="password" placeholder="请填写账户密码">
                             @if($errors->has('password'))
                                 <span class="help-block">{{ $errors->first('password') }}</span>
                             @endif
@@ -46,15 +46,11 @@
                             </a>
                         </div>
                         <hr>
-                        {{--其他登录方式--}}
                         <div class="form-group no-margin">
                             <div class="alert alert-info no-margin">
                                 使用其他方式登录：
                                 <a href="#">微信登录</a>
                             </div>
-                            {{--<a href="#" class="btn btn-default btn-block btn-lg">--}}
-                                {{--微信登录--}}
-                            {{--</a>--}}
                         </div>
                     </form>
                 </div>

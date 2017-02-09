@@ -1,3 +1,11 @@
+body {
+  background-color: #f0f2f5;
+}
+
+.navbar-white {
+  background-color: #fff;
+}
+
 .footer {
   margin-top: 20px;
   background-color: #eee;
@@ -9,6 +17,49 @@
 
 .no-margin {
   margin: 0;
+}
+
+.padding-md {
+  padding: 15px;
+}
+
+.box {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0.2em 0 0 #ddd, 0 0 0 1px #ddd;
+}
+
+.list-group {
+  margin-bottom: 0;
+}
+
+.list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.list-group-item {
+  border: none;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #00b5ad;
+  border-color: #00b5ad;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #00c4bc;
+  border-color: #00c4bc;
 }
 
 /*# sourceMappingURL=app.css.map */

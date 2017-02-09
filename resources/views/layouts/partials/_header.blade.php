@@ -1,5 +1,5 @@
 <!--导航-->
-<header class="navbar navbar-default navbar-fixed-top">
+<header class="navbar navbar-default navbar-fixed-top navbar-white">
     <div class="container">
         <!--头部导航-->
         <div class="navbar-header">
@@ -15,8 +15,8 @@
         <!--导航内容-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/">首页</a>
+                <li class="{{ navViewActive('home') }}">
+                    <a href="{{ route('home') }}">首页</a>
                 </li>
                 <li>
                     <a href="#">社区</a>
@@ -63,7 +63,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#">
+                                <a href="{{ route('web.users.show', Auth::user()->id) }}">
                                     <i class="glyphicon glyphicon-user"></i>
                                     个人主页
                                 </a>
@@ -76,14 +76,14 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ route('web.users.edit', Auth::user()->id) }}">
                                     <i class="glyphicon glyphicon-cog"></i>
                                     账户设置
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <a href="{{ route('auth.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <i class="glyphicon glyphicon-off"></i>
                                     退出登录
                                 </a>
@@ -91,15 +91,15 @@
                         </ul>
                     </li>
                     <!--退出登录表单-->
-                    <form id="logout-form" action="{{ route('logout') }}" method="post">
+                    <form id="logout-form" action="{{ route('auth.logout') }}" method="post">
                         {{ csrf_field() }}
                     </form>
                 @else
                     <li>
-                        <a href="{{ route('register') }}">注册</a>
+                        <a href="{{ route('auth.register') }}">注册</a>
                     </li>
                     <li>
-                        <a href="{{ route('login') }}">登录</a>
+                        <a href="{{ route('auth.login') }}">登录</a>
                     </li>
                 @endif
             </ul>

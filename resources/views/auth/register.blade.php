@@ -12,7 +12,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="{{ url('/register') }}">
+                    <form role="form" method="POST" action="{{ route('auth.register.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="control-label">用户昵称</label>
