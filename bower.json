@@ -1,0 +1,25 @@
+{
+  "name": "houjie",
+  "description": "后街胡同应用",
+  "main": "",
+  "authors": [
+    "串猪神"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "后街胡同",
+    "深圳市启航网讯科技有限公司"
+  ],
+  "homepage": "https://github.com/scienceswork/houjie",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "resources/assets/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.11.*"
+  }
+}

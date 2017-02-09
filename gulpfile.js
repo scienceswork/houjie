@@ -12,8 +12,18 @@ require('laravel-elixir-vue-2');
  | file for your application as well as publishing vendor resources.
  |
  */
+// 基础js文件
+var basejs = [
+    'resources/assets/lib/jquery/dist/jquery.min.js'
+];
 
-elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
+// 使用elixir合并js和css，并且对其进行压缩
+elixir(function (mix) {
+    mix.scripts(basejs, 'public/assets/js/scripts.js', './');
 });
+
+// elixir((mix) => {
+//     // mix.sass('app.scss')
+//     //    .webpack('app.js');
+//     // mix.sass('test.scss');
+// });

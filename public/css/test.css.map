@@ -1,0 +1,1 @@
+{"version":3,"sources":["test.scss"],"names":[],"mappings":"AAAA;EACE,gBAAgB;CAIjB;;AALD;EAGI,YAAY;CACb","file":"test.css","sourcesContent":["body {\n  font-size: 14px;\n  p {\n    color: #eee;\n  }\n}"]}
