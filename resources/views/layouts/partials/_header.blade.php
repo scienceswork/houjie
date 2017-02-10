@@ -58,7 +58,8 @@
                 <!-- 已登录 -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">
+                           aria-expanded="false" style="height: 50px;">
+                            <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380" class="avatar-topnav" alt="">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">

@@ -1,11 +1,11 @@
 <div class="box">
     <div class="padding-md">
         <div class="list-group text-center">
-            <a href="{{ route('web.users.edit', Auth::user()->id) }}" class="list-group-item {{ navViewActive('web.users.edit') }}">
+            <a href="{{ route('web.users.edit', $user->id) }}" class="list-group-item {{ navViewActive('web.users.edit') }}">
                 <i class="glyphicon glyphicon-tasks"></i>
                 &nbsp;个人信息
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ route('web.users.edit_avatar', $user->id) }}" class="list-group-item {{ navViewActive('web.users.edit_avatar') }}">
                 <i class="glyphicon glyphicon-picture"></i>
                 &nbsp;修改头像
             </a>

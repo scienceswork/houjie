@@ -184,6 +184,8 @@ return [
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         // debugBar调试栏
         \Barryvdh\Debugbar\ServiceProvider::class,
+        // 七牛云存储
+        \zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
 
     ],
 

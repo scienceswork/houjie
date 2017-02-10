@@ -22,7 +22,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">邮 箱：</label>
                             <div class="col-md-6">
-                                <input name="" class="form-control" type="text" value="{{ Auth::user()->email }}"
+                                <input name="" class="form-control" type="text" value="{{ $user->email }}"
                                        disabled>
                             </div>
                             <div class="col-sm-4 help-block">

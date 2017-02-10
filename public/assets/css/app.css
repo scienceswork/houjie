@@ -106,4 +106,86 @@ html, body {
   height: 50px;
 }
 
+.avatar-topnav {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -5px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.avatar-112 {
+  width: 112px;
+  height: 112px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.media-object {
+  display: block;
+}
+
+.padding-sm {
+  padding: 10px;
+}
+
+.user-basic-info .media-heading {
+  margin: 10px 0;
+}
+
+.user-basic-info .item {
+  margin: 6px 0;
+}
+
+.user-basic-info .follow-info .col-xs-4 {
+  border-right: 1px solid #eee;
+}
+
+.user-basic-info .follow-info .col-xs-4:last-child {
+  border: 0;
+}
+
+.user-basic-info .follow-info a.counter {
+  font-size: 25px;
+  color: #00b5ad;
+  display: block;
+}
+
+.user-basic-info .follow-info a.counter:hover, .user-basic-info .follow-info a.counter:focus {
+  color: #00c4bc;
+  text-decoration: none;
+}
+
+.user-basic-info .follow-info a.text {
+  color: #999;
+}
+
+.user-basic-info .follow-info a.text:hover, .user-basic-info .follow-info a.text:focus {
+  text-decoration: none;
+}
+
+span.timeago {
+  color: #aaa;
+}
+
+.panel-white {
+  border-bottom: 1px solid #eeeeee;
+  background-color: #fff !important;
+}
+
+.empty-block {
+  text-align: center;
+  line-height: 60px;
+  margin: 10px;
+  color: #ccc;
+}
+
+.user-basic-nav a {
+  color: #525252;
+  font-size: 14px;
+}
+
 /*# sourceMappingURL=app.css.map */

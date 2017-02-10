@@ -11,7 +11,33 @@
             @include('users.partials._basicInfo')
         </div>
         <div class="col-md-9">
-            右栏
+            <div class="box text-center">
+                人生中有两道菜是必吃的，一道是吃亏，一道是吃苦。
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    专栏文章
+                </div>
+                <div class="panel-body">
+                    <div class="empty-block">没有任何数据~~</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    最新话题
+                </div>
+                <div class="panel-body">
+                    <div class="empty-block">没有任何数据~~</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    最新评论
+                </div>
+                <div class="panel-body">
+                    <div class="empty-block">没有任何数据~~</div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

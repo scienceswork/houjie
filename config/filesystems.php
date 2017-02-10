@@ -61,7 +61,19 @@ return [
             'region' => 'your-region',
             'bucket' => 'your-bucket',
         ],
-
+        // 添加七牛云存储
+        'qiniu' => [
+            'driver' => 'qiniu',
+            'domains' => [
+                'default' => 'ol5yyvvdl.bkt.clouddn.com', // 七牛域名
+                'https' => 'ol60zepem.qnssl.com', // HTTPS域名
+                'custom' => '', // 自定义域名
+            ],
+            'access_key' => env('QINIU_AK', ''), // AccessKey
+            'secret_key' => env('QINIU_SK', ''),  // SecretKey
+            'bucket' => env('QINIU_BUCKET', ''),  // Bucket名字
+            'notify_url'=> env('QINIU_NOTIFY', ''),  // 持久化处理回调地址
+        ],
     ],
 
 ];

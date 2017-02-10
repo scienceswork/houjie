@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    $disk = \zgldh\QiniuStorage\QiniuStorage::disk('qiniu');
+    $content = $disk->get('file.jpg');
+    dd($disk->put('file_copy.jpg',$content));
     return view('welcome');
 })->name('home');
 
@@ -36,3 +39,4 @@ Route::get('users/{id}', 'UserController@show')->name('web.users.show');
 Route::get('users/{id}/edit', 'UserController@edit')->name('web.users.edit');
 Route::get('users/{id}/edit_password', 'UserController@editPassword')->name('web.users.edit_password');
 Route::get('users/{id}/edit_email_notify', 'UserController@editEmailNotify')->name('web.users.edit_email_notify');
+Route::get('users/{id}/edit_avatar', 'UserController@editAvatar')->name('web.users.edit_avatar');

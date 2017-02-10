@@ -4,7 +4,10 @@ html, body {
   font-size: 14px;
   color: #525252;
 }
-
+//.container {
+//  width: 1170px !important;
+//  max-width: none !important;
+//}
 .navbar-white {
   background-color: #fff;
 }
@@ -106,4 +109,79 @@ html, body {
   .btn {
      height: 50px;
    }
+}
+// 导航栏头像
+.avatar-topnav {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: -5px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.avatar-112 {
+  width: 112px;
+  height: 112px;
+}
+.avatar {
+  border-radius: 50%;
+}
+.media-object {
+  display: block;
+}
+.padding-sm {
+  padding: 10px;
+}
+.user-basic-info {
+  .media-heading {
+    margin: 10px 0;
+  }
+  .item {
+     margin: 6px 0;
+   }
+  // 粉丝
+  .follow-info {
+    .col-xs-4 {
+      border-right: 1px solid #eee;
+      &:last-child {
+        border: 0;
+      }
+    }
+    a.counter {
+      font-size: 25px;
+      color: #00b5ad;
+      display: block;
+      &:hover, &:focus {
+        color: #00c4bc;
+        text-decoration: none;
+      }
+    }
+    a.text {
+      color: #999;
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+span.timeago {
+  color: #aaa;
+}
+// 白色pandel
+.panel-white {
+  border-bottom: 1px solid #eeeeee;
+  background-color: #fff !important;
+}
+// 空白区域
+.empty-block {
+  text-align: center;
+  line-height: 60px;
+  margin: 10px;
+  color: #ccc;
+}
+.user-basic-nav {
+  a {
+    color: #525252;
+    font-size: 14px;
+  }
 }
