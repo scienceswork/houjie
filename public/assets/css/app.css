@@ -1,18 +1,36 @@
-body {
+html, body {
   background-color: #f0f2f5;
+  height: 100%;
+  font-size: 14px;
+  color: #525252;
 }
 
 .navbar-white {
   background-color: #fff;
 }
 
-.footer {
-  margin-top: 20px;
-  background-color: #eee;
+.wrap {
+  position: relative;
+  height: auto;
+  min-height: 100%;
 }
 
 .wrap > .container {
   padding: 70px 10px 0;
+}
+
+.container-main {
+  padding-bottom: 228px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: 20px;
+  background-color: #fff;
+  min-height: 206px;
+  width: 100%;
 }
 
 .no-margin {
@@ -60,6 +78,32 @@ body {
   color: #fff;
   background-color: #00c4bc;
   border-color: #00c4bc;
+}
+
+.btn-group-full {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn-group-full .btn {
+  width: 50%;
+  height: 54px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.panel-title {
+  display: inline-block;
+}
+
+.form-group.input-group textarea {
+  height: 50px;
+  resize: none;
+  font-size: 12px;
+}
+
+.form-group.input-group .btn {
+  height: 50px;
 }
 
 /*# sourceMappingURL=app.css.map */

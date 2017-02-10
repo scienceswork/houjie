@@ -13,7 +13,40 @@
             9
         </div>
         <div class="col-md-3">
-            3
+            {{--签到--}}
+            <div class="btn-group btn-group-full">
+                <a href="#" class="btn btn-success">
+                    <i class="glyphicon glyphicon-calendar" style="font-size: 30px;float: left;margin-top: 3px;"></i>
+                    点此处签到<br>
+                    签到有好礼
+                </a>
+                <a href="#" class="btn btn-primary">
+                    {{ date('Y年m月d日') }}<br>
+                    已有180人签到
+                </a>
+            </div>
+            {{--聊天广场--}}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        聊天广场
+                    </h3>
+                    <span class="pull-right">
+                        <a class="btn btn-xs" href="#">更多»</a>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <form action="#">
+                        {{ csrf_field() }}
+                        <div class="form-group input-group">
+                            <textarea name="feed" class="form-control" placeholder="说点什么吧..."></textarea>
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-success">发布</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

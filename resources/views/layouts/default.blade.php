@@ -19,7 +19,7 @@
 <body>
 <div class="wrap">
     @include('layouts.partials._header')
-    <div class="container">
+    <div class="container container-main">
         @yield('body')
     </div>
     @include('layouts.partials._footer')
