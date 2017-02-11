@@ -12,9 +12,6 @@
 */
 
 Route::get('/', function () {
-    $disk = \zgldh\QiniuStorage\QiniuStorage::disk('qiniu');
-    $content = $disk->get('file.jpg');
-    dd($disk->put('file_copy.jpg',$content));
     return view('welcome');
 })->name('home');
 

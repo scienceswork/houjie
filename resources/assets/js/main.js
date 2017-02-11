@@ -6,10 +6,30 @@
     // 设置时间格式
     $('.timeago').each(function () {
         var time_str = $(this).text();
-        if(moment(time_str, "YYYY-MM-DD HH:mm:ss", true).isValid()) {
+        if (moment(time_str, "YYYY-MM-DD HH:mm:ss", true).isValid()) {
             $(this).text(moment(time_str).fromNow());
         }
         // $(this).addClass('popover-with-html');
         $(this).attr('data-original-title', time_str);
+    });
+    // 点击提问
+    $('#question').on('click', function () {
+        layer.open({
+            title: '在线调试'
+            , content: '可以填写任意的layer代码'
+        });
+    });
+    // 点击注销
+    $('#logout').on('click', function () {
+        layer.confirm('你确认要退出吗?', {
+            icon: 3, title: '退出账户'
+        }, function (index) {
+            $('#logout-form').submit();
+            layer.close(index);
+        });
+    });
+    // 点击签到
+    $('#sign').on('click', function () {
+        layer.msg('恭喜你签到成功，积分+1');
     });
 })();

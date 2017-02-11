@@ -15,7 +15,7 @@
         <div class="col-md-3">
             {{--签到--}}
             <div class="btn-group btn-group-full">
-                <a href="#" class="btn btn-success">
+                <a href="#" class="btn btn-success" id="sign">
                     <i class="glyphicon glyphicon-calendar" style="font-size: 30px;float: left;margin-top: 3px;"></i>
                     点此处签到<br>
                     签到有好礼

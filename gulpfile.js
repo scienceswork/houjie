@@ -17,7 +17,8 @@ var basejs = [
     'resources/assets/lib/jquery/dist/jquery.min.js',
     'resources/assets/lib/bootstrap/dist/js/bootstrap.min.js',
     'resources/assets/lib/moment/min/moment.min.js',
-    'resources/assets/lib/moment/locale/zh-cn.js'
+    'resources/assets/lib/moment/locale/zh-cn.js',
+    'resources/assets/lib/layer/build/layer.js'
 ];
 
 // 使用elixir合并js和css，并且对其进行压缩
@@ -26,6 +27,9 @@ elixir(function (mix) {
         .copy([
             'resources/assets/lib/bootstrap'
         ], 'public/assets/bootstrap')
+        .copy([
+            'resources/assets/lib/layer/build/skin/default/layer.css'
+        ], 'public/assets/js/skin/default/layer.css')
         .sass([
             'base.scss'
         ], 'public/assets/css/app.css')

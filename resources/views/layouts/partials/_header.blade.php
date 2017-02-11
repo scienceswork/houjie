@@ -50,7 +50,7 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li class="hidden-xs">
-                    <button type="button" class="btn btn-default navbar-btn">
+                    <button type="button" class="btn btn-default navbar-btn" id="question">
                         提问
                     </button>
                 </li>
@@ -84,7 +84,7 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{{ route('auth.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <a href="javascript:;" id="logout"><!--onclick="event.preventDefault();document.getElementById('logout-form').submit();"-->
                                     <i class="glyphicon glyphicon-off"></i>
                                     退出登录
                                 </a>
