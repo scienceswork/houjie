@@ -40,3 +40,6 @@ Route::get('users/{id}/edit_avatar', 'UserController@editAvatar')->name('web.use
 
 // 聊天广场
 Route::get('feed', 'FeedController@index')->name('web.feeds');
+
+// 酷站展示
+Route::get('cool', 'CoolSiteController@index')->name('web.cool.index');

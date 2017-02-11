@@ -30,8 +30,8 @@
                 <li>
                     <a href="#">小店</a>
                 </li>
-                <li>
-                    <a href="#">酷站</a>
+                <li class="{{ navViewActive('web.cool.index') }}">
+                    <a href="{{ route('web.cool.index') }}">酷站</a>
                 </li>
                 <li class="{{ navViewActive('web.feeds') }}">
                     <a href="{{ route('web.feeds') }}">广场</a>
