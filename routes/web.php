@@ -37,3 +37,6 @@ Route::get('users/{id}/edit', 'UserController@edit')->name('web.users.edit');
 Route::get('users/{id}/edit_password', 'UserController@editPassword')->name('web.users.edit_password');
 Route::get('users/{id}/edit_email_notify', 'UserController@editEmailNotify')->name('web.users.edit_email_notify');
 Route::get('users/{id}/edit_avatar', 'UserController@editAvatar')->name('web.users.edit_avatar');
+
+// 聊天广场
+Route::get('feed', 'FeedController@index')->name('web.feeds');

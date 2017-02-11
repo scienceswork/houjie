@@ -27,12 +27,12 @@
             </div>
             {{--聊天广场--}}
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading panel-white">
                     <h3 class="panel-title">
                         聊天广场
                     </h3>
                     <span class="pull-right">
-                        <a class="btn btn-xs" href="#">更多»</a>
+                        <a class="btn btn-xs" href="{{ route('web.feeds') }}">更多»</a>
                     </span>
                 </div>
                 <div class="panel-body">
@@ -45,6 +45,17 @@
                             </span>
                         </div>
                     </form>
+                </div>
+            </div>
+            {{--友情社区--}}
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    <h3 class="panel-title">
+                        友情社区
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    怪客科学
                 </div>
             </div>
         </div>

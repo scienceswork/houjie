@@ -33,8 +33,8 @@
                 <li>
                     <a href="#">酷站</a>
                 </li>
-                <li>
-                    <a href="#">消息</a>
+                <li class="{{ navViewActive('web.feeds') }}">
+                    <a href="{{ route('web.feeds') }}">广场</a>
                 </li>
             </ul>
             <!-- 搜索框 -->

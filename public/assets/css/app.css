@@ -188,4 +188,56 @@ span.timeago {
   font-size: 14px;
 }
 
+.breadcrumb {
+  background-color: #fff;
+}
+
+.feed-avatar {
+  width: 38px;
+  height: 38px;
+}
+
+.feed-tool a {
+  color: #aaa;
+}
+
+.feed-tool .vote.up {
+  margin-left: 6px;
+}
+
+.panel ul {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.media-list .media {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: #eee solid 1px;
+}
+
+.media-list .media:first-child {
+  margin-top: 0;
+}
+
+.media-list .media:last-child {
+  border-bottom: none;
+}
+
+.media-list .media-action {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #999;
+}
+
+.feed-list .media-action {
+  margin-top: 10px;
+}
+
+.ups {
+  font-size: 12px;
+  color: #999;
+  margin: 10px 0;
+}
+
 /*# sourceMappingURL=app.css.map */
