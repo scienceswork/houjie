@@ -238,3 +238,9 @@ span.timeago {
 .form-control.cool-textarea {
   height: 120px;
 }
+.alert-danger {
+  border-radius: 0;
+  li {
+    list-style: none;
+  }
+}

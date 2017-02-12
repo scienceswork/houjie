@@ -20,13 +20,15 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="#" method="post" class="form-horizontal">
+                    {{--引入错误信息提示--}}
+                    @include('layouts.partials._errors')
+                    <form action="{{ route('web.cool.store') }}" method="post" class="form-horizontal bv-form">
                         {{ csrf_field() }}
                         {{--酷站名称--}}
                         <div class="form-group">
                             <label class="col-md-2 control-label">酷站名称：</label>
                             <div class="col-md-6">
-                                <input name="" class="form-control" type="text" placeholder="输入酷站的名称">
+                                <input name="name" class="form-control" type="text" placeholder="输入酷站的名称">
                             </div>
                             <div class="col-md-4 help-block">
                                 请填写酷站名称
@@ -34,9 +36,9 @@
                         </div>
                         {{--酷站URL--}}
                         <div class="form-group">
-                            <label for="" class="col-md-2 control-label">酷站URL：</label>
+                            <label for="url" class="col-md-2 control-label">酷站URL：</label>
                             <div class="col-md-6">
-                                <input name="" type="text" class="form-control" placeholder="请输入酷站完整的URL">
+                                <input name="url" type="text" class="form-control" placeholder="请输入酷站完整的URL">
                             </div>
                             <div class="col-md-4 help-block">
                                 如：http://www.hj-ht.com
@@ -44,9 +46,9 @@
                         </div>
                         {{--酷站封面--}}
                         <div class="form-group">
-                            <label for="" class="col-md-2 control-label">酷站封面：</label>
+                            <label for="img_url" class="col-md-2 control-label">酷站封面：</label>
                             <div class="col-md-6">
-                                <input type="file" class="form-control">
+                                <input name="img_url" type="file" class="form-control">
                             </div>
                             <div class="col-md-4 help-block">
                                 请上传酷站的展示图
@@ -54,9 +56,9 @@
                         </div>
                         {{--酷站描述--}}
                         <div class="form-group">
-                            <label for="" class="col-md-2 control-label">酷站描述：</label>
+                            <label for="description" class="col-md-2 control-label">酷站描述：</label>
                             <div class="col-md-6">
-                                <textarea name="" id="" class="form-control cool-textarea" placeholder="请简单描述酷站，认真填写会大大提高审核通过概率"></textarea>
+                                <textarea name="description" id="" class="form-control cool-textarea" placeholder="请简单描述酷站，认真填写会大大提高审核通过概率"></textarea>
                             </div>
                             <div class="col-md-4 help-block">
                                 简单描述一下酷站

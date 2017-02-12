@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CoolSiteStoreRequest;
 use App\Models\CoolSite;
 use Illuminate\Http\Request;
 
@@ -27,5 +28,11 @@ class CoolSiteController extends Controller
     public function create()
     {
         return view('cool.create');
+    }
+
+    // 添加酷站提交
+    public function store(CoolSiteStoreRequest $request)
+    {
+        dd($request);
     }
 }

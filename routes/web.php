@@ -43,6 +43,7 @@ Route::get('feed', 'FeedController@index')->name('web.feeds');
 
 // 酷站展示
 Route::get('cool', 'CoolSiteController@index')->name('web.cool.index');
+Route::post('cool', 'CoolSiteController@store')->name('web.cool.store');
 Route::get('cool/create', 'CoolSiteController@create')->name('web.cool.create');
 
 // 页面
