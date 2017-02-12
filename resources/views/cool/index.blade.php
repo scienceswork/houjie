@@ -16,7 +16,7 @@
 
         </div>
         <div class="col-md-3">
-            <a class="btn btn-primary btn-block" style="margin-bottom: 20px;">
+            <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
                 发布酷站
             </a>
             <div class="panel panel-default">

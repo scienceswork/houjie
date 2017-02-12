@@ -23,6 +23,7 @@
     "jquery": "1.11.*",
     "bootstrap": "^3.3.7",
     "moment": "^2.17.1",
-    "layer": "^3.0.1"
+    "layer": "^3.0.1",
+    "bootstrapvalidator": "bootstrapValidator#^0.5.3"
   }
 }

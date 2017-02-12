@@ -240,4 +240,8 @@ span.timeago {
   margin: 10px 0;
 }
 
+.form-control.cool-textarea {
+  height: 120px;
+}
+
 /*# sourceMappingURL=app.css.map */

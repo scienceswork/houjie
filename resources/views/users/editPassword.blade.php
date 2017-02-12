@@ -16,7 +16,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="#" class="form-horizontal">
+                    <form action="#" class="form-horizontal" id="user-edit-form" novalidate>
                         {{ method_field('PATCH') }}
                         {{ csrf_field() }}
                         <div class="form-group">
@@ -38,13 +38,13 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label">密 码：</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password" placeholder="请输入新密码" required>
+                                <input id="user-edit-password" type="password" class="form-control" name="new_password" placeholder="请输入新密码" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">确认密码：</label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation" placeholder="请再次输入密码" required>
+                                <input type="password" class="form-control" name="new_password_confirmation" placeholder="请再次输入密码" required>
                             </div>
                         </div>
                         <div class="form-group">
