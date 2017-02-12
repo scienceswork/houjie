@@ -78,6 +78,19 @@ class UserController extends Controller
         // 渲染视图
         return view('users.editAvatar', compact('user'));
     }
+
+    // 修改头像提交
+    public function updateAvatar(Request $request, $id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 检测是否有权限修改
+        $this->authorize('update', $user);
+        if ($file = $request->file('avatar')->store('avatars')) {
+            dd($file);
+        }
+        dd($request);
+    }
     
     // 修改邮件通知
     public function editEmailNotify($id)

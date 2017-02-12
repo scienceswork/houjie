@@ -15,8 +15,12 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="#" method="post">
+                    <form action="{{ route('web.users.update_avatar', $user->id) }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                         {{ csrf_field() }}
+                        <div class="form-group">
+                            <input type="file" name="avatar">
+                        </div>
+                        <button type="submit" class="btn btn-primary">上传头像</button>
                     </form>
                 </div>
             </div>
