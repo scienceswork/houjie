@@ -36,6 +36,9 @@
                 <li class="{{ navViewActive('web.feeds') }}">
                     <a href="{{ route('web.feeds') }}">广场</a>
                 </li>
+                <li class="{{ navViewActive('web.about') }}">
+                    <a href="{{ route('web.about') }}">关于我们</a>
+                </li>
             </ul>
             <!-- 搜索框 -->
             <form class="navbar-form navbar-left" action="#">

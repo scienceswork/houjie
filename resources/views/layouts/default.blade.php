@@ -10,6 +10,7 @@
     <title>
         @section('title')后街胡同 - 高品质的高校校园社区@show - 后街胡同
     </title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}"/>
     @section('stylesheet')
         {{--基础css文件--}}
         <link rel="stylesheet" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
