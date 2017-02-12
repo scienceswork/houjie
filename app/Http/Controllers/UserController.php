@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ResetPasswordRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Hash;
+use Session;
+use Illuminate\Support\MessageBag;
 
 class UserController extends Controller
 {
@@ -43,9 +47,25 @@ class UserController extends Controller
     }
 
     // 提交密码修改
-    public function updatePassword()
+    public function updatePassword(ResetPasswordRequest $request, $id)
     {
-        
+        // 找到需要修改密码的账户
+        $user = User::findOrFail($id);
+        // 检测是否有权限修改
+        $this->authorize('update', $user);
+        // 判断原密码是否相等
+        if (!Hash::check($request->password, $user->password)) {
+            // 原密码错误不允许修改
+            return redirect()->route('web.users.edit_password', $id)->withErrors('原密码错误，请重新输入');
+        }
+        // 修改密码
+        $user->password = bcrypt($request->new_password);
+        // 保存
+        $user->save();
+        // 设置成功提醒消息
+        Session::flash('success', '密码修改成功!');
+        // 页面重定向
+        return redirect()->route('web.users.edit_password', $id);
     }
 
     // 修改头像

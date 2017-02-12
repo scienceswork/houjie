@@ -22,6 +22,7 @@
 <div class="wrap">
     @include('layouts.partials._header')
     <div class="container container-main">
+        @include('flash.message')
         @yield('body')
     </div>
     @include('layouts.partials._footer')
