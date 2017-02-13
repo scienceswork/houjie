@@ -86,6 +86,12 @@
                     &nbsp;Ta 赞过的话题
                 </a>
             </li>
+            <li class="list-group-item">
+                <a href="#">
+                    <i class="glyphicon glyphicon-globe"></i>
+                    &nbsp;Ta 申请的酷站
+                </a>
+            </li>
         </ul>
     </div>
 </div>

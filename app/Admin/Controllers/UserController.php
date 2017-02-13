@@ -1,20 +1,15 @@
 <?php
-
 namespace App\Admin\Controllers;
-
 use App\Models\User;
-
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
-
 class UserController extends Controller
 {
     use ModelForm;
-
     /**
      * Index interface.
      *
@@ -23,19 +18,15 @@ class UserController extends Controller
     public function index()
     {
         return Admin::content(function (Content $content) {
-
             $content->header('用户管理');
             $content->description('查看所有用户列表');
-
             $content->body($this->grid());
         });
     }
-
     public function show($id)
     {
         dd($id);
     }
-
     /**
      * Edit interface.
      *
@@ -45,14 +36,11 @@ class UserController extends Controller
     public function edit($id)
     {
         return Admin::content(function (Content $content) use ($id) {
-
             $content->header('header');
             $content->description('description');
-
             $content->body($this->form()->edit($id));
         });
     }
-
     /**
      * Create interface.
      *
@@ -61,14 +49,11 @@ class UserController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-
             $content->header('新建用户');
             $content->description('管理员新建用户');
-
             $content->body($this->form());
         });
     }
-
     /**
      * Make a grid builder.
      *
@@ -77,7 +62,6 @@ class UserController extends Controller
     protected function grid()
     {
         return Admin::grid(User::class, function (Grid $grid) {
-
             $grid->id('ID')->sortable();
 //            $grid->column('avatar', '头像')->display(function ($avatar) {
 //                if ($avatar) {
@@ -118,7 +102,6 @@ class UserController extends Controller
             });
         });
     }
-
     /**
      * Make a form builder.
      *

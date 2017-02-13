@@ -22,7 +22,7 @@
                 <div class="panel-body">
                     {{--引入错误信息提示--}}
                     @include('layouts.partials._errors')
-                    <form action="{{ route('web.cool.store') }}" method="post" class="form-horizontal bv-form">
+                    <form action="{{ route('web.cool.store') }}" id="cool-create-form" method="post" class="form-horizontal" enctype="multipart/form-data" accept-charset="UTF-8">
                         {{ csrf_field() }}
                         {{--酷站名称--}}
                         <div class="form-group">
@@ -48,10 +48,16 @@
                         <div class="form-group">
                             <label for="img_url" class="col-md-2 control-label">酷站封面：</label>
                             <div class="col-md-6">
-                                <input name="img_url" type="file" class="form-control">
+                                <div class="input-group">
+                                    <input id="docPath" type="text" class="form-control" placeholder="请上传酷站封面图，小于等于5M" disabled>
+                                    <span type="file" class="btn btn-primary input-group-addon input-file">
+                                        浏览图片
+                                        <input name="img_url" type="file" id="input-path" class="form-control" >
+                                    </span>
+                                </div>
                             </div>
                             <div class="col-md-4 help-block">
-                                请上传酷站的展示图
+                                支持：*.jpg, *.jpeg. *.png
                             </div>
                         </div>
                         {{--酷站描述--}}

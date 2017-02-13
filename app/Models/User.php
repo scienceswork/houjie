@@ -27,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 获取某个用户下的所有酷站申请
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function cool_sites()
+    {
+        return $this->hasMany(CoolSite::class);
+    }
 }

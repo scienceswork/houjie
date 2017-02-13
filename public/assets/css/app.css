@@ -259,4 +259,16 @@ span.timeago {
   margin-bottom: 10px;
 }
 
+.input-file {
+  position: relative;
+}
+
+#input-path {
+  position: absolute;
+  top: -1px;
+  left: 1px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
 /*# sourceMappingURL=app.css.map */

@@ -786,5 +786,58 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
             }
         }
     });
+    // 酷站提交表单验证
+    $('#cool-create-form').bootstrapValidator({
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: '酷站名称不能为空'
+                    },
+                    stringLength: {
+                        min: 2,
+                        message: '酷站名称长度至少为%s位'
+                    }
+                }
+            },
+            url: {
+                validators: {
+                    notEmpty: {
+                        message: '酷站URL不能为空'
+                    },
+                    uri: {
+                        message: '请填写正确的URL网址'
+                    }
+                }
+            },
+            description: {
+                validators: {
+                    notEmpty: {
+                        message: '酷站描述不能为空'
+                    },
+                    stringLength: {
+                        min: 5,
+                        message: '酷站描述最少需要%s个字符'
+                    }
+                }
+            },
+            img_url: {
+                validators: {
+                    notEmpty: {
+                        message: '请上传酷站展示图',
+                    },
+                    file: {
+                        extension: 'jpg,jpeg,png',
+                        type: 'image/jpeg,image/jpeg,image/png',
+                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                    }
+                }
+            }
+        }
+    });
+    // 修改默认文件输入框样式
+    $("#input-path").change(function () {
+        $("#docPath").val($(":file").val());
+    });
 })();
 //# sourceMappingURL=scripts.js.map

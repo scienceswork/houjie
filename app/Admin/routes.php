@@ -11,4 +11,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     // 用户管理
     $router->resource('users', 'UserController');
+    // 酷站管理
+    $router->resource('cool_sites', 'CoolSiteController');
 });
