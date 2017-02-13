@@ -86,10 +86,19 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         // 检测是否有权限修改
         $this->authorize('update', $user);
-        if ($file = $request->file('avatar')->store('avatars')) {
-            dd($file);
+        // 捕捉异常
+        try {
+            if ($path = $request->file('avatar')->store('avatars')) {
+                $user->avatar = $path;
+                $user->save();
+                Session::flash('success', '成功上传头像');
+            } else {
+                return redirect()->route('weu.users.edit_avatar', $id)->withErrors('头像上传失败，请重试');
+            }
+        } catch (\Exception $exception) {
+            return redirect()->route('weu.users.edit_avatar', $id)->withErrors('头像上传失败，请重试');
         }
-        dd($request);
+        return redirect()->route('web.users.edit_avatar', $id);
     }
     
     // 修改邮件通知

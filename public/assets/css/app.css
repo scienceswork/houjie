@@ -252,4 +252,11 @@ span.timeago {
   list-style: none;
 }
 
+.avatar-preview-img {
+  padding: 3px;
+  border: 1px solid #c8dcdb;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
 /*# sourceMappingURL=app.css.map */
