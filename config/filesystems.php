@@ -74,6 +74,11 @@ return [
             'bucket' => env('QINIU_BUCKET', ''),  // Bucket名字
             'notify_url'=> env('QINIU_NOTIFY', ''),  // 持久化处理回调地址
         ],
+        // 后台文件上传
+//        'admin' => [
+//            'driver' => 'local',
+//
+//        ]
     ],
 
 ];

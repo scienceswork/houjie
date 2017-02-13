@@ -15,3 +15,14 @@ function avatar_min($avatar)
     $avatar = $avatar ? $avatar : 'avatar/default.jpeg';
     return url(env('QINIU_WEB') . $avatar . '?imageView2/1/w/100/h/100/interlace/0/q/100');
 }
+
+/**
+ * 后台查看详细信息链接生成
+ * @param $resource
+ * @param $key
+ * @return string
+ */
+function viewRow($resource, $key)
+{
+    return "<a href='/$resource/$key'><i class='fa fa-eye'></i></a>";
+}

@@ -11,6 +11,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Widgets\Box;
+use Encore\Admin\Widgets\Table;
 
 class CoolSiteController extends Controller
 {
@@ -42,7 +44,7 @@ class CoolSiteController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
+            $content->header('header1');
             $content->description('description');
 
             $content->body($this->form()->edit($id));
@@ -62,6 +64,27 @@ class CoolSiteController extends Controller
             $content->description('description');
 
             $content->body($this->form());
+        });
+    }
+
+    public function show($id)
+    {
+        return Admin::content(function (Content $content) use ($id) {
+            $content->header('酷站审核详情');
+            $content->description('description');
+            $headers = ['Keys', 'Values'];
+            $rows = [
+                'name'   => 'Joe',
+                'age'    => 25,
+                'gender' => 'Male',
+                'birth'  => '1989-12-05',
+            ];
+            $rows = CoolSite::findOrFail($id)->toArray();
+            $rows['img_url'] = '<img src="' . avatar_min($rows['img_url']) . '">';
+
+            $table = new Table($headers, $rows);
+
+            $content->row((new Box('表格', $table))->style('success')->solid());
         });
     }
 
@@ -85,9 +108,9 @@ class CoolSiteController extends Controller
             // 操作
             $grid->actions(function ($actions) {
                 // 关闭删除
-                $actions->disableDelete();
+//                $actions->disableDelete();
                 // 添加查看
-                $actions->append('<a href="' . route('cool_sites.show', 4) . '"><i class="fa fa-eye"></i></a>');
+//                $actions->append(viewRow($this->getResource(), $this->getKey()));
             });
             // 禁用查询过滤器
             $grid->disableFilter();
@@ -106,9 +129,19 @@ class CoolSiteController extends Controller
         return Admin::form(CoolSite::class, function (Form $form) {
 
             $form->display('id', 'ID');
+            $form->text('name', '酷站名称');
+            $form->image('img_url', '酷站展示');
+            $form->url('url', '酷站网址');
+            $form->textarea('description', '酷站描述');
+            $form->display('created_at', '申请时间');
+//            $form->display('updated_at', 'Updated At');
+        });
+    }
 
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+    protected function table()
+    {
+        return Admin::table(CoolSite::class, function (Form $form) {
+            $form->text('name', '酷站名称');
         });
     }
 }
