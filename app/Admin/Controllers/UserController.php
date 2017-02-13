@@ -79,6 +79,13 @@ class UserController extends Controller
         return Admin::grid(User::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+//            $grid->column('avatar', '头像')->display(function ($avatar) {
+//                if ($avatar) {
+//                    return '<img src="' . avatar_min($avatar) . '">';
+//                } else {
+//                    return '无头像';
+//                }
+//            });
             $grid->column('name', '用户名');
             $grid->column('phone', '手机号');
             $grid->column('email', '电子邮箱');

@@ -32,13 +32,14 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
 Route::get('/home', 'HomeController@index');
 
 // 用户
-Route::get('users/{id}', 'UserController@show')->name('web.users.show');
-Route::get('users/{id}/edit', 'UserController@edit')->name('web.users.edit');
-Route::get('users/{id}/edit_password', 'UserController@editPassword')->name('web.users.edit_password');
-Route::post('users/{id}/update_password', 'UserController@updatePassword')->name('web.users.update_password');
-Route::get('users/{id}/edit_email_notify', 'UserController@editEmailNotify')->name('web.users.edit_email_notify');
-Route::get('users/{id}/edit_avatar', 'UserController@editAvatar')->name('web.users.edit_avatar');
-Route::post('users/{id}/update_avatar', 'UserController@updateAvatar')->name('web.users.update_avatar');
+Route::get('users/{id}', 'UsersController@show')->name('web.users.show');
+Route::get('users/{id}/edit', 'UsersController@edit')->name('web.users.edit');
+Route::post('users/{id}', 'UsersController@update')->name('web.users.update');
+Route::get('users/{id}/edit_password', 'UsersController@editPassword')->name('web.users.edit_password');
+Route::post('users/{id}/update_password', 'UsersController@updatePassword')->name('web.users.update_password');
+Route::get('users/{id}/edit_email_notify', 'UsersController@editEmailNotify')->name('web.users.edit_email_notify');
+Route::get('users/{id}/edit_avatar', 'UsersController@editAvatar')->name('web.users.edit_avatar');
+Route::post('users/{id}/update_avatar', 'UsersController@updateAvatar')->name('web.users.update_avatar');
 
 // 聊天广场
 Route::get('feed', 'FeedController@index')->name('web.feeds');

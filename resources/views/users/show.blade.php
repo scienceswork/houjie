@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-9">
             <div class="box text-center">
-                人生中有两道菜是必吃的，一道是吃亏，一道是吃苦。
+                这位童鞋很懒，木有签名的说～
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">

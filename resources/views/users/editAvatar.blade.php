@@ -18,7 +18,7 @@
                     <form action="{{ route('web.users.update_avatar', $user->id) }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                         {{ csrf_field() }}
                         <p>请选择头像：</p>
-                        <img src="{{ url(env('QINIU_WEB') . $user->avatar . '?imageView2/1/w/100/h/100/interlace/0/q/100') }}" class="avatar-preview-img">
+                        <img src="{{ avatar_min($user->avatar) }}" class="avatar-preview-img">
                         <div class="form-group">
                             <input type="file" name="avatar">
                         </div>

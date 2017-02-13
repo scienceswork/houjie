@@ -240,7 +240,7 @@ span.timeago {
   margin: 10px 0;
 }
 
-.form-control.cool-textarea {
+.form-control.cool-textarea, .form-control.user-textarea {
   height: 120px;
 }
 

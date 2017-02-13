@@ -5,7 +5,7 @@
             <div class="media">
                 <div class="media-left">
                     <div class="image">
-                        <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380" alt=""
+                        <img src="{{ avatar_min($user->avatar) }}" alt=""
                              class="media-object avatar img-thumbnail avatar-112">
                     </div>
                 </div>

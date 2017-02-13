@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Session;
 use Illuminate\Support\MessageBag;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     // 使用中间件来限制页面反问规则
     public function __construct()
@@ -34,6 +35,24 @@ class UserController extends Controller
         $this->authorize('update', $user);
         // 渲染视图
         return view('users.edit', compact('user'));
+    }
+
+    // 用户信息提交
+    public function update(UpdateUserRequest $request, $id)
+    {
+        // 查找用户是否存在
+        $user = User::findOrFail($id);
+        // 检测是否有权限修改
+        $this->authorize('update', $user);
+        // 使用try来检测数据是否正确修改
+        try {
+            $request->performUpdate($user);
+            Session::flash('success', '用户信息修改成功');
+        } catch (\Exception $exception) {
+            Session::flash('errors', '用户信息修改失败，请稍后重试');
+        }
+        // 渲染视图
+        return redirect()->route('web.users.edit', $id);
     }
 
     // 修改密码（显示页面）
