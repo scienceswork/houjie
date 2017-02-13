@@ -14,7 +14,7 @@ class CoolSite extends Model
      * 获取一个酷站申请的所有者
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
