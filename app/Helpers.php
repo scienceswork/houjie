@@ -26,3 +26,30 @@ function viewRow($resource, $key)
 {
     return "<a href='/$resource/$key'><i class='fa fa-eye'></i></a>";
 }
+
+function getCategory()
+{
+    $all = \App\Models\Category::all()->toArray();
+    $categories = [];
+    // 循环组装
+    foreach ($all as $category) {
+        if ($category['parent_id'] == 0) {
+
+        }
+    }
+}
+
+function getTree($data, $parent_id = 0, $count = 1)
+{
+    // 定义静态变量，使用递归实现取出树结构
+    static $treeList = [0 => '顶级分类'];
+    // 添加顶级分类
+    foreach ($data as $key => $value) {
+        if ($value['parent_id'] == $parent_id) {
+            $treeList[$value['id']] = str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $count) . $value['name'];
+            unset($data[$key]);
+            getTree($data, $value['id'], $count+1);
+        }
+    }
+    return $treeList;
+}

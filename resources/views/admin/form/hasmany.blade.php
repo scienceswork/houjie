@@ -1,7 +1,7 @@
 
 <div class="row">
     <div class="col-md-2"><h4 class="pull-right">{{ $label }}</h4></div>
-    <div class="col-md-6"></div>
+    <div class="col-md-8"></div>
 </div>
 
 <hr style="margin-top: 0px;">
@@ -20,7 +20,7 @@
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label"></label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-8">
                         <div class="remove btn btn-warning btn-sm pull-right"><i class="fa fa-trash">&nbsp;</i>{{ trans('admin::lang.remove') }}</div>
                     </div>
                 </div>

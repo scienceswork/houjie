@@ -10,6 +10,8 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Layout\Row;
+use Encore\Admin\Tree;
 
 class CategoryController extends Controller
 {
@@ -26,8 +28,11 @@ class CategoryController extends Controller
 
             $content->header('分类管理');
             $content->description('新闻分类管理');
-
-            $content->body($this->grid());
+            $content->row(function (Row $row) {
+                $row->column(6, $this->tree());
+                $row->column(6, $this->form());
+            });
+//            $content->body($this->tree());
         });
     }
 
@@ -88,11 +93,33 @@ class CategoryController extends Controller
     protected function form()
     {
         return Admin::form(Category::class, function (Form $form) {
-
+            
             $form->display('id', 'ID');
-
+            $form->text('title', '名称')->help('如: 韩师新闻，分类名称必须唯一，用于定义新闻分类');
+            $form->select('parent_id', '父级')->options(Category::selectOptions());;
+            $form->text('slug', '缩略名')->help('如: sport，缩略名必须唯一，用于检索文章');
+            $form->textarea('description', '描述')->help('简单描述分类，非必填，如为SEO优化，请填写');
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
         });
     }
+
+    /**
+     * 分类树状图
+     * @return Tree
+     */
+    protected function tree()
+    {
+        return Category::tree(function (Tree $tree) {
+
+            $tree->branch(function ($branch) {
+                $src = config('admin.upload.host') . '/' ;
+
+                return "{$branch['id']} - {$branch['title']} | 文章总数:{$branch['news_count']}";
+
+            });
+
+        });
+    }
+
 }

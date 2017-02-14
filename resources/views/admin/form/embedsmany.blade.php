@@ -2,7 +2,7 @@
 
     <label for="{{$id}}" class="col-sm-2 control-label">{{$label}}</label>
 
-    <div class="col-sm-6" id="{{$id}}">
+    <div class="col-sm-8" id="{{$id}}">
         @foreach($form->fields() as $field)
             {!! $field->render() !!}
         @endforeach

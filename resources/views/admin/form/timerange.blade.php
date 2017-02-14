@@ -2,7 +2,7 @@
 
     <label for="{{$id['start']}}" class="col-sm-2 control-label">{{$label}}</label>
 
-    <div class="col-sm-6">
+    <div class="col-sm-8">
 
         @include('admin::form.error')
 

@@ -18,7 +18,8 @@ class CreateCategoriesTable extends Migration
             $table->integer('parent_id')->default(0)->comment('父级分类id');
             $table->integer('news_count')->default(0)->comment('新闻数量');
             $table->tinyInteger('weight')->default(0)->comment('分类权重');
-            $table->string('name')->index()->comment('分类名称');
+            $table->string('title')->index()->comment('分类名称');
+            $table->integer('order')->default(0)->comment('排序');
             $table->string('slug', 60)->unique()->comment('缩略名');
             $table->string('description')->nullable()->comment('分类描述');
             $table->softDeletes();
