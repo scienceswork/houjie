@@ -75,8 +75,19 @@ class NewsController extends Controller
         return Admin::grid(News::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-            $grid->column('title', '标题');
-            $grid->category()->name('分类');
+            $grid->column('title', '标题')->display(function ($title) {
+                return "<a href='" . route('web.news.show', $this->id) . "' target='_blank'>$title</a>";
+            });
+            $grid->category()->title('分类');
+            $grid->column('view_count', '浏览次数');
+            $grid->column('reply_count', '评论条数');
+            $grid->column('is_block', '是否锁定')->display(function ($is_block) {
+                if ($is_block) {
+                    return "<span class='label label-danger'>是</span>";
+                } else {
+                    return "<span class='label label-success'>否</span>";
+                }
+            });
             $grid->created_at('发布时间');
 //            $grid->updated_at();
         });
@@ -93,11 +104,11 @@ class NewsController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '新闻标题');
-//            $form->category()->name();
-            $form->select('category_id', '分类')->options(Category::selectOptions());;
+            $form->select('category_id', '分类')->options(getCategory());
+            $form->image('cover', '封面图');
             $form->editor('content', '内容');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 }

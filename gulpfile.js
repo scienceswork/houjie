@@ -29,6 +29,9 @@ elixir(function (mix) {
             'resources/assets/lib/bootstrap'
         ], 'public/assets/bootstrap')
         .copy([
+            'resources/assets/lib/wangEditor'
+        ], 'public/assets/wangEditor')
+        .copy([
             'resources/assets/lib/layer/build/skin/default/layer.css'
         ], 'public/assets/js/skin/default/layer.css')
         .copy([

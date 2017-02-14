@@ -33,10 +33,9 @@ function getCategory()
     $categories = [];
     // 循环组装
     foreach ($all as $category) {
-        if ($category['parent_id'] == 0) {
-
-        }
+        $categories[$category['id']] = $category['title'];
     }
+    return $categories;
 }
 
 function getTree($data, $parent_id = 0, $count = 1)

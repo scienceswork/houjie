@@ -21,7 +21,7 @@
                 <li>
                     <a href="#">社区</a>
                 </li>
-                <li class="{{ navViewActive('web.news.index') }}">
+                <li class="{{ Request::is('news*') ? 'active' : '' }}">
                     <a href="{{ route('web.news.index') }}">发现</a>
                 </li>
                 <li>
@@ -30,7 +30,7 @@
                 <li>
                     <a href="#">小店</a>
                 </li>
-                <li class="{{ navViewActive('web.cool.index') }}">
+                <li class="{{ Request::is('cool*') ? 'active' : '' }}">
                     <a href="{{ route('web.cool.index') }}">酷站</a>
                 </li>
                 <li class="{{ navViewActive('web.feeds') }}">

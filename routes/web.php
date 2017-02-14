@@ -54,3 +54,4 @@ Route::get('about', 'PagesController@getAbout')->name('web.about');
 
 // 发现
 Route::get('news', 'NewsController@index')->name('web.news.index');
+Route::get('news/{id}', 'NewsController@show')->name('web.news.show');
