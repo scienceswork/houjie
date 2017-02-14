@@ -15,4 +15,6 @@ Route::group([
     $router->resource('cool_sites', 'CoolSiteController');
     // 新闻分类管理
     $router->resource('category', 'CategoryController');
+    // 新闻管理
+    $router->resource('news', 'NewsController');
 });

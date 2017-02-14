@@ -21,8 +21,8 @@
                 <li>
                     <a href="#">社区</a>
                 </li>
-                <li>
-                    <a href="#">发现</a>
+                <li class="{{ navViewActive('web.news.index') }}">
+                    <a href="{{ route('web.news.index') }}">发现</a>
                 </li>
                 <li>
                     <a href="#">话题</a>
