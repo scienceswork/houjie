@@ -93,7 +93,7 @@ class CategoryController extends Controller
     protected function form()
     {
         return Admin::form(Category::class, function (Form $form) {
-            
+
             $form->display('id', 'ID');
             $form->text('title', '名称')->help('如: 韩师新闻，分类名称必须唯一，用于定义新闻分类');
             $form->select('parent_id', '父级')->options(Category::selectOptions());;
