@@ -44,8 +44,8 @@ class CoolSiteController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header1');
-            $content->description('description');
+            $content->header('审核详情');
+            $content->description('查看审核详情');
 
             $content->body($this->form()->edit($id));
         });
@@ -134,7 +134,7 @@ class CoolSiteController extends Controller
             $form->url('url', '酷站网址');
             $form->textarea('description', '酷站描述');
             $form->display('created_at', '申请时间');
-//            $form->display('updated_at', 'Updated At');
+            $form->radio('verified', '审核情况')->options([1 => '通过', 0=> '不通过'])->default(1);;
         });
     }
 

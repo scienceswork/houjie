@@ -35,15 +35,14 @@ return [
      * Laravel-admin upload setting.
      */
     'upload' => [
-
+        // 设置存储方式为七牛云
         'disk' => 'qiniu',
-
+        // 保存目录
         'directory' => [
             'image' => 'image',
             'file' => 'file',
         ],
-
-//        'host' => 'http://localhost:8000/upload/',
+        // 设置主机地址
         'host' => env('QINIU_WEB'),
     ],
 

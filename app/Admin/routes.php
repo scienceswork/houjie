@@ -13,4 +13,6 @@ Route::group([
     $router->resource('users', 'UserController');
     // 酷站管理
     $router->resource('cool_sites', 'CoolSiteController');
+    // 新闻分类管理
+    $router->resource('category', 'CategoryController');
 });

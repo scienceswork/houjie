@@ -61,7 +61,7 @@
 <script src="{{ asset ("/packages/admin/bootstrap3-editable/js/bootstrap-editable.min.js") }}"></script>
 
 {!! Admin::js() !!}
-
+<script src="{{ asset("/packages/admin/bootstrap-fileinput/js/fileinput_locale_zh_CN.js") }}"></script>
 <script>
 
     $.fn.editable.defaults.params = function (params) {

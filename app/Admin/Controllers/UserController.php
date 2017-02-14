@@ -62,19 +62,21 @@ class UserController extends Controller
     protected function grid()
     {
         return Admin::grid(User::class, function (Grid $grid) {
+            // 倒序排列
+            $grid->model()->orderBy('id', 'desc');
             $grid->id('ID')->sortable();
-//            $grid->column('avatar', '头像')->display(function ($avatar) {
-//                if ($avatar) {
-//                    return '<img src="' . avatar_min($avatar) . '">';
-//                } else {
-//                    return '无头像';
-//                }
-//            });
             $grid->column('name', '用户名');
+            $grid->column('sex', '性别')->display(function ($sex) {
+                if ($sex == 1) {
+                    return '<span class="label label-success">男</span>';
+                } else if ($sex == 0) {
+                    return '<span class="label label-danger">女</span>';
+                }
+            })->sortable();;
             $grid->column('phone', '手机号');
             $grid->column('email', '电子邮箱');
+            $grid->column('school', '学校');
             $grid->created_at('注册时间');
-            $grid->updated_at('更新时间');
             $grid->column('verified', '是否激活')->display(function ($verified) {
                 if ($verified) {
                     return '<span class="label label-success">已激活</span>';
@@ -111,15 +113,25 @@ class UserController extends Controller
     {
         return Admin::form(User::class, function (Form $form) {
             $form->tab('基本信息', function (Form $form) {
-//                $form->display('id', 'ID');
                 $form->text('name', '用户名')->rules('required|min:2');
+                $form->image('avatar', '头像');
                 $form->email('email', '邮箱')->rules('required');
-                $form->password('password', '密码')->rules('required|min:6|confirmed');
-                $form->password('password_confirmation', '确认密码');
-//                $form->display('created_at', '注册时间');
-//                $form->display('updated_at', '更新时间');
+                $form->switch('sex', '性别')->states([
+                    'on' => ['value' => 1, 'text' => '男', 'color' => 'success'],
+                    'off' => ['value' => 0, 'text' => '女', 'color' => 'danger']
+                ]);
+                $form->textarea('introduction', '个人简介');
+                $form->display('created_at', '注册时间');
+                $form->switch('verified', '是否激活')->states([
+                    'on' => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                    'off' => ['value' => 0, 'text' => '否', 'color' => 'danger']
+                ]);
             })->tab('校园信息', function (Form $form) {
+                $form->text('school', '学校');
+                $form->text('student_id', '学号');
                 $form->url('url', '个人主页');
+            })->tab('真实信息', function (Form $form) {
+                $form->text('real_name', '真实姓名');
             });
         });
     }
