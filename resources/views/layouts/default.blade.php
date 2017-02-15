@@ -30,6 +30,16 @@
 @section('javascript')
     {{--基础js文件--}}
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    {{--代码高亮--}}
+    {{--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">--}}
+    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>--}}
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
 @show
 </body>
 </html>

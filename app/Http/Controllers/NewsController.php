@@ -36,9 +36,9 @@ class NewsController extends Controller
         // 查找该分类下的最新报道文章10篇
         $lasts = News::orderBy('id', 'desc')->limit(10)->get();
         // 查找上一篇
-        $pre_news = News::where('id', '<', $news->id)->first();
+        $pre_news = News::where('id', '<', $news->id)->orderBy('id', 'desc')->first();
         // 查找下一篇
-        $next_news = News::where('id', '>', $news->id)->first();
+        $next_news = News::where('id', '>', $news->id)->orderBy('id', 'asc')->first();
         return view('news.show', compact('news', 'views', 'lasts', 'pre_news', 'next_news'));
     }
 

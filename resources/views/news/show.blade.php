@@ -16,7 +16,7 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 {{--新闻内容--}}
-                <div class="panel-body">
+                <div class="panel-body" style="padding:20px;">
                     <h1 class="text-center news-title">{{ $news->title }}</h1>
                     <p class="text-center news-info">
                         作者: 无敌的串猪神&nbsp;

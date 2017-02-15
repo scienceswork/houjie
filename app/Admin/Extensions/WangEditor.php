@@ -29,6 +29,8 @@ class WangEditor extends Field
             var editor = new wangEditor('{$this->id}');
             // 禁止吸顶
             editor.config.menuFixed = false;
+            // 默认代码
+            editor.config.codeDefaultLang = 'javascript';
             // 普通的自定义菜单
             editor.config.menus = [
                 'source', '|', 'bold', 'underline', 'italic', 'strikethrough', 'eraser',

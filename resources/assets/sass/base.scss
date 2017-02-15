@@ -299,6 +299,10 @@ span.timeago {
 .news-title {
   font-size: 26px;
   margin-top: 0;
+  border-left: 3px solid #2f889a;
+  border-right: 3px solid #2f889a;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .news-info {
@@ -312,25 +316,40 @@ span.timeago {
 
 .news-content {
   max-width: 100%;
-  width: auto \9
-;
+  width: auto \9;
+  // 修改段落样式
   p {
-    // 自动缩进两个字符
     text-indent: 2em;
-    // 修改行距
     margin: 0 0 5px 0;
-    // 修改字体大小
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 32px;
   }
-  // 防止文章缩放的时候超过了范围
+  // 修改图片样式，自动居中
   img {
     max-width: 100%;
-    width: auto \9
-  ;
+    width: auto \9;
     height: auto;
     vertical-align: middle;
     display: block;
     margin: 0 auto;
+  }
+  // 标改标题样式
+  h3 {
+    margin-left: -20px;
+    font-size: 16px;
+    padding: 0 30px;
+    border-left: 3px solid #2f889a;
+  }
+  h4 {
+    font-size: 15px;
+    margin-left: -20px;
+    padding: 0 33px;
+  }
+  // 修改li样式
+  li {
+    margin: 0 35px 5px 50px;
+    font-size: 15px;
+    height: 28px;
   }
 }
 

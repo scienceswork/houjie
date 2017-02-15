@@ -274,6 +274,10 @@ span.timeago {
 .news-title {
   font-size: 26px;
   margin-top: 0;
+  border-left: 3px solid #2f889a;
+  border-right: 3px solid #2f889a;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .news-info {
@@ -293,7 +297,8 @@ span.timeago {
 .news-content p {
   text-indent: 2em;
   margin: 0 0 5px 0;
-  font-size: 15px;
+  font-size: 16px;
+  line-height: 32px;
 }
 
 .news-content img {
@@ -303,6 +308,25 @@ span.timeago {
   vertical-align: middle;
   display: block;
   margin: 0 auto;
+}
+
+.news-content h3 {
+  margin-left: -20px;
+  font-size: 16px;
+  padding: 0 30px;
+  border-left: 3px solid #2f889a;
+}
+
+.news-content h4 {
+  font-size: 15px;
+  margin-left: -20px;
+  padding: 0 33px;
+}
+
+.news-content li {
+  margin: 0 35px 5px 50px;
+  font-size: 15px;
+  height: 28px;
 }
 
 .news-button {
