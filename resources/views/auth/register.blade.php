@@ -4,57 +4,81 @@
 
 @section('body')
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-9">
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div class="panel-heading panel-white">
+                    {{--面包屑导航--}}
+                    <div class="row">
+                        <div class="col-md-12 panel-title">
+                            <ul class="breadcrumb" style="font-size: 14px;">
+                                <li><a href="{{ route('home') }}">首页</a></li>
+                                <li class="active">注册</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    @include('layouts.partials._errors')
+                    <form role="form" method="POST" action="{{ route('auth.register.store') }}" class="form-horizontal">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label for="name" class="col-md-2 control-label">用户名：</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
+                                       required autofocus placeholder="请输入用户名">
+                            </div>
+                            <div class="col-md-4 help-block">
+                                如:串猪神, scienceswork
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-md-2 control-label">邮箱：</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="email" name="email"
+                                       value="{{ old('email') }}"
+                                       required autofocus placeholder="请输入登录邮箱">
+                            </div>
+                            <div class="col-md-4 help-block">
+                                一个邮箱只能注册一次
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-2 control-label">密码：</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" id="password" name="password" required autofocus
+                                       placeholder="请输入账户密码">
+                            </div>
+                            <div class="col-md-4 help-block">
+                                账户密码为6位以上
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password-confirm" class="col-md-2 control-label">密码：</label>
+                            <div class="col-md-6">
+                                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required autofocus
+                                       placeholder="请输入确认密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary">
+                                    注册
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
                     <h3 class="panel-title">
-                        账户注册
+                        后街胡同
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST" action="{{ route('auth.register.store') }}">
-                        {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="control-label">用户昵称</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}"
-                                   required autofocus placeholder="请输入用户昵称">
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    {{ $errors->first('name') }}
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="control-label">电子邮箱</label>
-                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}"
-                                   required autofocus placeholder="请输入电子邮箱">
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    {{ $errors->first('email') }}
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label">账户密码</label>
-                            <input type="password" class="form-control" id="password" name="password" required autofocus
-                                   placeholder="请输入账户密码">
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                    {{ $errors->first('password') }}
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label for="password-confirm" class="control-label">确认密码</label>
-                            <input type="password" class="form-control" name="password_confirmation" required autofocus
-                                   placeholder="请输入确认密码">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                注册
-                            </button>
-                        </div>
-                    </form>
+                    后街胡同是一个专注于分享的地方
                 </div>
             </div>
         </div>

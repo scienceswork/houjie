@@ -271,4 +271,141 @@ span.timeago {
   filter: alpha(opacity=0);
 }
 
+.news-title {
+  font-size: 26px;
+  margin-top: 0;
+}
+
+.news-info {
+  color: #999;
+  font-size: 12px;
+}
+
+.news-line {
+  margin: 10px 0;
+}
+
+.news-content {
+  max-width: 100%;
+  width: auto \9;
+}
+
+.news-content p {
+  text-indent: 2em;
+  margin: 0 0 5px 0;
+  font-size: 15px;
+}
+
+.news-content img {
+  max-width: 100%;
+  width: auto \9;
+  height: auto;
+  vertical-align: middle;
+  display: block;
+  margin: 0 auto;
+}
+
+.news-button {
+  display: block;
+  text-align: center;
+}
+
+.news-button:hover, .news-button:focus {
+  text-decoration: none;
+}
+
+.news-all img {
+  width: 100%;
+}
+
+.news-all .pagination {
+  margin-top: 5px;
+}
+
+.news-all .label {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.news-all .list-group-item {
+  height: 58px;
+  padding: 0px 15px;
+}
+
+.news-item img {
+  height: 150px;
+}
+
+.news-item .item-title {
+  color: #555;
+  font-size: 16px;
+}
+
+.news-nav a {
+  color: #8b8a8a;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 1px 4px;
+  line-height: 18px;
+}
+
+.news-nav .active {
+  border-bottom: 2px solid #dc817e;
+}
+
+.page-declare:last-child {
+  margin: 0;
+}
+
+.page-declare .page-info {
+  font-size: 12px;
+  background: #c9394a none repeat scroll 0 0;
+  border: 1px solid #c9394a;
+  color: #fff;
+  padding: 2px 2px;
+}
+
+.remove-padding-horizontal {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.count_area {
+  width: 200px;
+  display: inline-block;
+  text-align: right;
+  color: #bab9bb;
+  margin-top: 18px;
+}
+
+.count_area:hover, .count_area:link, .count_area:visited, .count_area:active {
+  color: #bab9bb;
+  text-decoration: none;
+}
+
+.count_seperator {
+  margin: 0px 4px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.list-group-item:hover {
+  background-color: #f4fdfd;
+}
+
+.list-group-item .new-title {
+  width: 100%;
+  color: #555;
+  display: block;
+  font-size: 15px;
+}
+
+.list-group-item .new-title:hover, .list-group-item .new-title:link, .list-group-item .new-title:visited, .list-group-item .new-title:active {
+  text-decoration: none;
+}
+
+.list-group-item div {
+  padding-top: 18px;
+}
+
 /*# sourceMappingURL=app.css.map */

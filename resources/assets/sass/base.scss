@@ -284,6 +284,7 @@ span.timeago {
 .input-file {
   position: relative;
 }
+
 #input-path {
   //width: 60px;
   //height: 40px;
@@ -292,4 +293,146 @@ span.timeago {
   left: 1px;
   opacity: 0;
   filter: alpha(opacity=0)
+}
+
+// 新闻
+.news-title {
+  font-size: 26px;
+  margin-top: 0;
+}
+
+.news-info {
+  color: #999;
+  font-size: 12px;
+}
+
+.news-line {
+  margin: 10px 0;
+}
+
+.news-content {
+  max-width: 100%;
+  width: auto \9
+;
+  p {
+    // 自动缩进两个字符
+    text-indent: 2em;
+    // 修改行距
+    margin: 0 0 5px 0;
+    // 修改字体大小
+    font-size: 15px;
+  }
+  // 防止文章缩放的时候超过了范围
+  img {
+    max-width: 100%;
+    width: auto \9
+  ;
+    height: auto;
+    vertical-align: middle;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.news-button {
+  display: block;
+  text-align: center;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+.news-all {
+  img {
+    width: 100%;
+  }
+  .pagination {
+    margin-top: 5px;
+  }
+  .label {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .list-group-item {
+    height: 58px;
+    padding: 0px 15px;
+  }
+}
+
+.news-item {
+  img {
+    height: 150px;
+  }
+  .item-title {
+    color: #555;
+    font-size: 16px;
+  }
+}
+
+.news-nav {
+  a {
+    color: #8b8a8a;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 1px 4px;
+    line-height: 18px;
+  }
+  .active {
+    border-bottom: 2px solid #dc817e;
+  }
+}
+
+.page-declare {
+  &:last-child {
+    margin: 0;
+  }
+  .page-info {
+    font-size: 12px;
+    background: #c9394a none repeat scroll 0 0;
+    border: 1px solid #c9394a;
+    color: #fff;
+    //margin-left: 4px;
+    padding: 2px 2px;
+  }
+}
+
+.remove-padding-horizontal {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.count_area {
+  width: 200px;
+  display: inline-block;
+  text-align: right;
+  color: #bab9bb;
+  margin-top: 18px;
+  &:hover, &:link, &:visited, &:active {
+    color: #bab9bb;
+    text-decoration: none;
+  }
+}
+
+.count_seperator {
+  margin: 0px 4px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.list-group-item {
+  &:hover {
+    background-color: #f4fdfd;
+  }
+  .new-title {
+    width: 100%;
+    color: #555;
+    display: block;
+    font-size: 15px;
+    &:hover, &:link, &:visited, &:active {
+      text-decoration: none;
+    }
+  }
+  div {
+    padding-top: 18px;
+  }
 }

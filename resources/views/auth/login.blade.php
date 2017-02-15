@@ -4,6 +4,33 @@
 
 @section('body')
     <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    {{--面包屑导航--}}
+                    <div class="row">
+                        <div class="col-md-12 panel-title">
+                            <ul class="breadcrumb" style="font-size: 14px;">
+                                <li><a href="{{ route('home') }}">首页</a></li>
+                                <li class="active">登录</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    <h3 class="panel-title">
+                        后街胡同
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    后街胡同是一个专注于分享的社区。
+                </div>
+            </div>
+        </div>
         <div class="col-md-4 col-md-offset-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
