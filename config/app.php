@@ -186,6 +186,8 @@ return [
         \Barryvdh\Debugbar\ServiceProvider::class,
         // 七牛云存储
         \zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
+        // 支付宝
+        \Latrell\Alipay\AlipayServiceProvider::class,
 
     ],
 

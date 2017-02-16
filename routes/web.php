@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    dd(__DIR__);
     return view('welcome');
 })->name('home');
 
