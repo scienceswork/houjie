@@ -11,5 +11,5 @@ return [
 	'notify_url' => 'http://xxx',
 
 	// 页面跳转同步通知页面路径。
-	'return_url' => 'http://xxx'
+	'return_url' => 'http://houjie.app/return'
 ];

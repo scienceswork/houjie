@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => '后街胡同',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,12 +182,12 @@ return [
         \Encore\Admin\Providers\AdminServiceProvider::class,
         // Ide智能提示
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        // debugBar调试栏
-        \Barryvdh\Debugbar\ServiceProvider::class,
         // 七牛云存储
         \zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
         // 支付宝
         \Latrell\Alipay\AlipayServiceProvider::class,
+        // 微信公众号LaravelWechat
+        \Overtrue\LaravelWechat\ServiceProvider::class,
 
     ],
 

@@ -12,7 +12,6 @@
 */
 
 Route::get('/', function () {
-    dd(__DIR__);
     return view('welcome');
 })->name('home');
 
@@ -63,3 +62,8 @@ Route::get('sign', 'SignController@sign')->name('web.sign.sign');
 
 // 传情
 Route::get('love', 'ExpressController@index')->name('web.express.index');
+
+// 支付功能
+Route::Group(['namespace' => 'Money'], function () {
+    Route::get('pay', 'AlipayController@index')->name('web.alipay.pay');
+});
