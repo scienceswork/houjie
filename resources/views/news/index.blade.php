@@ -15,7 +15,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
                     <ul class="list-inline news-nav">
-                        <li>
+                        <li data-toggle="tooltip" data-placement="top" data-original-title="最后回复排序" title="">
                             <a href="#" class="active">活跃</a>
                         </li>
                         <li>
@@ -55,7 +55,7 @@
                         <p style="margin: 0;">管理员太懒啦，还暂时没有资讯~</p>
                     @endif
                 </div>
-                <div class="panel-footer text-right panel-white">
+                <div class="panel-footer text-right" style="background-color:#fcfcfc;">
                     {{--分页--}}
                     {{ $news->links() }}
                 </div>

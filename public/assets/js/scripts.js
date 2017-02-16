@@ -736,10 +736,6 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
             layer.close(index);
         });
     });
-    // 点击签到
-    $('#sign').on('click', function () {
-        layer.msg('恭喜你签到成功，积分+1');
-    });
     // 小彩蛋
     console.log('一位新人，要经历怎样的成长，才能站在技术之巅？\n' +
         '人生中有两道菜是必须吃的，一道是吃苦，一道是吃亏。\n' +
@@ -838,6 +834,23 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
     // 修改默认文件输入框样式
     $("#input-path").change(function () {
         $("#docPath").val($(":file").val());
+    });
+    // 点击签到
+    $('#sign').on('click', function () {
+        $.ajax({
+            url: '/sign',
+            success: function (data, textStatus, jqXHR) {
+                if (textStatus == 'success') {
+                    layer.msg(data.message);
+                }
+            },
+            error: function (xhr, textStatus, error) {
+                if (error == 'Unauthorized') {
+                    layer.msg('还未登录，登陆后才可签到');
+                    location.href = '/auth/login';
+                }
+            }
+        });
     });
 })();
 //# sourceMappingURL=scripts.js.map

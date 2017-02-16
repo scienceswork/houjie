@@ -332,6 +332,13 @@ span.timeago {
 .news-button {
   display: block;
   text-align: center;
+  color: #555;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 .news-button:hover, .news-button:focus {
@@ -340,10 +347,6 @@ span.timeago {
 
 .news-all img {
   width: 100%;
-}
-
-.news-all .pagination {
-  margin-top: 5px;
 }
 
 .news-all .label {
@@ -374,7 +377,7 @@ span.timeago {
 }
 
 .news-nav .active {
-  border-bottom: 2px solid #dc817e;
+  border-bottom: 3px solid #dc817e;
 }
 
 .page-declare:last-child {
@@ -430,6 +433,39 @@ span.timeago {
 
 .list-group-item div {
   padding-top: 18px;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  z-index: 3;
+  color: #e4e4e4;
+  border-color: #e4e4e4;
+  background-color: transparent;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #b4b4b4;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
+
+.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+  color: #b4b4b4;
+  background-color: #fff;
+  border-color: #e4e4e4;
+  cursor: not-allowed;
 }
 
 /*# sourceMappingURL=app.css.map */

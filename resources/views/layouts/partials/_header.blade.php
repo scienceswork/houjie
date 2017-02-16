@@ -24,8 +24,8 @@
                 <li class="{{ Request::is('news*') ? 'active' : '' }}">
                     <a href="{{ route('web.news.index') }}">发现</a>
                 </li>
-                <li>
-                    <a href="#">话题</a>
+                <li class="{{ Request::is('love*') ? 'active' : '' }}">
+                    <a href="{{ route('web.express.index') }}">传情</a>
                 </li>
                 <li>
                     <a href="#">小店</a>

@@ -56,3 +56,9 @@ Route::get('about', 'PagesController@getAbout')->name('web.about');
 Route::get('news', 'NewsController@index')->name('web.news.index');
 Route::get('news/{id}', 'NewsController@show')->name('web.news.show');
 Route::get('news/{slug}', 'NewsController@category')->name('web.news.category');
+
+// 签到
+Route::get('sign', 'SignController@sign')->name('web.sign.sign');
+
+// 传情
+Route::get('love', 'ExpressController@index')->name('web.express.index');
