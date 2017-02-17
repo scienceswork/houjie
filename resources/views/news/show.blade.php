@@ -92,7 +92,6 @@
                     </div>
                 </div>
             </div>
-            <div style="height: 400px;"></div>
         </div>
         <div class="col-md-3">
             <div class="panel panel-default">

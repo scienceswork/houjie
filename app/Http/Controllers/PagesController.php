@@ -11,4 +11,10 @@ class PagesController extends Controller
     {
         return view('pages.about');
     }
+
+    // 联系我们
+    public function getContact()
+    {
+        return view('pages.contact');
+    }
 }

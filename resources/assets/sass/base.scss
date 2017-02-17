@@ -594,5 +594,33 @@ span.timeago {
 }
 
 .container-main {
-  padding-bottom: 228px !important;
+  padding-bottom: 180px !important;
+}
+// 网站制导
+.site-tool {
+  a {
+    color: #555;
+    display: block;
+    &:hover, &:link, &:visited, &:active {
+      text-decoration: none;
+    }
+  }
+  .active {
+    a {
+      color: #fff;
+    }
+  }
+}
+.site-content {
+  min-height: 350px;
+  p {
+    line-height: 25px;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    line-height:25px;
+    margin-bottom: 10px;
+  }
 }

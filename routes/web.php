@@ -52,6 +52,7 @@ Route::get('cool/{id}', 'CoolSiteController@show')->name('web.cool.show');
 
 // 页面
 Route::get('about', 'PagesController@getAbout')->name('web.about');
+Route::get('contact', 'PagesController@getContact')->name('web.contact');
 
 // 发现
 Route::get('news', 'NewsController@index')->name('web.news.index');

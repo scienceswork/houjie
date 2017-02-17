@@ -552,7 +552,37 @@ span.timeago {
 }
 
 .container-main {
-  padding-bottom: 228px !important;
+  padding-bottom: 180px !important;
+}
+
+.site-tool a {
+  color: #555;
+  display: block;
+}
+
+.site-tool a:hover, .site-tool a:link, .site-tool a:visited, .site-tool a:active {
+  text-decoration: none;
+}
+
+.site-tool .active a {
+  color: #fff;
+}
+
+.site-content {
+  min-height: 350px;
+}
+
+.site-content p {
+  line-height: 25px;
+}
+
+.site-content ul {
+  list-style: none;
+}
+
+.site-content li {
+  line-height: 25px;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=app.css.map */
