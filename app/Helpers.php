@@ -17,6 +17,21 @@ function avatar_min($avatar)
 }
 
 /**
+ * 从七牛云获得原图
+ * @param $img_url
+ * @return string
+ */
+function img($img_url)
+{
+    return url(env('QINIU_WEB')) . $img_url;
+}
+
+function thumb($img_url)
+{
+    return url(env('QINIU_WEB') . $img_url . '?imageView2/2/w/200');
+}
+
+/**
  * 后台查看详细信息链接生成
  * @param $resource
  * @param $key

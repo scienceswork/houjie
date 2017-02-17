@@ -10,7 +10,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">后街胡同</a>
+            <a class="navbar-brand" href="/" style="padding: 5px 15px;">
+                <img src="{{ asset('houjie.png') }}" alt="后街胡同" style="height: 40px;">
+            </a>
         </div>
         <!--导航内容-->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

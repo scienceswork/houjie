@@ -30,15 +30,6 @@ class CoolSiteController extends Controller
     // 添加酷站
     public function create()
     {
-        $data = [
-            "user_id" => Auth::id(),
-            "name" => "怪咖科学",
-            "url" => "http://www.scienceswork.com",
-            "description" => "怪客科学，一起分享生活中的美。",
-            "img_url" => "cool/f795df5daf7a0ad010cd094c8bf0e435.png"
-        ];
-//        $cool = CoolSite::create($data);
-//        dd($cool);
         return view('cool.create');
     }
 
@@ -55,5 +46,15 @@ class CoolSiteController extends Controller
             // 创建酷站申请失败
             return redirect()->route('web.cool.create')->withErrors('提交酷站申请失败，请稍后重试');
         }
+    }
+
+    // 酷站详细信息
+    public function show($id)
+    {
+        // 查找酷站
+        $coolSite = CoolSite::findOrFail($id);
+        // 每次浏览酷站，浏览次数+1
+        $coolSite->increment('view');
+        return view('cool.show', compact('coolSite'));
     }
 }

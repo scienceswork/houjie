@@ -514,3 +514,35 @@ span.timeago {
   left: 0;
 
 }
+// 酷站展示
+.cool-list {
+  h2 {
+    text-align: center;
+    font-size: 14px;
+    margin: -28px 0 0 0;
+    line-height: 2em;
+    font-weight: normal;
+    background: #333;
+    opacity: 0.8;
+  }
+  a {
+    color: #fff;
+  }
+}
+.cool-container {
+  h2 {
+    margin: 0 0 0 10px;
+  }
+  hr {
+    margin: 10px 0;
+  }
+  .cool-info, a {
+    color: #999;
+  }
+}
+.cool-ul {
+  li {
+    list-style: disc inside;
+    line-height: 2em;
+  }
+}

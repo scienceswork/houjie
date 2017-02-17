@@ -48,6 +48,7 @@ Route::get('feed', 'FeedController@index')->name('web.feeds');
 Route::get('cool', 'CoolSiteController@index')->name('web.cool.index');
 Route::post('cool', 'CoolSiteController@store')->name('web.cool.store');
 Route::get('cool/create', 'CoolSiteController@create')->name('web.cool.create');
+Route::get('cool/{id}', 'CoolSiteController@show')->name('web.cool.show');
 
 // 页面
 Route::get('about', 'PagesController@getAbout')->name('web.about');

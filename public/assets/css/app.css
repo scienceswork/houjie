@@ -492,4 +492,35 @@ span.timeago {
   left: 0;
 }
 
+.cool-list h2 {
+  text-align: center;
+  font-size: 14px;
+  margin: -28px 0 0 0;
+  line-height: 2em;
+  font-weight: normal;
+  background: #333;
+  opacity: 0.8;
+}
+
+.cool-list a {
+  color: #fff;
+}
+
+.cool-container h2 {
+  margin: 0 0 0 10px;
+}
+
+.cool-container hr {
+  margin: 10px 0;
+}
+
+.cool-container .cool-info, .cool-container a {
+  color: #999;
+}
+
+.cool-ul li {
+  list-style: disc inside;
+  line-height: 2em;
+}
+
 /*# sourceMappingURL=app.css.map */

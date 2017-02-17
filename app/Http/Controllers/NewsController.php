@@ -12,9 +12,9 @@ class NewsController extends Controller
     public function index()
     {
         // 热门浏览
-        $hots = News::orderBy('view_count', 'desc')->limit(10)->get();
+        $hots = News::getHotNews();
         // 获取所有分类
-        $categories = Category::orderBy('order', 'asc')->get();
+        $categories = Category::getAllCategories();
         // 获得所有文章
         $news = News::orderBy('id', 'desc')->paginate(10);;
         // 渲染视图
