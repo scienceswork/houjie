@@ -49,20 +49,10 @@
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;color:#fff;">
                 发布酷站
             </a>
-            <div class="panel panel-default">
-                <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        注意事项
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="cool-ul">
-                        <li>百度和Google收录均正常</li>
-                        <li>网站无违法信息和不良信息</li>
-                        <li>网站所有页面均显示正常</li>
-                    </ul>
-                </div>
-            </div>
+            {{--注意事项--}}
+            @include('cool.partials._notice')
+            {{--热门酷站10条--}}
+            @include('cool.partials._hots')
         </div>
     </div>
 @endsection

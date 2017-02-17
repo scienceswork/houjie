@@ -19,20 +19,6 @@ html, body {
   padding: 70px 10px 0;
 }
 
-.container-main {
-  padding-bottom: 228px;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: 20px;
-  background-color: #fff;
-  min-height: 206px;
-  width: 100%;
-}
-
 .no-margin {
   margin: 0;
 }
@@ -521,6 +507,52 @@ span.timeago {
 .cool-ul li {
   list-style: disc inside;
   line-height: 2em;
+}
+
+.cool-hots li {
+  list-style: disc inside;
+  line-height: 2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cool-hots a {
+  color: #337ab7 !important;
+}
+
+.avatar-list li {
+  list-style: none;
+  display: inline-block;
+  padding: 5px;
+  height: 48px;
+  width: 48px;
+}
+
+.avatar-list img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.text-indent {
+  text-indent: 2em;
+}
+
+.footer {
+  background-color: #fff;
+  margin-top: 22px;
+  width: 100%;
+  padding-top: 22px;
+  color: #8A8A8A;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+}
+
+.container-main {
+  padding-bottom: 228px !important;
 }
 
 /*# sourceMappingURL=app.css.map */

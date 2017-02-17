@@ -17,6 +17,16 @@
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/validator.css') }}">
     @show
+    {{--百度统计代码--}}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?54eb2b84ce5036267a2278fadfe9ca46";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <div class="wrap">

@@ -46,29 +46,10 @@
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
                 发布酷站
             </a>
-            <div class="panel panel-default">
-                <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        注意事项
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li>基于Yii Framework架构</li>
-                    </ul>
-                </div>
-            </div>
+            {{--注意事项--}}
+            @include('cool.partials._notice')
             {{--热门酷站10条--}}
-            <div class="panel panel-default">
-                <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        热门酷站
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    这里是热门酷站
-                </div>
-            </div>
+            @include('cool.partials._hots')
             {{--贡献小伙伴--}}
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
@@ -77,10 +58,17 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    这里是贡献小伙伴
+                    <ul class="avatar-list">
+                        @foreach($coolUsers as $coolUser)
+                            <li data-toggle="tooltip" data-placement="top" data-original-title="{{ $coolUser->user->name }}">
+                                <a href="{{ route('web.users.show', $coolUser->user->id) }}">
+                                    <img src="{{ avatar_min($coolUser->user->avatar) }}" alt="">
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

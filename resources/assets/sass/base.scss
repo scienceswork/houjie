@@ -23,20 +23,6 @@ html, body {
   }
 }
 
-.container-main {
-  padding-bottom: 228px;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: 20px;
-  background-color: #fff;
-  min-height: 206px;
-  width: 100%;
-}
-
 // 取消margin
 .no-margin {
   margin: 0;
@@ -316,7 +302,8 @@ span.timeago {
 
 .news-content {
   max-width: 100%;
-  width: auto \9;
+  width: auto \9
+;
   // 修改段落样式
   p {
     text-indent: 2em;
@@ -327,7 +314,8 @@ span.timeago {
   // 修改图片样式，自动居中
   img {
     max-width: 100%;
-    width: auto \9;
+    width: auto \9
+  ;
     height: auto;
     vertical-align: middle;
     display: block;
@@ -359,9 +347,9 @@ span.timeago {
   color: #555;
   height: 40px;
   overflow: hidden;
-  text-overflow:ellipsis;
-  -o-text-overflow:ellipsis;
-  white-space:nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
   &:hover, &:focus {
     text-decoration: none;
@@ -459,34 +447,40 @@ span.timeago {
     padding-top: 18px;
   }
 }
+
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
   z-index: 3;
   color: #e4e4e4;
   border-color: #e4e4e4;
   background-color: transparent;
 }
+
 .pagination > li > a, .pagination > li > span {
   color: #b4b4b4;
   background-color: #fff;
   border: 1px solid #e4e4e4;
 }
-.pagination>li:first-child>a, .pagination>li:first-child>span {
+
+.pagination > li:first-child > a, .pagination > li:first-child > span {
   margin-left: 0;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+
+.pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover {
   color: #777;
   cursor: not-allowed;
   background-color: #fff;
   border-color: #ddd;
 }
+
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
   color: #b4b4b4;
   background-color: #fff;
   border-color: #e4e4e4;
   cursor: not-allowed;
 }
+
 .masonry {
   .item {
     margin-bottom: 15px;
@@ -495,6 +489,7 @@ span.timeago {
     }
   }
 }
+
 // 表白墙
 .express-container {
   border: 1px solid #ddd;
@@ -508,12 +503,14 @@ span.timeago {
     margin-bottom: 0;
   }
 }
+
 .express-num {
   position: absolute;
   top: 0;
   left: 0;
 
 }
+
 // 酷站展示
 .cool-list {
   h2 {
@@ -529,6 +526,7 @@ span.timeago {
     color: #fff;
   }
 }
+
 .cool-container {
   h2 {
     margin: 0 0 0 10px;
@@ -540,9 +538,61 @@ span.timeago {
     color: #999;
   }
 }
+
 .cool-ul {
   li {
     list-style: disc inside;
     line-height: 2em;
   }
+}
+
+// 热门酷站
+.cool-hots {
+  li {
+    list-style: disc inside;
+    line-height: 2em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  a {
+    color: #337ab7 !important;
+  }
+}
+
+.avatar-list {
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 5px;
+    height: 48px;
+    width: 48px;
+  }
+  img {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+// 缩进两个字符
+.text-indent {
+  text-indent: 2em;
+}
+
+// footer
+.footer {
+  background-color: #fff;
+  margin-top: 22px;
+  width: 100%;
+  padding-top: 22px;
+  color: #8A8A8A;
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+}
+
+.container-main {
+  padding-bottom: 228px !important;
 }
