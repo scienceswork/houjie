@@ -52,8 +52,12 @@ Route::get('cool/create', 'CoolSiteController@create')->name('web.cool.create');
 Route::get('cool/{id}', 'CoolSiteController@show')->name('web.cool.show');
 
 // 页面
-Route::get('about', 'PagesController@getAbout')->name('web.about');
-Route::get('contact', 'PagesController@getContact')->name('web.contact');
+Route::get('about', 'PagesController@getAbout')->name('web.pages.about');
+Route::get('contact', 'PagesController@getContact')->name('web.pages.contact');
+Route::get('help', 'PagesController@getHelp')->name('web.pages.help');
+Route::get('protocol', 'PagesController@getProtocol')->name('web.pages.protocol');
+Route::get('links', 'PagesController@getLinks')->name('web.pages.links');
+Route::get('privacy', 'PagesController@getPrivacy')->name('web.pages.privacy');
 
 // 发现
 Route::get('news', 'NewsController@index')->name('web.news.index');

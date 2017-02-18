@@ -29,17 +29,17 @@
                 <li class="{{ Request::is('love*') ? 'active' : '' }}">
                     <a href="{{ route('web.express.index') }}">传情</a>
                 </li>
-                <li>
-                    <a href="#">小店</a>
-                </li>
                 <li class="{{ Request::is('cool*') ? 'active' : '' }}">
                     <a href="{{ route('web.cool.index') }}">酷站</a>
                 </li>
                 <li class="{{ navViewActive('web.feeds') }}">
                     <a href="{{ route('web.feeds') }}">广场</a>
                 </li>
-                <li class="{{ navViewActive('web.about') }}">
-                    <a href="{{ route('web.about') }}">关于我们</a>
+                <li>
+                    <a href="#">教师在线</a>
+                </li>
+                <li class="{{ navViewActive('web.pages.about') }}">
+                    <a href="{{ route('web.pages.about') }}">关于我们</a>
                 </li>
             </ul>
             <!-- 搜索框 -->
