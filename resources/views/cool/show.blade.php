@@ -42,8 +42,46 @@
         {{--发布者信息--}}
         <div class="col-md-3">
             <div class="panel panel-default">
-                <div class="panel-body">
-                    发布者信息
+                <div class="panel-body padding-sm user-basic-info">
+                    <div class="media">
+                        <div class="media-left">
+                            <div class="image">
+                                <img src="{{ avatar_min($coolSite->user->avatar) }}" alt=""
+                                     class="media-object avatar img-thumbnail avatar-112">
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                {{ $coolSite->user->name }}
+                            </h3>
+                            <div class="item">
+                                {{ $coolSite->user->real_name }}
+                            </div>
+                            <div class="item">
+                                第 {{ $coolSite->user->id }} 位会员
+                            </div>
+                            <div class="item number">
+                                注册于 <span class="timeago" data-toggle="tooltip" data-placement="top"
+                                          data-original-title>{{ $coolSite->user->created_at }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    {{--粉丝--}}
+                    <div class="follow-info row text-center">
+                        <div class="col-xs-4">
+                            <a href="#" class="counter">180</a>
+                            <a href="#" class="text">关注者</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" class="counter">25</a>
+                            <a href="#" class="text">粉丝</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <a href="#" class="counter">1</a>
+                            <a href="#" class="text">文章</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;color:#fff;">

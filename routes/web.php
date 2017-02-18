@@ -40,6 +40,7 @@ Route::post('users/{id}/update_password', 'UsersController@updatePassword')->nam
 Route::get('users/{id}/edit_email_notify', 'UsersController@editEmailNotify')->name('web.users.edit_email_notify');
 Route::get('users/{id}/edit_avatar', 'UsersController@editAvatar')->name('web.users.edit_avatar');
 Route::post('users/{id}/update_avatar', 'UsersController@updateAvatar')->name('web.users.update_avatar');
+Route::get('users/cool/{id}', 'UsersController@userCoolSite')->name('web.users.coolSite');
 
 // 聊天广场
 Route::get('feed', 'FeedController@index')->name('web.feeds');

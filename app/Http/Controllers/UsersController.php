@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\CoolSite;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
@@ -24,6 +25,17 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         return view('users.show', compact('user'));
+    }
+
+    // 用户申请的酷站
+    public function userCoolSite($id)
+    {
+        // 查找用户申请的所有酷站
+        $coolSites = CoolSite::where('user_id', $id)->get();
+//        dd($coolSites->count());
+        // 查找用户
+        $user = User::findOrFail($id);
+        return view('users.coolSite', compact('user', 'coolSites'));
     }
 
     // 用户信息编辑

@@ -81,11 +81,8 @@
             </div>
         </div>
         <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading panel-white text-center">
-                    <h3 class="panel-title">{{ Auth::user()->name }}</h3>
-                </div>
-            </div>
+            {{--注意事项--}}
+            @include('cool.partials._notice')
         </div>
     </div>
 @endsection

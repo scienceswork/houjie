@@ -42,9 +42,9 @@
                 </div>
             </div>
             {{--检测是否登录--}}
-            @if(Auth::check())
+            @if(Auth::check() && Auth::id() == $user->id)
                 <hr>
-                <a href="#" class="btn btn-primary btn-block">
+                <a href="{{ route('web.users.edit', $user->id) }}" class="btn btn-primary btn-block">
                     <i class="glyphicon glyphicon-edit"></i>
                     编辑个人资料
                 </a>
@@ -87,9 +87,9 @@
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#">
+                <a href="{{ route('web.users.coolSite', $user->id) }}">
                     <i class="glyphicon glyphicon-globe"></i>
-                    &nbsp;Ta 申请的酷站
+                    &nbsp;Ta 发布的酷站
                 </a>
             </li>
         </ul>
