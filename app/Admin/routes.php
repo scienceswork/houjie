@@ -17,4 +17,6 @@ Route::group([
     $router->resource('category', 'CategoryController');
     // 新闻管理
     $router->resource('news', 'NewsController');
+    // 情书管理
+    $router->resource('express', 'ExpressController');
 });

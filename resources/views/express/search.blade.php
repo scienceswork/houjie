@@ -1,20 +1,11 @@
 @extends('layouts.default')
 
-@section('title', '鸿雁传情')
-
-@section('stylesheets')
-
-@endsection
+@section('title', '专属情书')
 
 @section('javascript')
     @parent
-    {{--通过七牛cdn引入瀑布流布局js文件--}}
-    <script src="http://jq22.qiniudn.com/masonry-docs.min.js"></script>
     <script>
         $(function () {
-            $('.masonry').masonry({
-                itemSelector: '.item'
-            });
             // 生成表单
             var express_form =
                 '<div class="panel panel-default">' +
@@ -150,32 +141,34 @@
 
 @section('body')
     <div class="row">
-        <div class="col-md-12">
-            @include('layouts.partials._errors')
-        </div>
         {{--面包屑导航--}}
         <div class="col-md-12">
             <ul class="breadcrumb">
                 <li><a href="{{ route('home') }}">首页</a></li>
-                <li class="active">鸿雁传情</li>
+                <li><a href="{{ route('web.express.index') }}">传情</a></li>
+                <li class="active">专属情书</li>
             </ul>
         </div>
         <div class="col-md-9">
-            @if($expressions->count())
-                <div class="row masonry">
-                    @foreach($expressions as $expression)
-                        <div class="col-md-3 item">
-                            <div class="express-container">
-                                <p>{{ $expression->content }}</p>
-                                <p class="express-info">{{ $expression->created_at }}</p>
-                            </div>
-                        </div>
-                    @endforeach
+            @if($express)
+                <div class="box express-box">
+                    <div class="express-content">
+                        <p style="margin-bottom: 20px; font-size: 17px;">
+                            <strong>{{ $express->receiver }}：</strong>
+                        </p>
+                        <p class="text-indent" style="color: #000;font-weight: bold;">
+                            {{ $express->content }}
+                        </p>
+                        <p class="text-right" style="margin-top: 20px; font-size: 17px;">
+                            <strong> {{ $express->sender }}</strong><br>
+                            {{ date('Y-m-d', strtotime($express->created_at)) }}
+                        </p>
+                    </div>
                 </div>
             @else
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <p style="margin-bottom: 0;">暂时还没有小伙伴公开展示小情书~</p>
+                        <p style="margin-bottom: 0;">Sorry~，没有找到对应密码的情书，请查证后重新输入。</p>
                     </div>
                 </div>
             @endif

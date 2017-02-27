@@ -69,6 +69,9 @@ Route::get('sign', 'SignController@sign')->name('web.sign.sign');
 
 // 传情
 Route::get('love', 'ExpressController@index')->name('web.express.index');
+Route::post('love/validate', 'ExpressController@validatePassword')->name('web.express.validate');
+Route::post('love/create', 'ExpressController@create')->name('web.express.create');
+Route::get('love/search', 'ExpressController@search')->name('web.express.search');
 
 // 支付功能
 Route::Group(['namespace' => 'Money'], function () {

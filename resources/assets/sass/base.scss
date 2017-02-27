@@ -494,13 +494,27 @@ span.timeago {
 .express-container {
   border: 1px solid #ddd;
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, .15);
   border-radius: 4px;
   padding: 10px;
   position: relative;
   p {
     text-indent: 2em;
     margin-bottom: 0;
+  }
+  .express-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    height: 33px;
+    background-color: rgba(0, 0, 0, .7);
+    line-height: 33px;
+    color: #fff;
+    text-indent: 0;
+    display: none;
+    z-index: 99;
   }
 }
 
@@ -539,7 +553,7 @@ span.timeago {
   }
 }
 
-.cool-ul {
+.cool-ul, .express-ul {
   li {
     list-style: disc inside;
     line-height: 2em;
@@ -623,4 +637,22 @@ span.timeago {
     line-height:25px;
     margin-bottom: 10px;
   }
+}
+.express-box {
+  height: 520px;
+  //background-color: ;
+  background-size: auto;
+  box-shadow: 3px 3px 10px #999;
+  border: 0 solid #aaa;
+  border-radius: 5px;
+  background: url("../../tree.jpeg") no-repeat;
+}
+.express-content {
+  height: 100%;
+  text-align: left;
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  background: hsla(0, 0%, 100%, .4);
+  position: relative;
 }

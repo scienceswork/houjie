@@ -19,8 +19,8 @@ class CreateExpressionsTable extends Migration
             $table->string('sender', 100)->comment('发件人');
             $table->string('content')->comment('表白内容');
             $table->string('password')->unique()->comment('自定义专属密码，唯一索引，表白密码不能重复');
-            $table->string('email')->comment('邮箱');
-            $table->boolean('is_notify')->default(false)->comment('是否通过邮箱通知');
+            $table->ipAddress('ip')->comment('发布表达的客户端ip地址');
+            $table->boolean('is_show')->default(true)->comment('是否在表白墙展示，默认为是');
             $table->timestamps();
         });
     }

@@ -144,4 +144,18 @@
             }
         });
     });
+    // 表白墙
+    $('.express-container').each(function () {
+        $(this).hover(function () {
+            // 防止动画积累
+            $(this).find('.express-info').stop(true).animate({
+                opacity: 'show'
+            });
+        }, function () {
+            // 防止动画积累
+            $(this).find('.express-info').stop(true).animate({
+                opacity: 'hide'
+            });
+        });
+    });
 })();
