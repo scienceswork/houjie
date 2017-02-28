@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cache;
 
 class Express extends Model
 {
@@ -17,5 +18,16 @@ class Express extends Model
         } else {
             return ['valid' => true];
         }
+    }
+
+    /**
+     * 获取表白总数，缓存时间为30分钟
+     * @return mixed
+     */
+    public static function allExpressCount()
+    {
+        return Cache::remember('houjie_all_express_count', 30, function () {
+            return self::all()->count();
+        });
     }
 }

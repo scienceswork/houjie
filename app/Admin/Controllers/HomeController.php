@@ -3,6 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Express;
+use App\Models\News;
+use App\Models\User;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
@@ -28,9 +31,9 @@ class HomeController extends Controller
             $content->description('常用操作，数据报表等');
 
             $content->row(function ($row) {
-                $row->column(3, new InfoBox('新用户数', 'users', 'aqua', '/admin/users', '1024'));
-                $row->column(3, new InfoBox('新订单数', 'shopping-cart', 'green', '/admin/orders', '150%'));
-                $row->column(3, new InfoBox('Articles', 'book', 'yellow', '/admin/articles', '2786'));
+                $row->column(3, new InfoBox('用户总数', 'users', 'aqua', '/admin/users', User::allUserCount()));
+                $row->column(3, new InfoBox('新闻总数', 'book', 'green', '/admin/news', News::allNewsCount()));
+                $row->column(3, new InfoBox('表白总数', 'pagelines', 'yellow', '/admin/express', Express::allExpressCount()));
                 $row->column(3, new InfoBox('Documents', 'file', 'red', '/admin/files', '698726'));
             });
 

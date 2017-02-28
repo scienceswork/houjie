@@ -188,7 +188,8 @@ return [
         \Latrell\Alipay\AlipayServiceProvider::class,
         // 微信公众号LaravelWechat
         \Overtrue\LaravelWechat\ServiceProvider::class,
-
+        // 将数据库的数据导成seed文件
+        \Orangehill\Iseed\IseedServiceProvider::class,
     ],
 
     /*

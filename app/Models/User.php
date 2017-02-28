@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Cache;
 
 class User extends Authenticatable
 {
@@ -35,5 +36,17 @@ class User extends Authenticatable
     public function cool_sites()
     {
         return $this->hasMany(CoolSite::class);
+    }
+
+    /**
+     * 返回所有用户数，使用redis缓存，时间为30分钟
+     * @return int
+     */
+    public static function allUserCount()
+    {
+        // 缓存时间约为60分钟，每30分钟更新一次用户总数
+        return Cache::remember('houjie_all_user_count', 30, function () {
+            return self::all()->count();
+        });
     }
 }
