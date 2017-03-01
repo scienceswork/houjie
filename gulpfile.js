@@ -19,7 +19,8 @@ var basejs = [
     'resources/assets/lib/moment/min/moment.min.js',
     'resources/assets/lib/moment/locale/zh-cn.js',
     'resources/assets/lib/layer/build/layer.js',
-    'resources/assets/lib/bootstrapvalidator/dist/js/bootstrapValidator.min.js'
+    'resources/assets/lib/bootstrapvalidator/dist/js/bootstrapValidator.min.js',
+    'resources/assets/lib/social-share.js/dist/js/share.min.js'
 ];
 
 // 使用elixir合并js和css，并且对其进行压缩
@@ -28,6 +29,9 @@ elixir(function (mix) {
         .copy([
             'resources/assets/lib/bootstrap'
         ], 'public/assets/bootstrap')
+        .copy([
+            'resources/assets/lib/social-share.js'
+        ], 'public/assets/social-share')
         .copy([
             'resources/assets/lib/wangEditor'
         ], 'public/assets/wangEditor')

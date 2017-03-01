@@ -17,15 +17,14 @@
     "node"
   ],
   "private": true,
-  "version": "2.1.22",
-  "_release": "2.1.22",
+  "version": "2.1.23",
+  "_release": "2.1.23",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.22",
-    "commit": "e6c1c0a1da5e728527dd8ec6ba3233bef63bbaf7"
+    "tag": "v2.1.23",
+    "commit": "9ce983bdd5df4b9848a942364343d7cc30d2ebc5"
   },
   "_source": "https://github.com/wangfupeng1988/wangEditor.git",
   "_target": "^2.1.22",
-  "_originalSource": "wangEditor",
-  "_direct": true
+  "_originalSource": "wangEditor"
 }

@@ -25,6 +25,7 @@
     "moment": "^2.17.1",
     "layer": "^3.0.1",
     "bootstrapvalidator": "bootstrapValidator#^0.5.3",
-    "wangEditor": "^2.1.22"
+    "wangEditor": "^2.1.22",
+    "social-share.js": "^1.0.2"
   }
 }

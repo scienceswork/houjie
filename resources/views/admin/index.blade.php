@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ Admin::title() }}</title>
-    <link rel="shortcut icon" href="{{ asset('favicon.png') }}"/>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -61,8 +60,11 @@
 <script src="{{ asset ("/packages/admin/bootstrap3-editable/js/bootstrap-editable.min.js") }}"></script>
 
 {!! Admin::js() !!}
-<script src="{{ asset("/packages/admin/bootstrap-fileinput/js/fileinput_locale_zh_CN.js") }}"></script>
+
 <script>
+
+    function LA() {}
+    LA.token = "{{ csrf_token() }}";
 
     $.fn.editable.defaults.params = function (params) {
         params._token = '{{ csrf_token() }}';
@@ -94,6 +96,14 @@
             $(event.target).find("script[data-exec-on-popstate]").each(function() {
                 $.globalEval(this.text || this.textContent || this.innerHTML || '');
             });
+        });
+    });
+
+    $(function(){
+        $('.sidebar-menu li:not(.treeview) > a').on('click', function(){
+            var $parent = $(this).parent().addClass('active');
+            $parent.siblings('.treeview.active').find('> a').trigger('click');
+            $parent.siblings().removeClass('active').find('li').removeClass('active');
         });
     });
 

@@ -566,6 +566,11 @@ span.timeago {
   height: 160px;
 }
 
+.footer h4 {
+  color: #8A8A8A;
+  font-weight: 300;
+}
+
 .container-main {
   padding-bottom: 180px !important;
 }
@@ -617,6 +622,75 @@ span.timeago {
   line-height: 1.5;
   background: rgba(255, 255, 255, 0.4);
   position: relative;
+}
+
+.hot-news a {
+  display: inline-block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.teacher-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+}
+
+.teacher-name a {
+  color: #005196;
+  font-size: 16px;
+}
+
+.teacher-ul .badge, .teacher-name .badge {
+  background-color: #5cb85c;
+  margin-top: -5px;
+}
+
+.teacher-description p {
+  font-size: 12px;
+  color: #666;
+}
+
+.teacher-num p {
+  color: #999;
+  margin: 0;
+  padding-top: 14px;
+  font-size: 12px;
+}
+
+.teacher-item .col-md-6 {
+  margin-bottom: 15px;
+}
+
+.teacher-label span {
+  margin: 0 10px 10px 0;
+  display: inline-block;
+}
+
+.teacher-ul {
+  list-style: none;
+}
+
+.teacher-ul li {
+  height: 30px;
+  line-height: 30px;
+}
+
+.teacher-ul a {
+  display: block;
+  color: #525252;
+  font-size: 14px;
+}
+
+.teacher-ul a:hover {
+  text-decoration: underline;
+}
+
+.teacher-ul .pull-right {
+  color: #999;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=app.css.map */

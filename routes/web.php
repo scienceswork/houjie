@@ -77,3 +77,9 @@ Route::get('love/search', 'ExpressController@search')->name('web.express.search'
 Route::Group(['namespace' => 'Money'], function () {
     Route::get('pay', 'AlipayController@index')->name('web.alipay.pay');
 });
+
+// 教师在线
+Route::group(['prefix' => 'teacher'], function () {
+    Route::get('/', 'TeacherController@index')->name('web.teacher.index');
+    Route::get('create', 'TeacherController@create')->name('web.teacher.create');
+});

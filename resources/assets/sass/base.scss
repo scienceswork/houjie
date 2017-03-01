@@ -605,6 +605,10 @@ span.timeago {
   position: absolute;
   bottom: 0;
   height: 160px;
+  h4 {
+    color: #8A8A8A;
+    font-weight: 300;
+  }
 }
 
 .container-main {
@@ -655,4 +659,77 @@ span.timeago {
   line-height: 1.5;
   background: hsla(0, 0%, 100%, .4);
   position: relative;
+}
+// 热门资讯
+.hot-news {
+  a {
+    //display: inline-block;
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+// 教师在线
+.teacher-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+}
+.teacher-name {
+  a {
+    color: #005196;
+    font-size: 16px;
+  }
+}
+.teacher-ul, .teacher-name {
+  .badge {
+    background-color: #5cb85c; // 修改背景颜色
+    margin-top: -5px; // 修复浏览器的偏移
+  }
+}
+.teacher-description {
+  p {
+    font-size: 12px;
+    color: #666;
+  }
+}
+.teacher-num {
+  p {
+    color: #999;
+    margin: 0;
+    padding-top: 14px;
+    font-size: 12px;
+  }
+}
+.teacher-item {
+  .col-md-6 {
+    margin-bottom: 15px;
+  }
+}
+.teacher-label {
+  span {
+    margin: 0 10px 10px 0;
+    display: inline-block;
+  }
+}
+.teacher-ul {
+  list-style: none;
+  li {
+    height: 30px;
+    line-height: 30px;
+  }
+  a {
+    display: block;
+    color: #525252;
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .pull-right {
+    color: #999;
+    font-size: 12px;
+  }
 }

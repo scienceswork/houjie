@@ -87,7 +87,7 @@
                         热门资讯
                     </h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body hot-news">
                     @foreach($hots as $hot)
                         <p>
                             <a href="{{ route('web.news.show', $hot->id) }}">{{ $hot->title }}</a>

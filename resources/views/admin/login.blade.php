@@ -29,7 +29,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">111{{ trans('admin::lang.login') }}</p>
+    <p class="login-box-msg">{{ trans('admin::lang.login') }}</p>
 
     <form action="{{ Admin::url('auth/login') }}" method="post">
       <div class="form-group has-feedback {!! !$errors->has('username') ?: 'has-error' !!}">

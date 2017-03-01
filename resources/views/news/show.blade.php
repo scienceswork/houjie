@@ -9,7 +9,8 @@
             <ul class="breadcrumb">
                 <li><a href="{{ route('home') }}">首页</a></li>
                 <li><a href="{{ route('web.news.index') }}">发现</a></li>
-                <li><a href="{{ route('web.news.category', $news->category->slug) }}">{{ $news->category->title }}</a></li>
+                <li><a href="{{ route('web.news.category', $news->category->slug) }}">{{ $news->category->title }}</a>
+                </li>
                 <li class="active">{{ $news->title }}</li>
             </ul>
         </div>
@@ -29,6 +30,7 @@
                     <div class="news-content">
                         {!! $news->content !!}
                     </div>
+                    @include('layouts.partials._share')
                 </div>
                 {{--新闻页脚声明--}}
                 <div class="panel-footer">
