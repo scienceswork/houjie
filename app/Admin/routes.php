@@ -19,4 +19,6 @@ Route::group([
     $router->resource('news', 'NewsController');
     // 情书管理
     $router->resource('express', 'ExpressController');
+    // 教师在线管理
+    $router->resource('teacher', 'TeacherController');
 });

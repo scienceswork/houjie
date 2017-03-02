@@ -82,4 +82,5 @@ Route::Group(['namespace' => 'Money'], function () {
 Route::group(['prefix' => 'teacher'], function () {
     Route::get('/', 'TeacherController@index')->name('web.teacher.index');
     Route::get('create', 'TeacherController@create')->name('web.teacher.create');
+    Route::post('create', 'TeacherController@store')->name('web.teacher.store');
 });

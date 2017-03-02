@@ -519,7 +519,7 @@ span.timeago {
   color: #999;
 }
 
-.cool-ul li, .express-ul li {
+.cool-ul li, .express-ul li, .teacher-create-ul li {
   list-style: disc inside;
   line-height: 2em;
 }

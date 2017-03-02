@@ -171,13 +171,28 @@
         <div class="col-md-3">
             @if(Auth::check())
                 {{--已经登录的账户且没有申请教师在线的用户会显示按钮--}}
-                <a href="{{ route('web.teacher.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
+                <a href="{{ route('web.teacher.create') }}" class="btn btn-primary btn-block"
+                   style="margin-bottom: 20px;">
                     创建在线
                 </a>
             @endif
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
-                    热门教师在线
+                    <h3 class="panel-title">
+                        教师在线
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p class="text-indent">
+                        教师在线应用主要针对高校教师，能让高校教师提供一个类似百度贴吧的应用，学生关注在线后，可以在在线里面发帖咨询高校教师，高校教师可以选择创建在线，创建一个专属于你的教师论坛，方便学生咨询或者发布任务。
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading panel-white">
+                    <h3 class="panel-title">
+                        热门教师在线
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <ul class="teacher-ul">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTeacherRequest;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -24,8 +25,18 @@ class TeacherController extends Controller
         return view('teacher.index');
     }
 
+    /**
+     * 创建教师在线
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('teacher.create');
+    }
+
+
+    public function store(CreateTeacherRequest $request)
+    {
+        dd($request);
     }
 }

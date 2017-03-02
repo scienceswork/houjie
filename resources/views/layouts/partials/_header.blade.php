@@ -35,7 +35,7 @@
                 <li class="{{ navViewActive('web.feeds') }}">
                     <a href="{{ route('web.feeds') }}">广场</a>
                 </li>
-                <li class="{{ Request::is('teacher') ? 'active' : '' }}">
+                <li class="{{ Request::is('teacher*') ? 'active' : '' }}">
                     <a href="{{ route('web.teacher.index') }}">教师在线</a>
                 </li>
                 <li class="{{ navViewActive('web.pages.about') }}">
