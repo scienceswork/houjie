@@ -74,9 +74,10 @@ class TeacherController extends Controller
         return Admin::grid(Teacher::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
-
-            $grid->created_at();
-            $grid->updated_at();
+            $grid->user()->name('申请人');
+            $grid->column('name', '在线名称');
+            $grid->column('slug', '缩略名');
+            $grid->created_at('申请时间');
         });
     }
 

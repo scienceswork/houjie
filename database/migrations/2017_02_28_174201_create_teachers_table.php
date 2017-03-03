@@ -16,7 +16,6 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique()->comment('在线名称，名称必须唯一');
-            $table->string('slug')->unique()->comment('缩略名，表示http://xxx.com/teacher/slug');
             $table->integer('articles_count')->default(0)->comment('文章数');
             $table->integer('member_count')->default(0)->comment('关注数');
             $table->boolean('is_recommend')->default(false)->comment('是否推荐，默认为否');

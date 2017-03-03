@@ -249,7 +249,7 @@ span.timeago {
   position: relative;
 }
 
-#input-path {
+#input-path, #teacher-avatar-input-path, #teacher-prove-input-path, .input-path {
   position: absolute;
   top: -1px;
   left: 1px;

@@ -25,7 +25,6 @@ class CreateTeacherRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required',
             'phone' => 'required',
             'email' => 'required',
             'avatar' => 'required',
@@ -43,7 +42,6 @@ class CreateTeacherRequest extends FormRequest
     {
         return [
             'name.required' => '教师在线名称是必填项',
-            'slug.required' => '缩略名是必填项',
             'phone.required' => '手机号码是必填项',
             'email.required' => '电子邮件是必填项',
             'avatar.required' => '请上传教师在线封面图',

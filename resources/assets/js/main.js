@@ -123,9 +123,95 @@
             }
         }
     });
+    // 创建在线表单验证
+    $('#create-teacher-form').bootstrapValidator({
+        fields: {
+            name: {
+                validators: {
+                    notEmpty: {
+                        message: '教师在线不能为空'
+                    },
+                }
+            },
+            phone: {
+                validators: {
+                    notEmpty: {
+                        message: '手机号码不能为空',
+                    },
+                    regexp: {
+                        regexp: /^1[3|5|8]{1}[0-9]{9}$/,
+                        message: '请输入正确的手机号码',
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: '电子邮件不能为空',
+                    },
+                    emailAddress: {
+                        message: '请填写正确的邮件地址如：123@hj-ht.com',
+                    }
+                }
+            },
+            avatar: {
+                validators: {
+                    notEmpty: {
+                        message: '请上传教师在线封面图',
+                    },
+                    file: {
+                        extension: 'jpg,jpeg,png',
+                        type: 'image/jpeg,image/jpeg,image/png',
+                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                    }
+                }
+            },
+            prove: {
+                validators: {
+                    notEmpty: {
+                        message: '请上传资质证明封面图，如：教师资格证等',
+                    },
+                    file: {
+                        extension: 'jpg,jpeg,png',
+                        type: 'image/jpeg,image/jpeg,image/png',
+                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                    }
+                }
+            },
+            description: {
+                validators: {
+                    notEmpty: {
+                        message: '教师在线描述不能为空',
+                    },
+                    stringLength: {
+                        min: 3,
+                        max: 255,
+                        message: '教师在线描述的长度在3~255之间',
+                    }
+                }
+            },
+            reason: {
+                validators: {
+                    notEmpty: {
+                        message: '申请理由不能为空',
+                    },
+                    stringLength: {
+                        min: 3,
+                        message: '申请理由最少需要3个字符',
+                    }
+                }
+            }
+        }
+    });
     // 修改默认文件输入框样式
     $("#input-path").change(function () {
         $("#docPath").val($(":file").val());
+    });
+    $("#teacher-avatar-input-path").change(function () {
+        $("#teacher-avatar-docPath").val($("#teacher-avatar-input-path").val());
+    });
+    $("#teacher-prove-input-path").change(function () {
+        $("#teacher-prove-docPath").val($("#teacher-prove-input-path").val());
     });
     // 点击签到
     $('#sign').on('click', function () {

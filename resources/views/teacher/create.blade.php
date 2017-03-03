@@ -22,7 +22,7 @@
                 <div class="panel-body">
                     {{--引入错误信息提示--}}
                     @include('layouts.partials._errors')
-                    <form action="{{ route('web.teacher.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data" accept-charset="UTF-8">
+                    <form id="create-teacher-form" action="{{ route('web.teacher.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data" accept-charset="UTF-8">
                         {{ csrf_field() }}
                         {{--教师在线名称--}}
                         <div class="form-group">
@@ -32,16 +32,6 @@
                             </div>
                             <div class="col-md-4 help-block">
                                 如：佘老师（显示为"佘老师吧"）
-                            </div>
-                        </div>
-                        {{--教师在线缩略名--}}
-                        <div class="form-group">
-                            <label for="slug" class="col-md-2 control-label">缩略名：</label>
-                            <div class="col-md-6">
-                                <input name="slug" type="text" class="form-control" placeholder="请输入缩略名，缩略名必须唯一">
-                            </div>
-                            <div class="col-md-4 help-block">
-                                如：hjht
                             </div>
                         </div>
                         {{--手机号码--}}
@@ -69,10 +59,10 @@
                             <label for="avatar" class="col-md-2 control-label">在线封面：</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input id="docPath" type="text" class="form-control" placeholder="请上传教师在线封面图，小于等于5M" disabled>
+                                    <input id="teacher-avatar-docPath" type="text" class="form-control" placeholder="请上传教师在线封面图，小于等于5M" disabled>
                                     <span type="file" class="btn btn-primary input-group-addon input-file">
                                         浏览图片
-                                        <input name="avatar" type="file" id="input-path" class="form-control" >
+                                        <input name="avatar" type="file" id="teacher-avatar-input-path" class="form-control input-path" >
                                     </span>
                                 </div>
                             </div>
@@ -85,10 +75,10 @@
                             <label for="prove" class="col-md-2 control-label">资质证明：</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input id="docPath" type="text" class="form-control" placeholder="请上传能证明教师的照片，小于等于5M" disabled>
+                                    <input id="teacher-prove-docPath" type="text" class="form-control" placeholder="请上传能证明教师的照片，小于等于5M" disabled>
                                     <span type="file" class="btn btn-primary input-group-addon input-file">
                                         浏览图片
-                                        <input name="prove" type="file" id="input-path" class="form-control" >
+                                        <input name="prove" type="file" id="teacher-prove-input-path" class="form-control input-path" >
                                     </span>
                                 </div>
                             </div>
