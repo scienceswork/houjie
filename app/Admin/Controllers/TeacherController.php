@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Extensions\DeleteRow;
+use App\Admin\Extensions\EditRow;
 use App\Models\Teacher;
 
 use Encore\Admin\Form;
@@ -26,7 +28,6 @@ class TeacherController extends Controller
 
             $content->header('在线管理');
             $content->description('管理员审核申请的教师在线是否符合标准');
-
             $content->body($this->grid());
         });
     }
@@ -41,8 +42,8 @@ class TeacherController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('在线审核');
+            $content->description('管理员认真核对信息并对信息进行合理地审核');
 
             $content->body($this->form()->edit($id));
         });
@@ -72,11 +73,18 @@ class TeacherController extends Controller
     protected function grid()
     {
         return Admin::grid(Teacher::class, function (Grid $grid) {
-
+            // 行的操作
+            $grid->actions(function ($actions) {
+                $actions->disableDelete();
+                $actions->disableEdit();
+                $actions->append(new EditRow($actions->getResource(), $actions->getKey()));
+                $actions->append(new DeleteRow($actions->getResource(), $actions->getKey()));
+            });
             $grid->id('ID')->sortable();
             $grid->user()->name('申请人');
             $grid->column('name', '在线名称');
-            $grid->column('slug', '缩略名');
+            $grid->column('phone', '手机号码');
+            $grid->column('email', '电子邮箱');
             $grid->created_at('申请时间');
         });
     }
@@ -89,11 +97,34 @@ class TeacherController extends Controller
     protected function form()
     {
         return Admin::form(Teacher::class, function (Form $form) {
-
-            $form->display('id', 'ID');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            // 只显示未审核的教师在线
+            $form->model()->where('is_audit', false);
+            $form->tab('申请信息', function (Form $form) {
+                $form->display('id', 'ID');
+                $form->display('user.name', '申请人');
+                $form->display('phone', '联系方式');
+                $form->display('email', '电子邮箱');
+                $form->textarea('reason', '申请理由');
+                $form->display('created_at', '申请时间');
+            })->tab('资质证明', function (Form $form) {
+                $form->image('prove', '资质审核');
+            })->tab('在线信息', function (Form $form) {
+                $form->display('name', '在线名称');
+                $form->text('description', '在线描述');
+                $form->image('avatar', '在线封面');
+                $form->number('order', '排序');
+            })->tab('审核管理', function (Form $form) {
+                $states = [
+                    'on'  => ['value' => 1, 'text' => '是', 'color' => 'success'],
+                    'off' => ['value' => 0, 'text' => '否', 'color' => 'danger'],
+                ];
+                $form->display('user_id', '审核人')->with(function ($id) {
+                    return Admin::user()->name;
+                });
+                $form->textarea('message', '审核信息')
+                    ->help('若不通过，请填写审核失败原因，如：未能证明教师资质');
+                $form->switch('is_pass', '是否通过')->states($states);
+            });
         });
     }
 }

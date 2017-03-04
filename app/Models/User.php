@@ -49,4 +49,9 @@ class User extends Authenticatable
             return self::all()->count();
         });
     }
+
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
 }

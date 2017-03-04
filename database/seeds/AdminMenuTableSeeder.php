@@ -259,6 +259,17 @@ class AdminMenuTableSeeder extends Seeder
                 'created_at' => '2017-02-19 10:24:49',
                 'updated_at' => '2017-02-19 10:24:49',
             ),
+            22 => 
+            array (
+                'id' => 23,
+                'parent_id' => 13,
+                'order' => 0,
+                'title' => '教师审核',
+                'icon' => 'fa-child',
+                'uri' => 'teacher',
+                'created_at' => '2017-03-02 23:23:32',
+                'updated_at' => '2017-03-02 23:23:32',
+            ),
         ));
         
         

@@ -561,7 +561,7 @@ span.timeago {
 }
 
 // 热门酷站
-.cool-hots {
+.cool-hots, .teacher-hot {
   li {
     list-style: disc inside;
     line-height: 2em;
@@ -614,6 +614,7 @@ span.timeago {
 .container-main {
   padding-bottom: 180px !important;
 }
+
 // 网站制导
 .site-tool {
   a {
@@ -629,6 +630,7 @@ span.timeago {
     }
   }
 }
+
 .site-content {
   min-height: 350px;
   p {
@@ -638,10 +640,11 @@ span.timeago {
     list-style: none;
   }
   li {
-    line-height:25px;
+    line-height: 25px;
     margin-bottom: 10px;
   }
 }
+
 .express-box {
   height: 520px;
   //background-color: ;
@@ -651,6 +654,7 @@ span.timeago {
   border-radius: 5px;
   background: url("../../tree.jpeg") no-repeat;
 }
+
 .express-content {
   height: 100%;
   text-align: left;
@@ -660,6 +664,7 @@ span.timeago {
   background: hsla(0, 0%, 100%, .4);
   position: relative;
 }
+
 // 热门资讯
 .hot-news {
   a {
@@ -671,49 +676,64 @@ span.timeago {
     overflow: hidden;
   }
 }
+
 // 教师在线
 .teacher-avatar {
   width: 90px;
   height: 90px;
   border-radius: 5px;
 }
+
 .teacher-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
   a {
     color: #005196;
     font-size: 16px;
   }
+  p {
+    margin-bottom: 0;
+  }
 }
+
 .teacher-ul, .teacher-name {
   .badge {
     background-color: #5cb85c; // 修改背景颜色
     margin-top: -5px; // 修复浏览器的偏移
   }
 }
+
 .teacher-description {
   p {
     font-size: 12px;
     color: #666;
   }
 }
+
 .teacher-num {
   p {
     color: #999;
     margin: 0;
-    padding-top: 14px;
+    padding-top: 10px;
     font-size: 12px;
   }
 }
+
 .teacher-item {
+  padding-bottom: 0;
   .col-md-6 {
     margin-bottom: 15px;
   }
 }
+
 .teacher-label {
   span {
     margin: 0 10px 10px 0;
     display: inline-block;
   }
 }
+
 .teacher-ul {
   list-style: none;
   li {
@@ -732,4 +752,98 @@ span.timeago {
     color: #999;
     font-size: 12px;
   }
+}
+
+
+.teacher-hot {
+  li {
+    list-style: none;
+    line-height: 2em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  a {
+    color: #555 !important;
+    &:hover {
+      color: #999 !important;
+    }
+    &:hover, &:focus, &:active, &:link {
+      text-decoration: none;
+    }
+  }
+}
+.teacher-art {
+  .media {
+    padding: 0;
+  }
+  .media-body, .media-heading {
+    padding-top: 0;
+  }
+  .media-left {
+    padding: 0;
+  }
+  .art-author {
+    color: #999;
+    font-size: 12px;
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 20px;
+    &:link, &:hover, &:active, &:focus {
+      text-decoration: none;
+    }
+  }
+  .art-rep, .art-title {
+    width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666;
+  }
+  .art-rep {
+    height: 20px;
+  }
+  .rep_num {
+    display: inline-block;
+    width: 50px;
+    height: 30px;
+    line-height: 26px;
+    margin-right: 20px;
+    text-align: center;
+    background: url(http://tb2.bdstatic.com/tb/img/f_reply_bg_89030dc.png) no-repeat;
+  }
+}
+.list {
+  margin: 0;
+  padding-left: 2px;
+  li {
+    margin-bottom: 4px;
+    line-height: 18px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+// 帖子
+.topic-user {
+  width: 60px;
+  img {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    padding: 2px;
+  }
+}
+.reply-tail {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #999;
 }

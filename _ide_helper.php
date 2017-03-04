@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.30 on 2017-02-18.
+ * Generated for Laravel 5.3.30 on 2017-03-04.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13016,29 +13016,16 @@ namespace Illuminate\Database\Eloquent {
     }         
 }
     
+namespace Ender\UEditor {
+
+    class UEditorServiceProvider {
+        
+    }         
+}
+    
 namespace Encore\Admin\Facades {
 
     class Admin {
-        
-        /**
-         * Initialize.
-         *
-         * @static 
-         */
-        public static function init()
-        {
-            return \Encore\Admin\Admin::init();
-        }
-        
-        /**
-         * Bootstrap.
-         *
-         * @static 
-         */
-        public static function bootstrap()
-        {
-            return \Encore\Admin\Admin::bootstrap();
-        }
         
         /**
          * 
@@ -13085,7 +13072,7 @@ namespace Encore\Admin\Facades {
          * @return \Encore\Admin\Content 
          * @static 
          */
-        public static function content($callable)
+        public static function content($callable = null)
         {
             return \Encore\Admin\Admin::content($callable);
         }
@@ -13184,7 +13171,7 @@ namespace Encore\Admin\Facades {
         }
         
         /**
-         * 
+         * Get current login user.
          *
          * @return mixed 
          * @static 
@@ -13192,6 +13179,206 @@ namespace Encore\Admin\Facades {
         public static function user()
         {
             return \Encore\Admin\Admin::user();
+        }
+        
+        /**
+         * Set navbar.
+         *
+         * @param \Closure $builder
+         * @static 
+         */
+        public static function navbar($builder)
+        {
+            return \Encore\Admin\Admin::navbar($builder);
+        }
+        
+        /**
+         * Get navbar object.
+         *
+         * @return \Encore\Admin\Navbar 
+         * @static 
+         */
+        public static function getNavbar()
+        {
+            return \Encore\Admin\Admin::getNavbar();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerAuthRoutes()
+        {
+            return \Encore\Admin\Admin::registerAuthRoutes();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerHelpersRoutes($attributes = array())
+        {
+            return \Encore\Admin\Admin::registerHelpersRoutes($attributes);
+        }
+        
+    }         
+}
+    
+namespace Orangehill\Iseed\Facades {
+
+    class Iseed {
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function readStubFile($file)
+        {
+            return \Orangehill\Iseed\Iseed::readStubFile($file);
+        }
+        
+        /**
+         * Generates a seed file.
+         *
+         * @param string $table
+         * @param string $database
+         * @param int $max
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return bool 
+         * @throws Orangehill\Iseed\TableNotFoundException
+         * @static 
+         */
+        public static function generateSeed($table, $database = null, $max = 0, $exclude = null, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true)
+        {
+            return \Orangehill\Iseed\Iseed::generateSeed($table, $database, $max, $exclude, $prerunEvent, $postrunEvent, $dumpAuto);
+        }
+        
+        /**
+         * Get a seed folder path
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getSeedPath()
+        {
+            return \Orangehill\Iseed\Iseed::getSeedPath();
+        }
+        
+        /**
+         * Get the Data
+         *
+         * @param string $table
+         * @return Array 
+         * @static 
+         */
+        public static function getData($table, $max, $exclude = null)
+        {
+            return \Orangehill\Iseed\Iseed::getData($table, $max, $exclude);
+        }
+        
+        /**
+         * Repacks data read from the database
+         *
+         * @param array|object $data
+         * @return array 
+         * @static 
+         */
+        public static function repackSeedData($data)
+        {
+            return \Orangehill\Iseed\Iseed::repackSeedData($data);
+        }
+        
+        /**
+         * Checks if a database table exists
+         *
+         * @param string $table
+         * @return boolean 
+         * @static 
+         */
+        public static function hasTable($table)
+        {
+            return \Orangehill\Iseed\Iseed::hasTable($table);
+        }
+        
+        /**
+         * Generates a seed class name (also used as a filename)
+         *
+         * @param string $table
+         * @return string 
+         * @static 
+         */
+        public static function generateClassName($table)
+        {
+            return \Orangehill\Iseed\Iseed::generateClassName($table);
+        }
+        
+        /**
+         * Get the path to the stub file.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getStubPath()
+        {
+            return \Orangehill\Iseed\Iseed::getStubPath();
+        }
+        
+        /**
+         * Populate the place-holders in the seed stub.
+         *
+         * @param string $class
+         * @param string $stub
+         * @param string $table
+         * @param string $data
+         * @param int $chunkSize
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return string 
+         * @static 
+         */
+        public static function populateStub($class, $stub, $table, $data, $chunkSize = null, $prerunEvent = null, $postrunEvent = null)
+        {
+            return \Orangehill\Iseed\Iseed::populateStub($class, $stub, $table, $data, $chunkSize, $prerunEvent, $postrunEvent);
+        }
+        
+        /**
+         * Create the full path name to the seed file.
+         *
+         * @param string $name
+         * @param string $path
+         * @return string 
+         * @static 
+         */
+        public static function getPath($name, $path)
+        {
+            return \Orangehill\Iseed\Iseed::getPath($name, $path);
+        }
+        
+        /**
+         * Cleans the iSeed section
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function cleanSection()
+        {
+            return \Orangehill\Iseed\Iseed::cleanSection();
+        }
+        
+        /**
+         * Updates the DatabaseSeeder file's run method (kudoz to: https://github.com/JeffreyWay/Laravel-4-Generators)
+         *
+         * @param string $className
+         * @return bool 
+         * @static 
+         */
+        public static function updateDatabaseSeederRunMethod($className)
+        {
+            return \Orangehill\Iseed\Iseed::updateDatabaseSeederRunMethod($className);
         }
         
     }         
@@ -13264,7 +13451,11 @@ namespace {
     
     class Eloquent extends \Illuminate\Database\Eloquent\Model {}
     
+    class UEditor extends \Ender\UEditor\UEditorServiceProvider {}
+    
     class Admin extends \Encore\Admin\Facades\Admin {}
+    
+    class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
     
 }
 

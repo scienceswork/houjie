@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->integer('follower_count')->default(0)->index()->comment('关注数量');
-            $table->
+//            $table->
             $table->rememberToken();
             $table->timestamps();
         });

@@ -524,7 +524,7 @@ span.timeago {
   line-height: 2em;
 }
 
-.cool-hots li {
+.cool-hots li, .teacher-hot li {
   list-style: disc inside;
   line-height: 2em;
   text-overflow: ellipsis;
@@ -532,7 +532,7 @@ span.timeago {
   overflow: hidden;
 }
 
-.cool-hots a {
+.cool-hots a, .teacher-hot a {
   color: #337ab7 !important;
 }
 
@@ -638,9 +638,19 @@ span.timeago {
   border-radius: 5px;
 }
 
+.teacher-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
 .teacher-name a {
   color: #005196;
   font-size: 16px;
+}
+
+.teacher-name p {
+  margin-bottom: 0;
 }
 
 .teacher-ul .badge, .teacher-name .badge {
@@ -656,8 +666,12 @@ span.timeago {
 .teacher-num p {
   color: #999;
   margin: 0;
-  padding-top: 14px;
+  padding-top: 10px;
   font-size: 12px;
+}
+
+.teacher-item {
+  padding-bottom: 0;
 }
 
 .teacher-item .col-md-6 {
@@ -691,6 +705,110 @@ span.timeago {
 .teacher-ul .pull-right {
   color: #999;
   font-size: 12px;
+}
+
+.teacher-hot li {
+  list-style: none;
+  line-height: 2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.teacher-hot a {
+  color: #555 !important;
+}
+
+.teacher-hot a:hover {
+  color: #999 !important;
+}
+
+.teacher-hot a:hover, .teacher-hot a:focus, .teacher-hot a:active, .teacher-hot a:link {
+  text-decoration: none;
+}
+
+.teacher-art .media {
+  padding: 0;
+}
+
+.teacher-art .media-body, .teacher-art .media-heading {
+  padding-top: 0;
+}
+
+.teacher-art .media-left {
+  padding: 0;
+}
+
+.teacher-art .art-author {
+  color: #999;
+  font-size: 12px;
+  display: inline-block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 20px;
+}
+
+.teacher-art .art-author:link, .teacher-art .art-author:hover, .teacher-art .art-author:active, .teacher-art .art-author:focus {
+  text-decoration: none;
+}
+
+.teacher-art .art-rep, .teacher-art .art-title {
+  width: 600px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #666;
+}
+
+.teacher-art .art-rep {
+  height: 20px;
+}
+
+.teacher-art .rep_num {
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+  line-height: 26px;
+  margin-right: 20px;
+  text-align: center;
+  background: url(http://tb2.bdstatic.com/tb/img/f_reply_bg_89030dc.png) no-repeat;
+}
+
+.list {
+  margin: 0;
+  padding-left: 2px;
+}
+
+.list li {
+  margin-bottom: 4px;
+  line-height: 18px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.topic-user {
+  width: 60px;
+}
+
+.topic-user img {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.reply-tail {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #999;
 }
 
 /*# sourceMappingURL=app.css.map */

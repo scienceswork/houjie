@@ -80,7 +80,12 @@ Route::Group(['namespace' => 'Money'], function () {
 
 // 教师在线
 Route::group(['prefix' => 'teacher'], function () {
-    Route::get('/', 'TeacherController@index')->name('web.teacher.index');
+    Route::get('/', 'TeacherController@index')->name('web.teacher.index'); // 首页
+    Route::get('{id}', 'TeacherController@show')->name('web.teacher.show'); // 教师在线分类
+    Route::get('{id}/create', 'TeacherController@createTopic')->name('web.teacher.createTopic'); // 发帖
+    Route::post('{id}/create', 'TeacherController@topicStore')->name('web.teacher.topicStore'); // 提交发帖
+    Route::get('topic/{id}', 'TeacherController@topicShow')->name('web.teacher.topicShow'); // 查看帖子
+    Route::post('topic/{id}', 'TeacherController@topicReplyStore')->name('web.teacher.topicReplyStore'); // 提交评论
     Route::get('create', 'TeacherController@create')->name('web.teacher.create');
     Route::post('create', 'TeacherController@store')->name('web.teacher.store');
 });

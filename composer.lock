@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "616e4ffbdd5aa86f3ae98aaa65d3b61b",
-    "content-hash": "29d3f7012103b7bab6c1201ea16a8702",
+    "hash": "9c36525dbcace7de16e4631ea170e8b1",
+    "content-hash": "e9eae380cdbbf89c0e831e67c6a5d219",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -405,6 +405,54 @@
                 "laravel"
             ],
             "time": "2017-02-20 07:23:50"
+        },
+        {
+            "name": "ender/laravel-ueditor",
+            "version": "v0.8.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/argb/laravel-ueditor.git",
+                "reference": "de6e12d80cc21cce12fb947cdcf4d7b935cae9a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/argb/laravel-ueditor/de6e12d80cc21cce12fb947cdcf4d7b935cae9a2.zip",
+                "reference": "de6e12d80cc21cce12fb947cdcf4d7b935cae9a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ender\\UEditor\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ender",
+                    "email": "ender0421@gmail.com"
+                }
+            ],
+            "description": "A laravel package of ueditor,which is baidu's open source WYSIWYG editor",
+            "homepage": "https://www.bigfeettrip.com",
+            "keywords": [
+                "editor",
+                "laravel",
+                "ueditor",
+                "wysiwyg"
+            ],
+            "time": "2015-06-06 16:36:13"
         },
         {
             "name": "guzzlehttp/guzzle",

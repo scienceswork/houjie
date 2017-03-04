@@ -14,157 +14,49 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-body teacher-item">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="teacher-avatar"
-                                             src="http://www.scienceswork.com/wp-content/uploads/2016/10/chuanzhushen_avatar-96x96.jpg"
-                                             alt="佘老师吧">
-                                    </a>
+                    @if($teachers->count())
+                        <div class="row">
+                            @foreach($teachers as $teacher)
+                                <div class="col-md-6">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a href="{{ route('web.teacher.show', $teacher->id) }}">
+                                                <img class="teacher-avatar"
+                                                     src="{{ thumb($teacher->avatar) }}"
+                                                     alt="{{ $teacher->name }}吧">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="teacher-name">
+                                                <p>
+                                                    @if($teacher->is_recommend)
+                                                        <span class="badge">推荐</span>
+                                                    @endif
+                                                    <a href="{{ route('web.teacher.show', $teacher->id) }}">
+                                                        {{ $teacher->name }}吧
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="teacher-description">
+                                                <p>
+                                                    {{ $teacher->description }}
+                                                </p>
+                                            </div>
+                                            <div class="teacher-num">
+                                                <p>
+                                                    <i class="glyphicon glyphicon-user"></i> {{ $teacher->member_count }}
+                                                    &nbsp;&nbsp;
+                                                    <i class="glyphicon glyphicon-comment"></i> {{ $teacher->articles_count }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="media-body">
-                                    <div class="teacher-name">
-                                        <p>
-                                            <span class="badge">推荐</span>
-                                            <a href="#">佘老师吧</a>
-                                        </p>
-                                    </div>
-                                    <div class="teacher-description">
-                                        <p>
-                                            学期过半，继续努力，天天向上
-                                        </p>
-                                    </div>
-                                    <div class="teacher-num">
-                                        <p>
-                                            <i class="glyphicon glyphicon-user"></i> 3240 &nbsp;&nbsp;
-                                            <i class="glyphicon glyphicon-comment"></i> 10234
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="teacher-avatar"
-                                             src="http://ol5yyvvdl.bkt.clouddn.com/avatars/7d5b6ead99cb3dfb775b2be6ff6315e2.jpeg?imageView2/1/w/100/h/100/interlace/0/q/100"
-                                             alt="佘老师吧">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <div class="teacher-name">
-                                        <p>
-                                            <span class="badge">推荐</span>
-                                            <a href="#">串猪神吧</a>
-                                        </p>
-                                    </div>
-                                    <div class="teacher-description">
-                                        <p>
-                                            人生有两道菜一定要吃，一道是吃亏，一道是吃苦
-                                        </p>
-                                    </div>
-                                    <div class="teacher-num">
-                                        <p>
-                                            <i class="glyphicon glyphicon-user"></i> 524 &nbsp;&nbsp;
-                                            <i class="glyphicon glyphicon-comment"></i> 3402
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="teacher-avatar"
-                                             src="http://ol5yyvvdl.bkt.clouddn.com/avatars/611b60323920812c0c4bd8d3086b942d.jpeg?imageView2/1/w/100/h/100/interlace/0/q/100"
-                                             alt="佘老师吧">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <div class="teacher-name">
-                                        <p>
-                                            <span class="badge">推荐</span>
-                                            <a href="#">猫咪吧</a>
-                                        </p>
-                                    </div>
-                                    <div class="teacher-description">
-                                        <p>
-                                            分享各种萌猫
-                                        </p>
-                                    </div>
-                                    <div class="teacher-num">
-                                        <p>
-                                            <i class="glyphicon glyphicon-user"></i> 13940 &nbsp;&nbsp;
-                                            <i class="glyphicon glyphicon-comment"></i> 60534
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="teacher-avatar"
-                                             src="https://tb1.bdstatic.com/tb/r/image/2017-02-27/61d0872e18992cbc2cae82f3cdc8b7a8.jpg"
-                                             alt="佘老师吧">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <div class="teacher-name">
-                                        <p>
-                                            {{--<span class="badge">推荐</span>--}}
-                                            <a href="#">数据分析吧</a>
-                                        </p>
-                                    </div>
-                                    <div class="teacher-description">
-                                        <p>
-                                            大数据的时代。
-                                        </p>
-                                    </div>
-                                    <div class="teacher-num">
-                                        <p>
-                                            <i class="glyphicon glyphicon-user"></i> 1504 &nbsp;&nbsp;
-                                            <i class="glyphicon glyphicon-comment"></i> 980
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="media">
-                                <div class="media-left">
-                                    <a href="#">
-                                        <img class="teacher-avatar" src="https://tb1.bdstatic.com/tb/lolita0228.jpeg"
-                                             alt="佘老师吧">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <div class="teacher-name">
-                                        <p>
-                                            {{--<span class="badge">推荐</span>--}}
-                                            <a href="#">lolita吧</a>
-                                        </p>
-                                    </div>
-                                    <div class="teacher-description">
-                                        <p>
-                                            穿小裙子的萌妹子
-                                        </p>
-                                    </div>
-                                    <div class="teacher-num">
-                                        <p>
-                                            <i class="glyphicon glyphicon-user"></i> 1234 &nbsp;&nbsp;
-                                            <i class="glyphicon glyphicon-comment"></i> 8365
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @else
+                        <p style="margin-bottom: 0;">暂时还没有教师发布了教师在线哦~</p>
+                    @endif
                 </div>
             </div>
         </div>

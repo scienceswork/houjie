@@ -826,7 +826,7 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png'
                     }
                 }
             }
@@ -871,7 +871,8 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        maxSize: 1024 * 1024 * 5,
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png',
                     }
                 }
             },
@@ -883,7 +884,8 @@ if(""===e)return!0;var f=d.type||this.SUPPORTED_TYPES;a.isArray(f)||(f=f.replace
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        maxSize: 1024 * 1024 * 5,
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png',
                     }
                 }
             },

@@ -117,7 +117,7 @@
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png'
                     }
                 }
             }
@@ -162,7 +162,8 @@
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        maxSize: 1024 * 1024 * 5,
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png',
                     }
                 }
             },
@@ -174,7 +175,8 @@
                     file: {
                         extension: 'jpg,jpeg,png',
                         type: 'image/jpeg,image/jpeg,image/png',
-                        message: '请上传支持的图片格式:jpg,jpeg,png'
+                        maxSize: 1024 * 1024 * 5,
+                        message: '请上传支持的图片格式(<5M):jpg,jpeg,png',
                     }
                 }
             },

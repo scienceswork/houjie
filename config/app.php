@@ -190,6 +190,8 @@ return [
         \Overtrue\LaravelWechat\ServiceProvider::class,
         // 将数据库的数据导成seed文件
         \Orangehill\Iseed\IseedServiceProvider::class,
+        // 前端Ueditor
+        \Ender\UEditor\UEditorServiceProvider::class,
     ],
 
     /*
@@ -237,7 +239,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Debugbar' => \Barryvdh\Debugbar\Facade::class,
+        'UEditor' => \Ender\UEditor\UEditor::class,
     ],
 
 ];
