@@ -192,6 +192,8 @@ return [
         \Orangehill\Iseed\IseedServiceProvider::class,
         // 前端Ueditor
         \Ender\UEditor\UEditorServiceProvider::class,
+        // 权限管理
+        \Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -240,6 +242,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'UEditor' => \Ender\UEditor\UEditor::class,
+        'Entrust' => \Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

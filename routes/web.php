@@ -43,7 +43,10 @@ Route::post('users/{id}/update_avatar', 'UsersController@updateAvatar')->name('w
 Route::get('users/cool/{id}', 'UsersController@userCoolSite')->name('web.users.coolSite');
 
 // 聊天广场
-Route::get('feed', 'FeedController@index')->name('web.feeds');
+Route::get('feed', 'FeedController@index')->name('web.feed.index');
+Route::post('feed', 'FeedController@store')->name('web.feed.store');
+Route::post('vote', 'FeedController@vote')->name('web.feed.vote');
+Route::post('reply', 'FeedController@reply')->name('web.feed.reply');
 
 // 酷站展示
 Route::get('cool', 'CoolSiteController@index')->name('web.cool.index');

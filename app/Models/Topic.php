@@ -27,4 +27,10 @@ class Topic extends Model
     {
         return $this->belongsTo(User::class, 'last_rep_user');
     }
+
+
+    public function votes()
+    {
+        return $this->hasMany(VoteUpFeed::class);
+    }
 }

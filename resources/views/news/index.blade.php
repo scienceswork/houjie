@@ -55,10 +55,13 @@
                         <p style="margin: 0;">管理员太懒啦，还暂时没有资讯~</p>
                     @endif
                 </div>
-                <div class="panel-footer text-right" style="background-color:#fcfcfc;">
-                    {{--分页--}}
-                    {{ $news->links() }}
-                </div>
+                {{--判断是否有分页--}}
+                @if($news->hasPages())
+                    <div class="panel-footer text-right" style="background-color:#fcfcfc;">
+                        {{--分页--}}
+                        {{ $news->links() }}
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-md-3">

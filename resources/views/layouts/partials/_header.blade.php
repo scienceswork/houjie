@@ -32,8 +32,8 @@
                 <li class="{{ Request::is('cool*') ? 'active' : '' }}">
                     <a href="{{ route('web.cool.index') }}">酷站</a>
                 </li>
-                <li class="{{ navViewActive('web.feeds') }}">
-                    <a href="{{ route('web.feeds') }}">广场</a>
+                <li class="{{ Request::is('feed*') ? 'active' : '' }}">
+                    <a href="{{ route('web.feed.index') }}">广场</a>
                 </li>
                 <li class="{{ Request::is('teacher*') ? 'active' : '' }}">
                     <a href="{{ route('web.teacher.index') }}">教师在线</a>

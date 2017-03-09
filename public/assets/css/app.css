@@ -179,8 +179,12 @@ span.timeago {
 }
 
 .feed-avatar {
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
+  padding: 2px;
+  border: #ddd solid 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
 }
 
 .feed-tool a {
@@ -189,6 +193,10 @@ span.timeago {
 
 .feed-tool .vote.up {
   margin-left: 6px;
+}
+
+.feed-tool .vote.up.active {
+  color: #5cb85c;
 }
 
 .panel ul {
@@ -224,6 +232,23 @@ span.timeago {
   font-size: 12px;
   color: #999;
   margin: 10px 0;
+}
+
+.hint {
+  color: #999;
+  font-size: 12px;
+}
+
+.hint em {
+  color: #D8582B;
+  font-style: normal;
+}
+
+.feed-list li .media {
+  margin: 5px 0 5px;
+  padding: 10px 0 0;
+  border-bottom: none;
+  border-top: #eee solid 1px;
 }
 
 .form-control.cool-textarea, .form-control.user-textarea {
@@ -809,6 +834,56 @@ span.timeago {
   bottom: 0;
   font-size: 12px;
   color: #999;
+}
+
+.ht-panel-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.ht-panel-title .active {
+  color: #D8582B;
+}
+
+.ht-panel-title .professional {
+  color: #3B6FBA;
+}
+
+.ht-panel-title .know {
+  color: #16A314;
+}
+
+.ht-panel-second-title {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.feed .nano {
+  font-size: 12px;
+  line-height: 1.5em;
+  height: 300px;
+  word-break: break-all;
+}
+
+.feed .nano > .nano-pane {
+  width: 6px;
+}
+
+.feed .nano-content {
+  padding-right: 8px;
+}
+
+.feed .media-object {
+  width: 38px;
+  height: 38px;
+  padding: 1px;
+  border: #ddd solid 1px;
+  border-radius: 4px;
+}
+
+.feed .media {
+  border-bottom: #eee solid 1px !important;
 }
 
 /*# sourceMappingURL=app.css.map */

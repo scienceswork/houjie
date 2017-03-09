@@ -1,6 +1,8 @@
 ;(function () {
     // 开启tooltip提示
     $('[data-toggle="tooltip"]').tooltip();
+    // 开启滚动条
+    $(".nano").nanoScroller();
     // 设置时间语言为中文
     // moment.lang('zh-cn');
     // 设置时间格式
@@ -246,4 +248,54 @@
             });
         });
     });
+    // 说说回复
+    $('.reply').click(function () {
+        // 获得表单，并且取消隐藏
+        $('.reply-form').removeClass('hidden');
+        // 添加到点击按钮的下方
+        $('.reply-form').appendTo($(this).parents('li > .media-body'));
+        // 查找到父级id
+        $('.reply-form').find('.feed_id').val($(this).parents('li').attr('data-key'));
+        // 查看是否是顶级说说
+        if($(this).parents('div.media').length > 0) {
+            $('.reply-form').find('textarea').val('@' + $(this).closest('.media-body').find('[rel=author]').first().html() + ' ');
+        } else {
+            $('.reply-form').find('textarea').val('');
+        }
+    });
+    // 说说点赞
+    $('.vote').click(function () {
+        // 获取token
+        var token = $('[name=csrf-token]').attr('content');
+        var that = $(this);
+        // 判断类型
+        var action = that.hasClass('up') ? 'up' : null;
+        // 判断是否激活
+        if (!that.hasClass('active') && action) {
+            // 发起ajax请求
+            $.post('/vote', {
+                _token: token,
+                feed_id: that.attr('data-id')
+            }, function (data) {
+                // 判断是否成功
+                if (data.status == -1) {
+                    // 没有登录，跳转到登录页面
+                    layer.msg('点赞需要登录哦~');
+                    window.location.href = '/auth/login';
+                } else if (data.status == 1) {
+                    // 点赞成功，修改图标
+                    that.addClass('active');
+                    // 找到up
+                    var u = that.parent().find('.up');
+                    u.attr('data-original-title', '您已顶');
+                    layer.msg(data.message);
+                } else {
+                    // 点赞失败，未知错误
+                    layer.msg('请稍后尝试');
+                }
+            });
+        }
+    });
+    // 跳出登录框
+
 })();

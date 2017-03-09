@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="{{ asset('assets/bootstrap/dist/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/validator.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/nanoscroller/bin/css/nanoscroller.css') }}">
     @show
     {{--百度统计代码--}}
     <script>

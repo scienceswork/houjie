@@ -20,7 +20,8 @@ var basejs = [
     'resources/assets/lib/moment/locale/zh-cn.js',
     'resources/assets/lib/layer/build/layer.js',
     'resources/assets/lib/bootstrapvalidator/dist/js/bootstrapValidator.min.js',
-    'resources/assets/lib/social-share.js/dist/js/share.min.js'
+    'resources/assets/lib/social-share.js/dist/js/share.min.js',
+    'resources/assets/lib/nanoscroller/bin/javascripts/jquery.nanoscroller.min.js',
 ];
 
 // 使用elixir合并js和css，并且对其进行压缩
@@ -41,6 +42,9 @@ elixir(function (mix) {
         .copy([
             'resources/assets/lib/bootstrapvalidator/dist/css/bootstrapValidator.min.css'
         ], 'public/assets/css/validator.css')
+        .copy([
+            'resources/assets/lib/nanoscroller'
+        ], 'public/assets/nanoscroller')
         .sass([
             'base.scss'
         ], 'public/assets/css/app.css')

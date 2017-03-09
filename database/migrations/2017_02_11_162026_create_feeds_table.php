@@ -15,8 +15,10 @@ class CreateFeedsTable extends Migration
     {
         Schema::create('feeds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('content');
-            $table->integer('user_id')->comment('用户id')->unsigned();
+            $table->string('content')->comment('聊天内容');
+            $table->integer('user_id')->unsigned()->comment('用户id');
+            $table->integer('rep_count')->default(0)->comment('回帖数');
+            $table->integer('vote_up_count')->default(0)->comment('点赞数');
             $table->timestamps();
         });
     }

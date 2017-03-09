@@ -3,7 +3,17 @@
 @section('title', '聊天广场')
 
 @section('body')
-
+    {{--隐藏表单--}}
+    <form action="{{ route('web.feed.reply') }}" method="post" class="reply-form hidden" style="margin-top: 10px;">
+        {{ csrf_field() }}
+        <input type="hidden" id="feed_id" class="feed_id" name="feed_id">
+        <div class="form-group">
+            <textarea name="content" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-sm btn-primary" value="回复">
+        </div>
+    </form>
     <div class="row">
         {{--面包屑导航--}}
         <div class="col-md-12">
@@ -16,425 +26,192 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        广场说说
-                    </h3>
+                    广场说说
                 </div>
                 <div class="panel-body">
-                    <ul class="media-list feed-list">
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 话说有没有撸代码听摇滚的,推荐两首 <三峰>,<怎么办>布衣乐队
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            12
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 今天出太阳了，好暖和.
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            12
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="ups">
-                                    <a href="/user/33194">540974247</a> ,
-                                    <a href="/user/40703">易语晓乐</a> ,
-                                    <a href="/user/30389">amrozhou</a> 觉得很赞
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 又到了下午方便面时间。 顺便推荐一首歌吧《first of the year》
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            12
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="ups">
-                                    <a href="/user/40703">易语晓乐</a> 觉得很赞
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 最近有人去园博园看灯会了吗？怎么样？
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            1
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            1
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="ups">
-                                    <a href="/user/40703">易语晓乐</a> 觉得很赞
-                                </div>
-                                <div class="media">
+                    @if($feeds->count())
+                        <ul class="media-list feed-list">
+                            @foreach($feeds as $feed)
+                                <li class="media" data-key="{{ $feed->id }}">
+                                    {{--头像--}}
                                     <div class="media-left">
-                                        <a href="#" rel="author">
-                                            <img class="media-object feed-avatar" src="http://www.yiichina.com/uploads/avatar/000/00/06/58_avatar_small.jpg" alt="">
+                                        <a href="{{ route('web.users.show', 1) }}">
+                                            <img src="{{ avatar_min($feed->user->avatar) }}"
+                                                 alt="{{ $feed->user->name }}" class="media-object feed-avatar">
                                         </a>
                                     </div>
+                                    {{--说说内容--}}
                                     <div class="media-body">
                                         <div class="media-content">
-                                            <a href="#" rel="author">strive</a>
-                                            : 同问
+                                            <a href="{{ route('web.users.show', $feed->user->id) }}"
+                                               rel="author">{{ $feed->user->name }}</a>
+                                            : {{ $feed->content }}
                                         </div>
                                         <div class="media-action">
-                                            <span>1天前</span>
+                                            <span class="timeago" data-toggle="tooltip" data-placement="right"
+                                                  data-original-title>{{ $feed->created_at }}</span>
                                             <span class="pull-right feed-tool">
+                                                <a href="javascript:;" class="reply">
+                                                    <i class="glyphicon glyphicon-share-alt"></i>
+                                                    回复
+                                                </a>
+                                                {{--判断是否已经点赞过了--}}
+                                                <a href="#" class="vote up" data-toggle="tooltip" data-placement="top"
+                                                   data-original-title="顶" data-id="{{ $feed->id }}">
+                                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                                    {{ $feed->vote_up_count }}
+                                                </a>
+                                            </span>
+                                        </div>
+                                        @if(count($feed->votes))
+                                            <div class="ups">
+                                                @foreach($feed->votes as $key => $vote)
+                                                    @if(count($feed->votes) !== $key+1)
+                                                        <a href="{{ route('web.users.show', $vote->user_id) }}">{{ $vote->name }}</a>
+                                                        ,
+                                                    @else
+                                                        <a href="{{ route('web.users.show', $vote->user_id) }}">{{ $vote->name }}</a>
+                                                    @endif
+                                                @endforeach
+                                                觉得很赞
+                                            </div>
+                                        @endif
+                                        {{--判断是否有回复--}}
+                                        @if(count($feed->replies))
+                                            <div class="hint">共 <em>{{ $feed->rep_count }}</em> 条回复</div>
+                                            @foreach($feed->replies as $reply)
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <a href="{{ route('web.users.show', $reply->user_id) }}"
+                                                           rel="author">
+                                                            <img class="media-object feed-avatar"
+                                                                 src="{{ avatar_min($reply->avatar) }}"
+                                                                 alt="{{ $reply->name }}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <div class="media-content">
+                                                            <a href="{{ route('web.users.show', $reply->user_id) }}"
+                                                               rel="author">{{ $reply->name }}</a>
+                                                            : {{ $reply->content }}
+                                                        </div>
+                                                        <div class="media-action">
+                                                            <span class="timeago">{{ $reply->created_at }}</span>
+                                                            <span class="pull-right feed-tool">
                                                 <a class="reply" href="javascript:void(0);">
                                                     <i class="glyphicon glyphicon-share-alt"></i> 回复
                                                 </a>
                                             </span>
-                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        @endif
                                     </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 人生中有两道菜是必须吃的，一道是吃苦，一道是吃亏。
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            12
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>暂时没有小伙伴发表说说哦</p>
+                    @endif
                 </div>
-                <div class="panel-footer text-right">
-                    <ul class="pagination">
-                        <li class="disabled"><span>«</span></li>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="https://laravel-china.org/topics?page=2">2</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=3">3</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=4">4</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=5">5</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=6">6</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=7">7</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=8">8</a></li>
-                        <li class="disabled"><span>...</span></li>
-                        <li><a href="https://laravel-china.org/topics?page=13">13</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=14">14</a></li>
-                        <li><a href="https://laravel-china.org/topics?page=2" rel="next">»</a></li>
-                    </ul>
-                </div>
+                @if($feeds->hasPages())
+                    <div class="panel-footer text-right">
+                        {{ $feeds->links() }}
+                    </div>
+                @endif
             </div>
         </div>
-        {{--右侧热门、精品等--}}
+        {{--右侧发表、热门、精品等--}}
         <div class="col-md-3">
+            {{--发布说说--}}
+            @include('feed.partials._form')
             {{--精品说说10条--}}
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        精品说说
-                    </h3>
+                    精品说说
                 </div>
                 <div class="panel-body">
-                    <ul class="media-list">
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 我眉毛怎么样
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
+                    @if($vote_feeds->count())
+                        <ul class="media-list">
+                            @foreach($vote_feeds as $vote_feed)
+                                <li class="media">
+                                    {{--头像--}}
+                                    <div class="media-left">
+                                        <a href="{{ route('web.users.show', $vote_feed->user->id) }}">
+                                            <img src="{{ avatar_min($vote_feed->user->avatar) }}"
+                                                 alt="{{ $vote_feed->user->name }}" class="media-object feed-avatar">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-content">
+                                            <a href="{{ route('web.users.show', 1) }}">{{ $vote_feed->user->name }}</a>
+                                            : {{ $vote_feed->content }}
+                                        </div>
+                                        <div class="media-action">
+                                            <span class="timeago">{{ $vote_feed->created_at }}</span>
+                                            <span class="pull-right feed-tool">
                                         <a href="#">
                                             <i class="glyphicon glyphicon-comment"></i>
-                                            12
+                                            {{ $vote_feed->rep_count }}
                                         </a>
                                         <a href="#" class="vote up">
                                             <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
+                                            {{ $vote_feed->vote_up_count }}
                                         </a>
                                     </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 谁用过windows10的linux子系统，爽不爽？
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-09 10:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            7
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            25
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 有没有办法更改用户名？
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-01-08 15:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            1
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            7
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>暂时没有小伙伴发表说说哦~</p>
+                    @endif
                 </div>
             </div>
             {{--热门说说--}}
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
-                    <h3 class="panel-title">
-                        热门说说
-                    </h3>
+                    热门说说
                 </div>
                 <div class="panel-body">
-                    <ul class="media-list">
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 我眉毛怎么样
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-08 22:34:04</span>
-                                    <span class="pull-right feed-tool">
+                    @if($hot_feeds->count())
+                        <ul class="media-list">
+                            @foreach($hot_feeds as $hot_feed)
+                                <li class="media">
+                                    {{--头像--}}
+                                    <div class="media-left">
+                                        <a href="{{ route('web.users.show', $hot_feed->user->id) }}">
+                                            <img src="{{ avatar_min($hot_feed->user->avatar) }}"
+                                                 alt="{{ $hot_feed->user->name }}" class="media-object feed-avatar">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-content">
+                                            <a href="{{ route('web.users.show', $hot_feed->user->id) }}">{{ $hot_feed->user->name }}</a>
+                                            : {{ $hot_feed->content }}
+                                        </div>
+                                        <div class="media-action">
+                                            <span class="timeago">{{ $hot_feed->created_at }}</span>
+                                            <span class="pull-right feed-tool">
                                         <a href="#">
                                             <i class="glyphicon glyphicon-comment"></i>
-                                            12
+                                            {{ $hot_feed->rep_count }}
                                         </a>
                                         <a href="#" class="vote up">
                                             <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            15
+                                            {{ $hot_feed->vote_up_count }}
                                         </a>
                                     </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 谁用过windows10的linux子系统，爽不爽？
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-02-09 10:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            7
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            25
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 有没有办法更改用户名？
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2017-01-08 15:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            1
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            7
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="media">
-                            {{--头像--}}
-                            <div class="media-left">
-                                <a href="{{ route('web.users.show', 1) }}">
-                                    <img src="http://phphub5.app/uploads/avatars/1_1486722253.png?imageView2/1/w/380/h/380"
-                                         alt="" class="media-object feed-avatar">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <div class="media-content">
-                                    <a href="{{ route('web.users.show', 1) }}">串猪神</a>
-                                    : 人生中有两道菜是必须吃的，一道是吃苦，一道是吃亏。
-                                </div>
-                                <div class="media-action">
-                                    <span class="timeago">2016-01-08 15:34:04</span>
-                                    <span class="pull-right feed-tool">
-                                        <a href="#">
-                                            <i class="glyphicon glyphicon-comment"></i>
-                                            12
-                                        </a>
-                                        <a href="#" class="vote up">
-                                            <i class="glyphicon glyphicon-thumbs-up"></i>
-                                            100
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>暂时没有小伙伴发表说说哦~</p>
+                    @endif
                 </div>
             </div>
         </div>

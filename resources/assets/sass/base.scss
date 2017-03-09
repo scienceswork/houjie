@@ -197,8 +197,13 @@ span.timeago {
 
 // 广场聊天
 .feed-avatar {
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
+  padding: 2px;
+  border: #ddd solid 1px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  border-radius: 5px;
 }
 
 .feed-tool {
@@ -207,6 +212,9 @@ span.timeago {
   }
   .vote.up {
     margin-left: 6px;
+    &.active {
+      color: #5cb85c;
+    }
   }
 }
 
@@ -244,6 +252,22 @@ span.timeago {
   font-size: 12px;
   color: #999;
   margin: 10px 0;
+}
+
+.hint {
+  color: #999;
+  font-size: 12px;
+  em {
+    color: #D8582B;
+    font-style: normal;
+  }
+}
+
+.feed-list li .media {
+  margin: 5px 0 5px;
+  padding: 10px 0 0;
+  border-bottom: none;
+  border-top: #eee solid 1px;
 }
 
 // 酷站
@@ -846,4 +870,46 @@ span.timeago {
   bottom: 0;
   font-size: 12px;
   color: #999;
+}
+.ht-panel-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+  .active {
+    color: #D8582B;
+  }
+  .professional {
+    color: #3B6FBA;
+  }
+  .know {
+    color: #16A314;
+  }
+}
+.ht-panel-second-title {
+  font-size: 16px;
+  margin-top: 10px;
+}
+.feed {
+  .nano {
+    font-size: 12px;
+    line-height: 1.5em;
+    height: 300px;
+    word-break: break-all;
+    & > .nano-pane {
+      width: 6px;
+    }
+  }
+  .nano-content {
+    padding-right: 8px;
+  }
+  .media-object {
+    width: 38px;
+    height: 38px;
+    padding: 1px;
+    border: #ddd solid 1px;
+    border-radius: 4px;
+  }
+  .media {
+    border-bottom: #eee solid 1px !important;
+  }
 }
