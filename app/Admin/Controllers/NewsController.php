@@ -75,6 +75,7 @@ class NewsController extends Controller
         return Admin::grid(News::class, function (Grid $grid) {
 
             $grid->id('ID')->sortable();
+            $grid->column('author', '作者');
             $grid->column('title', '标题')->display(function ($title) {
                 return "<a href='" . route('web.news.show', $this->id) . "' target='_blank'>$title</a>";
             });
@@ -104,6 +105,7 @@ class NewsController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '新闻标题');
+            $form->text('author', '作者');
             $form->select('category_id', '分类')->options(getCategory());
             $form->image('cover', '封面图');
             $form->editor('content', '内容');
@@ -111,4 +113,9 @@ class NewsController extends Controller
             $form->display('updated_at', '更新时间');
         });
     }
+
+//    public function store()
+//    {
+//
+//    }
 }

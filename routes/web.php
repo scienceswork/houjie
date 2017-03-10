@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// 首页
+Route::get('/', 'HomeController@index')->name('home');
 
 // 认证服务
 Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
@@ -65,6 +64,7 @@ Route::get('privacy', 'PagesController@getPrivacy')->name('web.pages.privacy');
 // 发现
 Route::get('news', 'NewsController@index')->name('web.news.index');
 Route::get('news/{id}', 'NewsController@show')->name('web.news.show');
+Route::post('news/{id}', 'NewsController@reply')->name('web.news.reply');
 Route::get('news/{slug}', 'NewsController@category')->name('web.news.category');
 
 // 签到

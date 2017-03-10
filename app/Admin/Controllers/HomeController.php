@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Express;
 use App\Models\News;
+use App\Models\Topic;
 use App\Models\User;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Column;
@@ -34,7 +35,7 @@ class HomeController extends Controller
                 $row->column(3, new InfoBox('用户总数', 'users', 'aqua', '/admin/users', User::allUserCount()));
                 $row->column(3, new InfoBox('新闻总数', 'book', 'green', '/admin/news', News::allNewsCount()));
                 $row->column(3, new InfoBox('表白总数', 'pagelines', 'yellow', '/admin/express', Express::allExpressCount()));
-                $row->column(3, new InfoBox('Documents', 'file', 'red', '/admin/files', '698726'));
+                $row->column(3, new InfoBox('帖子总数', 'file', 'red', '/admin/files', Topic::allTopicCount()));
             });
 
             $content->row(function (Row $row) {

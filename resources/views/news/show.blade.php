@@ -20,7 +20,7 @@
                 <div class="panel-body" style="padding:20px;">
                     <h1 class="text-center news-title">{{ $news->title }}</h1>
                     <p class="text-center news-info">
-                        作者: 无敌的串猪神&nbsp;
+                        作者: {{ $news->author }}
                         发布于: <span class="timeago" data-toggle="tooltip" data-placement="top"
                                    data-original-title>{{ $news->created_at }}</span>&nbsp;
                         浏览: {{ $news->view_count }}次&nbsp;
@@ -94,6 +94,50 @@
                     </div>
                 </div>
             </div>
+            {{--评论表单--}}
+            <div class="box">
+                <p>
+                    <i class="glyphicon glyphicon-edit"></i>
+                    发表评论
+                </p>
+                <form action="{{ route('web.news.reply', $news->id) }}" class="form" method="post" novalidate="">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <textarea name="content" style="height: 100px;" class="form-control"
+                                  placeholder="@if(Auth::check()) 请文明用语~ @else 登录后才能发表评论哦~ @endif"
+                                  @if(!Auth::check()) disabled @endif></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="提交评论" @if(!Auth::check()) disabled @endif>
+                    </div>
+                </form>
+
+            </div>
+            {{--评论列表--}}
+            @if($replies->count())
+                @foreach($replies as $key => $reply)
+                    <div class="box">
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="{{ avatar_min($reply->user->avatar) }}"
+                                     style="width: 40px; height: 40px;padding:2px;border: 1px solid #999;">
+                            </div>
+                            <div class="media-body">
+                                <p class="media-title" style="margin: 0;font-weight: bold;">
+                                    {{ $reply->user->name }}
+                                    <span class="pull-right">第{{ $replies->count() - $key }}楼</span>
+                                </p>
+                                <p>
+                                    <span class="timeago">{{ $reply->created_at }}</span>
+                                </p>
+                            </div>
+                            <p style="margin: 0;">
+                                {{ $reply->content }}
+                            </p>
+                        </div>
+                    </div>
+                @endforeach
+            @endif
         </div>
         <div class="col-md-3">
             <div class="panel panel-default">

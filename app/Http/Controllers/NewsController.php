@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReplyNewsRequest;
 use App\Models\Category;
 use App\Models\News;
-use Illuminate\Http\Request;
+use App\Models\ReplyNews;
+use Session;
 
 class NewsController extends Controller
 {
@@ -39,7 +41,9 @@ class NewsController extends Controller
         $pre_news = News::where('id', '<', $news->id)->orderBy('id', 'desc')->first();
         // 查找下一篇
         $next_news = News::where('id', '>', $news->id)->orderBy('id', 'asc')->first();
-        return view('news.show', compact('news', 'views', 'lasts', 'pre_news', 'next_news'));
+        // 查找该文章的所有评论
+        $replies = ReplyNews::where('news_id', $id)->orderBy('id', 'desc')->get();
+        return view('news.show', compact('news', 'views', 'lasts', 'pre_news', 'next_news', 'replies'));
     }
 
     // 发现分类
@@ -49,5 +53,15 @@ class NewsController extends Controller
         $category = Category::where('slug', '=', $slug)->first();
         // 渲染视图
         return view('news.category', compact('category'));
+    }
+
+    public function reply(CreateReplyNewsRequest $request, $id)
+    {
+        // 创建评论
+        $request->createReplyNews($id);
+        // 设置闪存消息
+        Session::flash('success', '恭喜你评论成功~');
+        // 重定向路由
+        return redirect()->route('web.news.show', $id);
     }
 }

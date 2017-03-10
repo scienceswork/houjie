@@ -13,22 +13,22 @@
         </div>
         <div class="col-md-9 news-all">
             <div class="panel panel-default">
-                <div class="panel-heading panel-white">
-                    <ul class="list-inline news-nav">
-                        <li data-toggle="tooltip" data-placement="top" data-original-title="最后回复排序" title="">
-                            <a href="#" class="active">活跃</a>
-                        </li>
-                        <li>
-                            <a href="#">精华</a>
-                        </li>
-                        <li>
-                            <a href="#">最近</a>
-                        </li>
-                        <li>
-                            <a href="#">零回复</a>
-                        </li>
-                    </ul>
-                </div>
+                {{--<div class="panel-heading panel-white">--}}
+                    {{--<ul class="list-inline news-nav">--}}
+                        {{--<li data-toggle="tooltip" data-placement="top" data-original-title="最后回复排序" title="">--}}
+                            {{--<a href="#" class="active">活跃</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">精华</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">最近</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">零回复</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</div>--}}
                 <div class="panel-body remove-padding-horizontal">
                     @if($news)
                         <ul class="list-group row">

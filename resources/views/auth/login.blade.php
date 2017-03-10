@@ -7,7 +7,6 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
-                    {{--面包屑导航--}}
                     <div class="row">
                         <div class="col-md-12 panel-title">
                             <ul class="breadcrumb" style="font-size: 14px;">
@@ -16,6 +15,42 @@
                             </ul>
                         </div>
                     </div>
+                </div>
+                <div class="panel-body">
+                    <form role="form" method="POST" action="{{ route('auth.login.store') }}" class="form-horizontal">
+                        {{ csrf_field() }}
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-2 control-label">邮箱</label>
+                            <div class="col-md-6">
+                                <input class="form-control" name="email" type="email" placeholder="请填写电子邮箱">
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-2 control-label">密码</label>
+                            <div class="col-md-6">
+                                <input class="form-control" name="password" type="password" placeholder="请填写账户密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox col-md-6 col-md-offset-2">
+                                <label>
+                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}>
+                                    自动登录
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-2">
+                                <button type="submit" class="btn btn-primary">
+                                    登录
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('auth.password.reset') }}">
+                                    忘记密码
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -27,59 +62,9 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    后街胡同是一个专注于分享的社区。
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        账号登录
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <form role="form" method="POST" action="{{ route('auth.login.store') }}">
-                        {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="control-label">邮箱</label>
-                            <input class="form-control" name="email" type="email" placeholder="请填写电子邮箱">
-                            @if($errors->has('email'))
-                                <span class="help-block">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="control-label">密码</label>
-                            <input class="form-control" name="password" type="password" placeholder="请填写账户密码">
-                            @if($errors->has('password'))
-                                <span class="help-block">{{ $errors->first('password') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : ''}}>
-                                    记住登录状态
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">
-                                登录
-                            </button>
-
-                            <a class="btn btn-link" href="{{ route('auth.password.reset') }}">
-                                忘记密码
-                            </a>
-                        </div>
-                        <hr>
-                        <div class="form-group no-margin">
-                            <div class="alert alert-info no-margin">
-                                使用其他方式登录：
-                                <a href="#">微信登录</a>
-                            </div>
-                        </div>
-                    </form>
+                    <p class="text-indent">
+                        后街胡同——粤东地区最为活跃的大学生生活资讯社交平台。关注我们，校园资讯、新鲜趣闻、二手买卖、求职咨询、家教兼职、交友表白等应有尽有！
+                    </p>
                 </div>
             </div>
         </div>
