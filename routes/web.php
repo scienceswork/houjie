@@ -41,6 +41,11 @@ Route::get('users/{id}/edit_avatar', 'UsersController@editAvatar')->name('web.us
 Route::post('users/{id}/update_avatar', 'UsersController@updateAvatar')->name('web.users.update_avatar');
 Route::get('users/cool/{id}', 'UsersController@userCoolSite')->name('web.users.coolSite');
 
+// 验证邮箱
+//Route::get('verification/{token}', 'Auth\AuthController@getVerification');
+Route::get('/email-verification-required', 'UsersController@emailVerificationRequired')->name('email-verification-required');
+Route::post('/users/send-verification-mail', 'UsersController@sendVerificationMail')->name('users.send-verification-mail');
+
 // 聊天广场
 Route::get('feed', 'FeedController@index')->name('web.feed.index');
 Route::post('feed', 'FeedController@store')->name('web.feed.store');
@@ -77,9 +82,9 @@ Route::post('love/create', 'ExpressController@create')->name('web.express.create
 Route::get('love/search', 'ExpressController@search')->name('web.express.search');
 
 // 支付功能
-Route::Group(['namespace' => 'Money'], function () {
-    Route::get('pay', 'AlipayController@index')->name('web.alipay.pay');
-});
+//Route::Group(['namespace' => 'Money'], function () {
+//    Route::get('pay', 'AlipayController@index')->name('web.alipay.pay');
+//});
 
 // 教师在线
 Route::group(['prefix' => 'teacher'], function () {
@@ -91,4 +96,13 @@ Route::group(['prefix' => 'teacher'], function () {
     Route::post('topic/{id}', 'TeacherController@topicReplyStore')->name('web.teacher.topicReplyStore'); // 提交评论
     Route::get('create', 'TeacherController@create')->name('web.teacher.create');
     Route::post('create', 'TeacherController@store')->name('web.teacher.store');
+});
+
+// 社区
+Route::group(['prefix' => 'community'], function () {
+    Route::get('/', 'CommunityController@index')->name('web.community.index'); // 社区首页
+    Route::get('{id}', 'CommunityController@show')->name('web.community.show'); // 帖子展示
+    Route::post('{id}', 'CommunityController@replyStore')->name('web.community.replyStore'); // 提交评论
+    Route::get('create', 'CommunityController@create')->name('web.community.create'); // 发帖
+    Route::post('create', 'CommunityController@store')->name('web.community.store'); // 提交发帖
 });

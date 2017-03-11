@@ -194,6 +194,8 @@ return [
         \Ender\UEditor\UEditorServiceProvider::class,
         // 权限管理
         \Zizaco\Entrust\EntrustServiceProvider::class,
+        // 用户邮箱认证
+        \Jrean\UserVerification\UserVerificationServiceProvider::class,
     ],
 
     /*
@@ -243,6 +245,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'UEditor' => \Ender\UEditor\UEditor::class,
         'Entrust' => \Zizaco\Entrust\EntrustFacade::class,
+        'UserVerification' => \Jrean\UserVerification\Facades\UserVerification::class,
     ],
 
 ];

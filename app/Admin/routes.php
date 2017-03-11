@@ -21,4 +21,8 @@ Route::group([
     $router->resource('express', 'ExpressController');
     // 教师在线管理
     $router->resource('teacher', 'TeacherController');
+    // 教师在线帖子管理
+    $router->resource('topic', 'TopicController');
+    // 教师在线评论管理
+    $router->resource('replyTopic', 'ReplyTopicController');
 });

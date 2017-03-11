@@ -18,7 +18,7 @@ class NewsController extends Controller
         // 获取所有分类
         $categories = Category::getAllCategories();
         // 获得所有文章
-        $news = News::orderBy('id', 'desc')->paginate(10);;
+        $news = News::orderBy('id', 'desc')->paginate(15);
         // 渲染视图
         return view('news.index', compact('hots', 'categories', 'news'));
     }
@@ -51,8 +51,16 @@ class NewsController extends Controller
     {
         // 查找分类
         $category = Category::where('slug', '=', $slug)->first();
+        // 查找该分类下的所有文章
+        $news = News::where('category_id', $category->id)->paginate(15);
+        // 获取所有分类
+        $categories = Category::getAllCategories();
+        // 浏览排行前10
+        $view_news = News::where('category_id', $category->id)->orderBy('view_count')->limit(10)->get();
+        // 热议排行钱10
+        $reply_news = News::where('category_id', $category->id)->orderBy('reply_count')->limit(10)->get();
         // 渲染视图
-        return view('news.category', compact('category'));
+        return view('news.category', compact('category', 'news', 'categories', 'view_news', 'reply_news'));
     }
 
     public function reply(CreateReplyNewsRequest $request, $id)

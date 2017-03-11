@@ -143,10 +143,10 @@
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
                     <h3 class="panel-title">
-                        热门浏览
+                        热门资讯
                     </h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body hot-news">
                     @foreach($views as $view)
                         <p><a href="{{ route('web.news.show', $view->id) }}">{{ $view->title }}</a></p>
                     @endforeach
@@ -158,7 +158,7 @@
                         最新报道
                     </h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body hot-news">
                     @foreach($lasts as $last)
                         <p><a href="{{ route('web.news.show', $last->id) }}">{{ $last->title }}</a></p>
                     @endforeach

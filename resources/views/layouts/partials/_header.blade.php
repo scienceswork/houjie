@@ -20,8 +20,8 @@
                 <li class="{{ navViewActive('home') }}">
                     <a href="{{ route('home') }}">首页</a>
                 </li>
-                <li>
-                    <a href="#">社区</a>
+                <li class="{{ Request::is('community*') ? 'active' : '' }}">
+                    <a href="{{ route('web.community.index') }}">社区</a>
                 </li>
                 <li class="{{ Request::is('news*') ? 'active' : '' }}">
                     <a href="{{ route('web.news.index') }}">发现</a>

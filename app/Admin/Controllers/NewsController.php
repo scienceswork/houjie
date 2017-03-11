@@ -113,9 +113,4 @@ class NewsController extends Controller
             $form->display('updated_at', '更新时间');
         });
     }
-
-//    public function store()
-//    {
-//
-//    }
 }

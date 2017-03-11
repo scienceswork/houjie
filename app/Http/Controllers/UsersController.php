@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Jobs\SendActivateMail;
 use App\Models\CoolSite;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Session;
-use Illuminate\Support\MessageBag;
+use Auth;
+use Cache;
 
 class UsersController extends Controller
 {
@@ -141,5 +143,44 @@ class UsersController extends Controller
         $this->authorize('update', $user);
         // 渲染视图
         return view('users.editEmailNotify', compact('user'));
+    }
+
+    /**
+     * 未验证邮箱跳转地址
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
+    public function emailVerificationRequired()
+    {
+        // 已经验证则跳转到首页
+        if (\Auth::user()->verified) {
+            return redirect()->intended('/');
+        }
+        // 未验证则跳转到验证通知
+        return view('users.emailverificationrequired');
+    }
+
+
+    public function sendVerificationMail()
+    {
+        // 获取当前的用户
+        $user = Auth::user();
+        // 设置缓存键名
+        $cache_key = 'send_activite_mail_' . $user->id;
+        // 判断缓存中键值
+        if (Cache::has($cache_key)) {
+            return redirect()->route('home')->withErrors('邮件发送失败，你执行此操作过于频繁，请于 60 秒后重试');
+        } else {
+            // 如果用户没有验证，则发送邮件，并且保存键值到缓存中
+            if (!$user->verified) {
+                // 使用队列发送邮件
+                $this->dispatch(new SendActivateMail($user));
+                // 设置成功闪存消息
+                Session::flash('success', '验证邮件发送成功！请注意查收哦 ^_^');
+                // 成功发送后保存到缓存里，60秒内只能发送一次
+                Cache::put($cache_key, time() + 60, 1);
+            }
+        }
+        // 重定向路由
+        return redirect()->intended('/');
     }
 }

@@ -74,6 +74,17 @@
                             <i class="glyphicon glyphicon-leaf"></i>
                             最新在线
                         </div>
+                        <div class="panel-body hot-news">
+                            @if($topics->count())
+                                @foreach($topics as $topic)
+                                    <p>
+                                        <a href="{{ route('web.teacher.topicShow', $topic->id) }}">{{ $topic->name }}</a>
+                                    </p>
+                                @endforeach
+                            @else
+                                <p>暂时还没有教师在线帖子哦~</p>
+                            @endif
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -81,6 +92,17 @@
                         <div class="panel-heading panel-white">
                             <i class="glyphicon glyphicon-fire"></i>
                             十大热门新闻
+                        </div>
+                        <div class="panel-body hot-news">
+                            @if($news->count())
+                                @foreach($news as $new)
+                                    <p>
+                                        <a href="{{ route('web.news.show', $new->id) }}">{{ $new->title }}</a>
+                                    </p>
+                                @endforeach
+                            @else
+                                <p>管理员太懒了，还没有新闻哦~</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -140,7 +162,8 @@
                                                 <span class="timeago" data-toggle="tooltip" data-placement="top"
                                                       data-original-title>{{ $feed->created_at }}</span>
                                                     <span class="pull-right">
-                                                <i class="glyphicon glyphicon-comment"></i> {{ $feed->rep_count }} &nbsp;
+                                                <i class="glyphicon glyphicon-comment"></i> {{ $feed->rep_count }}
+                                                        &nbsp;
                                                 <i class="glyphicon glyphicon-thumbs-up"></i> {{ $feed->vote_up_count }}
                                             </span>
                                                 </div>
@@ -164,7 +187,15 @@
                     最新用户
                 </div>
                 <div class="panel-body">
-                    这里是最新注册的用户
+                    @if($users->count())
+                        @foreach($users as $user)
+                            <a data-toggle="tooltip" data-placement="top" data-original-title="{{ $user->name }}" href="{{ route('web.users.show', $user->id) }}" style="width: 50px;height:50px;display: inline-block;">
+                                <img style="width: 100%; height: 100%;padding:2px;" src="{{ avatar_min($user->avatar) }}" alt="{{ $user->name }}">
+                            </a>
+                        @endforeach
+                    @else
+                        <p>暂时没有用户注册哦~</p>
+                    @endif
                 </div>
             </div>
             {{--友情社区--}}

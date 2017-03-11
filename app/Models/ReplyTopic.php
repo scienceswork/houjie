@@ -19,4 +19,13 @@ class ReplyTopic extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 一条评论只能属于一个帖子
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
+    }
 }
