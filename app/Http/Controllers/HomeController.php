@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feed;
+use App\Models\Link;
 use App\Models\News;
 use App\Models\Topic;
 use App\Models\User;
@@ -35,7 +36,9 @@ class HomeController extends Controller
         $news = News::orderBy('view_count', 'desc')->limit(10)->get();
         // 最新注册的10个用户
         $users = User::orderBy('id', 'desc')->limit(10)->get();
+        // 获取友情链接
+        $links = Link::getAllLinks();
         // 渲染视图
-        return view('home', compact('feeds', 'topics', 'news', 'users'));
+        return view('home', compact('feeds', 'topics', 'news', 'users', 'links'));
     }
 }

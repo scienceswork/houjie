@@ -18,7 +18,7 @@ class CreateLinksTable extends Migration
             $table->string('title')->comment('友情链接名字');
             $table->string('link')->comment('友情链接URL');
             $table->boolean('is_closed')->default(false)->comment('是否关闭，默认为否');
-            $table->integer('order')->default(0)->comment('排序，越大越前，默认为0');
+            $table->integer('order')->default(0)->comment('排序，越小越前，默认为0');
             $table->timestamps();
         });
     }

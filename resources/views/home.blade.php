@@ -189,8 +189,11 @@
                 <div class="panel-body">
                     @if($users->count())
                         @foreach($users as $user)
-                            <a data-toggle="tooltip" data-placement="top" data-original-title="{{ $user->name }}" href="{{ route('web.users.show', $user->id) }}" style="width: 50px;height:50px;display: inline-block;">
-                                <img style="width: 100%; height: 100%;padding:2px;" src="{{ avatar_min($user->avatar) }}" alt="{{ $user->name }}">
+                            <a data-toggle="tooltip" data-placement="top" data-original-title="{{ $user->name }}"
+                               href="{{ route('web.users.show', $user->id) }}"
+                               style="width: 50px;height:50px;display: inline-block;">
+                                <img style="width: 100%; height: 100%;padding:2px;"
+                                     src="{{ avatar_min($user->avatar) }}" alt="{{ $user->name }}">
                             </a>
                         @endforeach
                     @else
@@ -204,7 +207,17 @@
                     友情社区
                 </div>
                 <div class="panel-body">
-                    怪客科学
+                    @if($links->count())
+                        <ul class="list-group">
+                            @foreach($links as $link)
+                                <li class="list-group-item">
+                                    <a href="{{ $link->link }}" target="_blank">{{ $link->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>管理员太孤独了，暂时没有友情链接哦~</p>
+                    @endif
                 </div>
             </div>
         </div>

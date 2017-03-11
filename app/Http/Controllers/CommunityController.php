@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\CreateReplyArticleRequest;
 use App\Models\Article;
+use App\Models\Link;
 use App\Models\ReplyArticle;
 use Session;
 
@@ -20,8 +21,10 @@ class CommunityController extends Controller
         $articles = Article::orderBy('id', 'desc')->get();
         // 热门话题，评论最高的前10条
         $hotArticles = Article::orderBy('rep_count', 'desc')->limit(10)->get();
+        // 查找所有友情链接
+        $links = Link::getAllLinks();
         // 渲染视图
-        return view('community.index', compact('articles', 'hotArticles'));
+        return view('community.index', compact('articles', 'hotArticles', 'links'));
     }
 
     /**

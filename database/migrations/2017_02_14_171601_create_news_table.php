@@ -18,7 +18,6 @@ class CreateNewsTable extends Migration
             $table->string('title')->comment('新闻标题');
             $table->integer('category_id')->unsigned()->comment('分类id');
             $table->string('author')->comment('作者');
-            $table->string('cover')->comment('新闻封面图');
             $table->text('content')->comment('新闻内容');
             $table->integer('view_count')->default(0)->comment('浏览次数');
             $table->integer('reply_count')->default(0)->comment('回复次数');

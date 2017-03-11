@@ -25,4 +25,11 @@ Route::group([
     $router->resource('topic', 'TopicController');
     // 教师在线评论管理
     $router->resource('replyTopic', 'ReplyTopicController');
+    // 友情链接
+    $router->resource('link', 'LinkController');
+    // 社区文章管理
+    $router->resource('article', 'ArticleController');
+    // 社区评论管理
+    $router->resource('comment_article', 'ReplyArticleController');
 });
+Admin::registerHelpersRoutes();

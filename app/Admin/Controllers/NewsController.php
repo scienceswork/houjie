@@ -42,8 +42,7 @@ class NewsController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('编辑文章');
 
             $content->body($this->form()->edit($id));
         });
@@ -59,7 +58,6 @@ class NewsController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('发表新闻');
-            $content->description('description');
 
             $content->body($this->form());
         });
@@ -73,7 +71,10 @@ class NewsController extends Controller
     protected function grid()
     {
         return Admin::grid(News::class, function (Grid $grid) {
-
+            // 禁用导出按钮
+            $grid->disableExport();
+            // 修改数据顺序
+            $grid->model()->orderBy('id', 'desc');
             $grid->id('ID')->sortable();
             $grid->column('author', '作者');
             $grid->column('title', '标题')->display(function ($title) {
@@ -103,11 +104,10 @@ class NewsController extends Controller
     {
         return Admin::form(News::class, function (Form $form) {
 
-            $form->display('id', 'ID');
+//            $form->display('id', 'ID');
             $form->text('title', '新闻标题');
             $form->text('author', '作者');
             $form->select('category_id', '分类')->options(getCategory());
-            $form->image('cover', '封面图');
             $form->editor('content', '内容');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');

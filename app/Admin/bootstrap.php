@@ -18,12 +18,12 @@
  *
  */
 
-use App\Admin\Extensions\WangEditor;
+use App\Admin\Extensions\uEditor;
 use Encore\Admin\Form;
 
 Encore\Admin\Form::forget(['map']);
 
-// 修改editor，记成wangEditor
-Form::extend('editor', WangEditor::class);
+// 修改editor，记成uEditor
+Form::extend('editor', uEditor::class);
 app('view')->prependNamespace('admin', resource_path('views/admin'));
 //app('translator')->addNamespace('admin', resource_path('lang/admin'));

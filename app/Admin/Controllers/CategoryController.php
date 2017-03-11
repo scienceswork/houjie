@@ -28,11 +28,7 @@ class CategoryController extends Controller
 
             $content->header('分类管理');
             $content->description('新闻分类管理');
-            $content->row(function (Row $row) {
-                $row->column(6, $this->tree());
-                $row->column(6, $this->form());
-            });
-//            $content->body($this->tree());
+            $content->body($this->tree());
         });
     }
 
@@ -46,8 +42,7 @@ class CategoryController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('编辑分类');
 
             $content->body($this->form()->edit($id));
         });
@@ -62,8 +57,7 @@ class CategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('新建分类');
 
             $content->body($this->form());
         });
@@ -99,8 +93,8 @@ class CategoryController extends Controller
             $form->select('parent_id', '父级')->options(Category::selectOptions());;
             $form->text('slug', '缩略名')->help('如: sport，缩略名必须唯一，用于检索文章');
             $form->textarea('description', '描述')->help('简单描述分类，非必填，如为SEO优化，请填写');
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->display('created_at', '创建时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 
@@ -113,7 +107,6 @@ class CategoryController extends Controller
         return Category::tree(function (Tree $tree) {
 
             $tree->branch(function ($branch) {
-                $src = config('admin.upload.host') . '/' ;
 
                 return "{$branch['id']} - {$branch['title']} | 文章总数:{$branch['news_count']}";
 

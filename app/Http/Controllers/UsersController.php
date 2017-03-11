@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Jobs\SendActivateMail;
+use App\Models\Article;
 use App\Models\CoolSite;
+use App\Models\Feed;
+use App\Models\ReplyArticle;
+use App\Models\VoteUpFeed;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
@@ -25,8 +29,15 @@ class UsersController extends Controller
     // 用户展示页
     public function show($id)
     {
+        // 查找某用户
         $user = User::findOrFail($id);
-        return view('users.show', compact('user'));
+        // 查找所发的文章10篇
+        $articles = Article::where('user_id', $id)->orderBy('id', 'desc')->limit(10)->get();
+        // 最新发布的广场聊天10条
+        $feeds = Feed::where('user_id', $id)->orderBy('id', 'desc')->limit(10)->get();
+        // 社区评论10条
+        $replies = ReplyArticle::where('user_id', $id)->orderBy('id', 'desc')->limit(10)->get();
+        return view('users.show', compact('user', 'articles', 'feeds', 'replies'));
     }
 
     // 用户申请的酷站
@@ -34,10 +45,66 @@ class UsersController extends Controller
     {
         // 查找用户申请的所有酷站
         $coolSites = CoolSite::where('user_id', $id)->get();
-//        dd($coolSites->count());
         // 查找用户
         $user = User::findOrFail($id);
         return view('users.coolSite', compact('user', 'coolSites'));
+    }
+
+    /**
+     * 发布的文章
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function article($id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 查找发布的所有文章
+        $articles = Article::where('user_id', $id)->paginate(20);
+        return view('users.article', compact('user', 'articles'));
+    }
+
+    /**
+     * 发布的话题
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function feed($id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 查找发布的话题
+        $feeds = Feed::where('user_id', $id)->orderBy('id', 'desc')->paginate(20);
+        // 渲染视图
+        return view('users.feed', compact('user', 'feeds'));
+    }
+
+    /**
+     * 赞过的话题
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function voteFeed($id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 查找赞过的话题
+        $votes = VoteUpFeed::where('user_id', $id)->orderBy('id', 'desc')->paginate(20);
+        // 渲染视图
+        return view('users.voteFeed', compact('user', 'votes'));
+    }
+
+    public function cool($id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 发布的酷站
+        $sites = CoolSite::where([
+            ['user_id', $id],
+            ['verified', true]
+        ])->orderBy('id', 'desc')->paginate(20);
+        // 渲染视图
+        return view('users.site', compact('user', 'sites'));
     }
 
     // 用户信息编辑

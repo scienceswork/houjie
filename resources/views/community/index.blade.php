@@ -67,7 +67,17 @@
                     友情社区
                 </div>
                 <div class="panel-body">
-
+                    @if($links->count())
+                        <ul class="list-group">
+                            @foreach($links as $link)
+                                <li class="list-group-item">
+                                    <a href="{{ $link->link }}" target="_blank">{{ $link->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>管理员太孤独了，暂时没有友情链接哦~</p>
+                    @endif
                 </div>
             </div>
         </div>

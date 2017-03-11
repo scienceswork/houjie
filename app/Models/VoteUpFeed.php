@@ -19,4 +19,13 @@ class VoteUpFeed extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 一条赞只能属于一个用户
+     * @return mixed
+     */
+    public function feed()
+    {
+        return $this->belongsTo(Feed::class);
+    }
 }

@@ -9,14 +9,15 @@
         "barryvdh/laravel-ide-helper": "^2.2",
         "encore/laravel-admin": "1.3.*",
         "ender/laravel-ueditor": "0.8.*",
+        "jrean/laravel-user-verification": "^3.0",
         "laravel/framework": "5.3.30",
         "latrell/alipay": "dev-master",
         "orangehill/iseed": "dev-master",
         "overtrue/laravel-wechat": "~3.0",
         "predis/predis": "1.0.*",
+        "spatie/eloquent-sortable": "^3.2",
         "zgldh/qiniu-laravel-storage": "^0.6.2",
-        "zizaco/entrust": "5.2.x-dev",
-        "jrean/laravel-user-verification": "^3.0"
+        "zizaco/entrust": "5.2.x-dev"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

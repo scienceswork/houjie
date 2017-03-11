@@ -19,4 +19,13 @@ class ReplyArticle extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 一条评论只能属于一篇文章
+     * @return mixed
+     */
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
 }
