@@ -41,6 +41,17 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="sex" class="col-md-2 control-label">性 别：</label>
+                            <div class="col-md-6">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox1" value="1" @if($user->sex == 1) checked @endif> 男
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="inlineCheckbox2" value="0" @if($user->sex == 0) checked @endif> 女
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="email" class="col-md-2 control-label">邮 箱：</label>
                             <div class="col-md-6">
                                 <input name="email" type="email" class="form-control" value="{{ $user->email }}" disabled>
