@@ -28,18 +28,22 @@
         {{--酷站，瀑布流--}}
         <div class="col-md-9">
             <div class="row masonry cool-list">
-                @foreach($coolSites as $coolSite)
-                    <div class="col-md-3 item">
-                        <div class="thumbnail">
-                            <a href="{{ route('web.cool.show', $coolSite->id) }}">
-                                <img src="{{ thumb($coolSite->img_url) }}" alt="">
-                            </a>
-                            <h2>
-                                <a href="{{ route('web.cool.show', $coolSite->id) }}">{{ $coolSite->name }}</a>
-                            </h2>
+                @if($coolSites->count())
+                    @foreach($coolSites as $coolSite)
+                        <div class="col-md-3 item">
+                            <div class="thumbnail">
+                                <a href="{{ route('web.cool.show', $coolSite->id) }}">
+                                    <img src="{{ thumb($coolSite->img_url) }}" alt="">
+                                </a>
+                                <h2>
+                                    <a href="{{ route('web.cool.show', $coolSite->id) }}">{{ $coolSite->name }}</a>
+                                </h2>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @else
+                    <p>还没有小伙伴发布酷站哦~</p>
+                @endif
             </div>
         </div>
         <div class="col-md-3">
@@ -60,7 +64,8 @@
                 <div class="panel-body">
                     <ul class="avatar-list">
                         @foreach($coolUsers as $coolUser)
-                            <li data-toggle="tooltip" data-placement="top" data-original-title="{{ $coolUser->user->name }}">
+                            <li data-toggle="tooltip" data-placement="top"
+                                data-original-title="{{ $coolUser->user->name }}">
                                 <a href="{{ route('web.users.show', $coolUser->user->id) }}">
                                     <img src="{{ avatar_min($coolUser->user->avatar) }}" alt="">
                                 </a>
