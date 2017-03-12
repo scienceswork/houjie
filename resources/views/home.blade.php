@@ -93,7 +93,7 @@
                                         @foreach($communities as $key => $community)
                                             @if($key % 2 == 0)
                                                 <p>
-                                                    <a href="{{ route('web.news.show', $community->id) }}">{{ $community->title }}</a>
+                                                    <a href="{{ route('web.community.show', $community->id) }}">{{ $community->title }}</a>
                                                 </p>
                                             @endif
                                         @endforeach
@@ -102,7 +102,7 @@
                                         @foreach($communities as $key => $community)
                                             @if($key % 2 != 0)
                                                 <p>
-                                                    <a href="{{ route('web.news.show', $community->id) }}">{{ $community->title }}</a>
+                                                    <a href="{{ route('web.community.show', $community->id) }}">{{ $community->title }}</a>
                                                 </p>
                                             @endif
                                         @endforeach
