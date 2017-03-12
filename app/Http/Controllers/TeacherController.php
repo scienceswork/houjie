@@ -117,8 +117,18 @@ class TeacherController extends Controller
         $teacher = Teacher::findOrFail($topic->teacher_id);
         // 获取帖子的所有回复
         $replies = ReplyTopic::where('topic_id', $id)->get();
+        // 查找热门帖子
+        $hot_topics = Topic::where([['teacher_id', $topic->teacher_id], ['is_close', false]])
+            ->orderBy('rep_count', 'desc')
+            ->limit(10)
+            ->get();
+        // 在线热议榜
+        $hots = Topic::where('is_close', false)
+            ->orderBy('rep_count', 'desc')
+            ->limit(10)
+            ->get();
         // 渲染视图
-        return view('teacher.topicShow', compact('teacher', 'topic', 'replies'));
+        return view('teacher.topicShow', compact('teacher', 'topic', 'replies', 'hot_topics', 'hots'));
     }
 
 
