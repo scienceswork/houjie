@@ -12,6 +12,13 @@ use DB;
 
 class FeedController extends Controller
 {
+    // 使用中间件来限制页面访问规则
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => [
+            'index'
+        ]]);
+    }
     /**
      * 广场聊天首页
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

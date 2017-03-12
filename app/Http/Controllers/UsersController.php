@@ -13,17 +13,18 @@ use App\Models\VoteUpFeed;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
+use Jrean\UserVerification\Traits\VerifiesUsers;
 use Session;
 use Auth;
 use Cache;
 
 class UsersController extends Controller
 {
-    // 使用中间件来限制页面反问规则
+    // 使用中间件来限制页面访问规则
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'show'
+            'show', 'article', 'feed', 'voteFeed', 'cool'
         ]]);
     }
     // 用户展示页
@@ -38,16 +39,6 @@ class UsersController extends Controller
         // 社区评论10条
         $replies = ReplyArticle::where('user_id', $id)->orderBy('id', 'desc')->limit(10)->get();
         return view('users.show', compact('user', 'articles', 'feeds', 'replies'));
-    }
-
-    // 用户申请的酷站
-    public function userCoolSite($id)
-    {
-        // 查找用户申请的所有酷站
-        $coolSites = CoolSite::where('user_id', $id)->get();
-        // 查找用户
-        $user = User::findOrFail($id);
-        return view('users.coolSite', compact('user', 'coolSites'));
     }
 
     /**
@@ -94,6 +85,11 @@ class UsersController extends Controller
         return view('users.voteFeed', compact('user', 'votes'));
     }
 
+    /**
+     * 申请的酷站
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function cool($id)
     {
         // 查找用户
@@ -226,7 +222,10 @@ class UsersController extends Controller
         return view('users.emailverificationrequired');
     }
 
-
+    /**
+     * 发送邮箱激活
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function sendVerificationMail()
     {
         // 获取当前的用户
@@ -239,8 +238,10 @@ class UsersController extends Controller
         } else {
             // 如果用户没有验证，则发送邮件，并且保存键值到缓存中
             if (!$user->verified) {
-                // 使用队列发送邮件
-                $this->dispatch(new SendActivateMail($user));
+                // 发送邮件
+                sendActivateMail($user);
+
+//                $this->dispatch(new SendActivateMail($user));
                 // 设置成功闪存消息
                 Session::flash('success', '验证邮件发送成功！请注意查收哦 ^_^');
                 // 成功发送后保存到缓存里，60秒内只能发送一次
@@ -248,6 +249,6 @@ class UsersController extends Controller
             }
         }
         // 重定向路由
-        return redirect()->intended('/');
+        return redirect()->route('home');
     }
 }

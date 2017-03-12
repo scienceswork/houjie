@@ -19,7 +19,7 @@ class TeacherController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'index'
+            'index', 'show', 'topicShow'
         ]]);
     }
 
@@ -31,8 +31,13 @@ class TeacherController extends Controller
     {
         // 查找所有通过审核并且没有被封禁的教师在线
         $teachers = Teacher::where([['is_pass', true], ['is_close', false]])->get();
+        // 查找热门教师在线10个
+        $hot_teachers = Teacher::where([['is_pass', true], ['is_close', false]])
+            ->orderBy('articles_count', 'desc')
+            ->limit(10)
+            ->get();
         // 渲染模板
-        return view('teacher.index', compact('teachers'));
+        return view('teacher.index', compact('teachers', 'hot_teachers'));
     }
 
     /**
@@ -54,9 +59,21 @@ class TeacherController extends Controller
             ['is_close', false]
         ])->first();
         // 查找该教师在线分类下所有的帖子
-        $topics = Topic::where([['teacher_id', $id], ['is_close', false]])->orderBy('id', 'desc')->paginate(10);
+        $topics = Topic::where([['teacher_id', $id], ['is_close', false]])
+            ->orderBy('id', 'desc')
+            ->paginate(10);
+        // 查找热门帖子
+        $hot_topics = Topic::where([['teacher_id', $id], ['is_close', false]])
+            ->orderBy('rep_count', 'desc')
+            ->limit(10)
+            ->get();
+        // 在线热议榜
+        $hots = Topic::where('is_close', false)
+            ->orderBy('rep_count', 'desc')
+            ->limit(10)
+            ->get();
         // 渲染视图
-        return view('teacher.show', compact('teacher', 'topics'));
+        return view('teacher.show', compact('teacher', 'topics', 'hot_topics', 'hots'));
     }
 
     /**

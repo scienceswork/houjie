@@ -43,22 +43,22 @@
                 </li>
             </ul>
             <!-- 搜索框 -->
-            <form class="navbar-form navbar-left" action="#">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="搜索你感兴趣的内容">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </form>
+            {{--<form class="navbar-form navbar-left" action="#">--}}
+                {{--<div class="input-group">--}}
+                    {{--<input type="text" class="form-control" placeholder="搜索你感兴趣的内容">--}}
+                    {{--<span class="input-group-btn">--}}
+                        {{--<button class="btn btn-default" type="button">--}}
+                            {{--<i class="glyphicon glyphicon-search"></i>--}}
+                        {{--</button>--}}
+                    {{--</span>--}}
+                {{--</div>--}}
+            {{--</form>--}}
             <ul class="nav navbar-nav navbar-right">
-                <li class="hidden-xs">
-                    <button type="button" class="btn btn-default navbar-btn" id="question">
-                        提问
-                    </button>
-                </li>
+                {{--<li class="hidden-xs">--}}
+                    {{--<a href="{{ route('web.community.create') }}" type="button" class="btn btn-default navbar-btn" id="question">--}}
+                        {{--发布文章--}}
+                    {{--</a>--}}
+                {{--</li>--}}
             @if(Auth::check())
                 <!-- 已登录 -->
                     <li class="dropdown">
@@ -75,12 +75,12 @@
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-calendar"></i>
-                                    我的签到
-                                </a>
-                            </li>
+                            {{--<li>--}}
+                                {{--<a href="#">--}}
+                                    {{--<i class="glyphicon glyphicon-calendar"></i>--}}
+                                    {{--我的签到--}}
+                                {{--</a>--}}
+                            {{--</li>--}}
                             <li>
                                 <a href="{{ route('web.users.edit', Auth::user()->id) }}">
                                     <i class="glyphicon glyphicon-cog"></i>

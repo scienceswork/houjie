@@ -24,21 +24,21 @@
                 </div>
                 <div class="panel-body site-content">
                     <ul>
-                        <li>
-                            <strong>电话：</strong>0769-33554401
-                        </li>
-                        <li>
-                            <strong>传真：</strong>0769-33554401
-                        </li>
+                        {{--<li>--}}
+                            {{--<strong>电话：</strong>0769-33554401--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<strong>传真：</strong>0769-33554401--}}
+                        {{--</li>--}}
                         <li>
                             <strong>邮箱：</strong>261864844@qq.com
                         </li>
-                        <li>
-                            <strong>服务热线：</strong>400-998-5212
-                        </li>
-                        <li>
-                            <strong>QQ交流群：</strong>2227533225
-                        </li>
+                        {{--<li>--}}
+                            {{--<strong>服务热线：</strong>400-998-5212--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<strong>QQ交流群：</strong>2227533225--}}
+                        {{--</li>--}}
                         <li>
                             <strong>地址：</strong>深圳市福田区华强北街道赛格科技园4栋西9楼A座A19
                         </li>

@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="teacher-num">
                                                 <p>
-                                                    <i class="glyphicon glyphicon-user"></i> {{ $teacher->member_count }}
+                                                    {{--<i class="glyphicon glyphicon-user"></i> {{ $teacher->member_count }}--}}
                                                     &nbsp;&nbsp;
                                                     <i class="glyphicon glyphicon-comment"></i> {{ $teacher->articles_count }}
                                                 </p>
@@ -87,51 +87,25 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <ul class="teacher-ul">
-                        <li>
-                            <a href="#">
-                                <strong>猫咪吧</strong>
-                                <span class="badge">推荐</span>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-comment"></i> 60534
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <strong>佘老师吧</strong>
-                                <span class="badge">推荐</span>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-comment"></i> 10234
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <strong>lolita吧</strong>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-comment"></i> 8365
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <strong>串猪神吧</strong>
-                                <span class="badge">推荐</span>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-comment"></i> 980
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <strong>数据分析吧</strong>
-                                <span class="pull-right">
-                                    <i class="glyphicon glyphicon-comment"></i> 980
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
+                    @if($hot_teachers->count())
+                        <ul class="teacher-ul">
+                            @foreach($hot_teachers as $hot_teacher)
+                                <li>
+                                    <a href="{{ route('web.teacher.show', $hot_teacher->id) }}">
+                                        <strong>{{ $hot_teacher->name }}</strong>
+                                        @if($hot_teacher->is_recommend)
+                                            <span class="badge">推荐</span>
+                                        @endif
+                                        <span class="pull-right">
+                                            <i class="glyphicon glyphicon-comment"></i> {{ $teacher->articles_count }}
+                                        </span>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @else
+                        <p>暂时还没有教师发布了教师在线哦~</p>
+                    @endif
                 </div>
             </div>
         </div>

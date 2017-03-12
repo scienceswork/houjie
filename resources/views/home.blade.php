@@ -5,13 +5,6 @@
 @endsection
 
 @section('body')
-    {{--判断邮箱是否激活，未激活不可使用平台--}}
-    @if(Auth::check() && !Auth::user()->verified)
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            该邮箱未激活，请前往 {{ Auth::user()->email }} 查收激活邮件，激活后才能完整地使用后街胡同功能。如果未收到邮件，请前往 <a href="#">重发邮件</a> 。
-        </div>
-    @endif
     <div class="row">
         <div class="col-md-9">
             <div class="row">
@@ -56,14 +49,30 @@
                                 更多»
                             </a>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body hot-news">
                             <div class="row">
-                                <div class="col-md-6">
-                                    1
-                                </div>
-                                <div class="col-md-6">
-                                    2
-                                </div>
+                                @if($new_news->count())
+                                    <div class="col-md-6" style="border-right: 1px solid #eee;">
+                                        @foreach($new_news as $key => $new)
+                                            @if($key % 2 == 0)
+                                                <p>
+                                                    <a href="{{ route('web.news.show', $new->id) }}">{{ $new->title }}</a>
+                                                </p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="col-md-6">
+                                        @foreach($new_news as $key => $new)
+                                            @if($key % 2 != 0)
+                                                <p>
+                                                    <a href="{{ route('web.news.show', $new->id) }}">{{ $new->title }}</a>
+                                                </p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <p>暂时没有新闻发布哦~</p>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -110,17 +119,17 @@
         </div>
         <div class="col-md-3">
             {{--签到--}}
-            <div class="btn-group btn-group-full">
-                <a href="#" class="btn btn-success" id="sign">
-                    <i class="glyphicon glyphicon-calendar" style="font-size: 30px;float: left;margin-top: 3px;"></i>
-                    点此处签到<br>
-                    签到有好礼
-                </a>
-                <a href="#" class="btn btn-primary">
-                    {{ date('Y年m月d日') }}<br>
-                    已有180人签到
-                </a>
-            </div>
+            {{--<div class="btn-group btn-group-full">--}}
+                {{--<a href="#" class="btn btn-success" id="sign">--}}
+                    {{--<i class="glyphicon glyphicon-calendar" style="font-size: 30px;float: left;margin-top: 3px;"></i>--}}
+                    {{--点此处签到<br>--}}
+                    {{--签到有好礼--}}
+                {{--</a>--}}
+                {{--<a href="#" class="btn btn-primary">--}}
+                    {{--{{ date('Y年m月d日') }}<br>--}}
+                    {{--已有180人签到--}}
+                {{--</a>--}}
+            {{--</div>--}}
             {{--聊天广场--}}
             <div class="panel panel-default">
                 <div class="panel-heading panel-white">
@@ -131,15 +140,7 @@
                 </div>
                 <div class="panel-body">
                     {{--发布说说--}}
-                    <form action="#">
-                        {{ csrf_field() }}
-                        <div class="form-group input-group">
-                            <textarea name="feed" class="form-control" placeholder="说点什么吧..."></textarea>
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-success">发布</button>
-                            </span>
-                        </div>
-                    </form>
+                    @include('feed.partials._form')
                     {{--聊天列表--}}
                     <div class="feed">
                         <div class="nano">
@@ -161,11 +162,11 @@
                                                 <div class="media-action">
                                                 <span class="timeago" data-toggle="tooltip" data-placement="top"
                                                       data-original-title>{{ $feed->created_at }}</span>
-                                                    <span class="pull-right">
-                                                <i class="glyphicon glyphicon-comment"></i> {{ $feed->rep_count }}
-                                                        &nbsp;
-                                                <i class="glyphicon glyphicon-thumbs-up"></i> {{ $feed->vote_up_count }}
-                                            </span>
+                                                    {{--<span class="pull-right">--}}
+                                                {{--<i class="glyphicon glyphicon-comment"></i> {{ $feed->rep_count }}--}}
+                                                        {{--&nbsp;--}}
+                                                {{--<i class="glyphicon glyphicon-thumbs-up"></i> {{ $feed->vote_up_count }}--}}
+                                            {{--</span>--}}
                                                 </div>
                                             </div>
                                         </li>

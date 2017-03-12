@@ -33,6 +33,18 @@ class TeacherController extends Controller
     }
 
     /**
+     * 教师在线
+     * @return \Encore\Admin\Content
+     */
+    public function show_teacher()
+    {
+        return Admin::content(function (Content $content) {
+            $content->header('教师在线');
+            $content->body($this->show_grid());
+        });
+    }
+
+    /**
      * Edit interface.
      *
      * @param $id

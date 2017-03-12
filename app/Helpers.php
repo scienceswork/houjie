@@ -71,8 +71,6 @@ function getTree($data, $parent_id = 0, $count = 1)
 function sendActivateMail(\App\Models\User $user) {
     // 生成token，并且将verify设置成false
     \Jrean\UserVerification\Facades\UserVerification::generate($user);
-    // 得到token
-    $token = $user->verification_token;
     // 发送邮件
-    \Jrean\UserVerification\Facades\UserVerification::send($user);
+    \Jrean\UserVerification\Facades\UserVerification::send($user, '请验证您的邮箱');
 }

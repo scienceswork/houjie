@@ -11,15 +11,15 @@
                 </p>
             </div>
             <div class="col-md-6 col-md-offset-1">
-                <div class="col-md-4">
-                    <h4>赞助商</h4>
-                </div>
-                <div class="col-md-4">
-                    <h4>关注我们</h4>
-                </div>
-                <div class="col-md-4">
-                    <h4>社区资源</h4>
-                </div>
+                {{--<div class="col-md-4">--}}
+                    {{--<h4>赞助商</h4>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4">--}}
+                    {{--<h4>关注我们</h4>--}}
+                {{--</div>--}}
+                {{--<div class="col-md-4">--}}
+                    {{--<h4>社区资源</h4>--}}
+                {{--</div>--}}
             </div>
         </div>
     </div>

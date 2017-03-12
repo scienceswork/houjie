@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Sign;
 use Illuminate\Http\Request;
 use Auth;
-
 class SignController extends Controller
 {
     // 签到全部需要登录
@@ -13,7 +10,6 @@ class SignController extends Controller
     {
         $this->middleware('auth');
     }
-
     // 签到
     public function sign()
     {

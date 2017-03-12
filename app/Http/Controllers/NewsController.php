@@ -10,6 +10,14 @@ use Session;
 
 class NewsController extends Controller
 {
+    // 使用中间件来限制页面访问规则
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => [
+            'index', 'show', 'category'
+        ]]);
+    }
+
     // 发现首页
     public function index()
     {

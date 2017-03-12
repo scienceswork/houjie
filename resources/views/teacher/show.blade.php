@@ -59,7 +59,7 @@
                     @endif
                 </div>
                 {{--判断是否有分页的存在--}}
-                @if($topics->lastPage() != 1)
+                @if($topics->hasPages())
                     <div class="panel-footer text-right">
                         {{ $topics->links() }}
                     </div>

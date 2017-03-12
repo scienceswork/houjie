@@ -39,13 +39,13 @@
                                    data-original-title>{{ $news->created_at }}</span>&nbsp;
                         所属分类：<a href="#">{{ $news->category->title }}</a>
                     </p>
-                    <p class="page-declare">
-                        标签：
-                        <a href="#" class="label label-primary">auth</a>
-                        <a href="#" class="label label-primary">Laravel</a>
-                        <a href="#" class="label label-primary">异常处理</a>
-                        <a href="#" class="label label-primary">认证</a>
-                    </p>
+                    {{--<p class="page-declare">--}}
+                        {{--标签：--}}
+                        {{--<a href="#" class="label label-primary">auth</a>--}}
+                        {{--<a href="#" class="label label-primary">Laravel</a>--}}
+                        {{--<a href="#" class="label label-primary">异常处理</a>--}}
+                        {{--<a href="#" class="label label-primary">认证</a>--}}
+                    {{--</p>--}}
                 </div>
             </div>
             <div class="box">

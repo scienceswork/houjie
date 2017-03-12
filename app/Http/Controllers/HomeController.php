@@ -12,16 +12,6 @@ use Jrean\UserVerification\Facades\UserVerification;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
@@ -38,7 +28,9 @@ class HomeController extends Controller
         $users = User::orderBy('id', 'desc')->limit(10)->get();
         // 获取友情链接
         $links = Link::getAllLinks();
+        // 查找最新的动态10条
+        $new_news = News::orderBy('id', 'desc')->limit(10)->get();
         // 渲染视图
-        return view('home', compact('feeds', 'topics', 'news', 'users', 'links'));
+        return view('home', compact('feeds', 'topics', 'news', 'users', 'links', 'new_news'));
     }
 }

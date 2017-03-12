@@ -26,13 +26,9 @@ class SendActivateMail implements ShouldQueue
 
     /**
      * 发送激活邮件
-     * @param Mailer $mailer
      */
-    public function handle(Mailer $mailer)
+    public function handle()
     {
-        $user = $this->user;
-        $mailer->send('emails.reminder', ['user' => $user], function($message) use ($user){
-            $message->to($user->email)->subject('新功能发布');
-        });
+        sendActivateMail($this->user);
     }
 }
