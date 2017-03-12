@@ -45,7 +45,7 @@
                         <div class="panel-heading panel-white">
                             <i class="glyphicon glyphicon-share"></i>
                             最新动态
-                            <a href="#" class="pull-right">
+                            <a href="{{ route('web.news.index') }}" class="pull-right">
                                 更多»
                             </a>
                         </div>
