@@ -23,20 +23,20 @@
                             <p>
                                 后街胡同 自带了 丰富的功能，包括 情书，教师在线，新闻，用户发帖，酷站展示，广场聊天，签到等，可大大丰富大学生的高校生活，便捷地找到你想要的资讯。
                             </p>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <a href="#" class="btn btn-danger">使用教程</a>
-                                    <a href="/protocol" class="btn btn-success">用户协议</a>
-                                    <a href="#" class="btn btn-primary">商务合作</a>
-                                </div>
-                                <div class="col-md-7">
-                                    <p>
-                                        <span class="pull-right">
-                                            v1.0.1版发布于2017年03月10日
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
+                            {{--<div class="row">--}}
+                                {{--<div class="col-md-5">--}}
+                                    {{--<a href="#" class="btn btn-danger">使用教程</a>--}}
+                                    {{--<a href="/protocol" class="btn btn-success">用户协议</a>--}}
+                                    {{--<a href="#" class="btn btn-primary">商务合作</a>--}}
+                                {{--</div>--}}
+                                {{--<div class="col-md-7">--}}
+                                    {{--<p>--}}
+                                        {{--<span class="pull-right">--}}
+                                            {{--v1.0.1版发布于2017年03月10日--}}
+                                        {{--</span>--}}
+                                    {{--</p>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
@@ -72,6 +72,43 @@
                                     </div>
                                 @else
                                     <p style="margin: 0 15px;">暂时没有新闻发布哦~</p>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading panel-white">
+                            <i class="glyphicon glyphicon-erase"></i>
+                            热门帖子
+                            <a href="{{ route('web.community.index') }}" class="pull-right">
+                                更多»
+                            </a>
+                        </div>
+                        <div class="panel-body hot-news">
+                            <div class="row">
+                                @if($communities->count())
+                                    <div class="col-md-6" style="border-right: 1px solid #eee;">
+                                        @foreach($communities as $key => $community)
+                                            @if($key % 2 == 0)
+                                                <p>
+                                                    <a href="{{ route('web.news.show', $community->id) }}">{{ $community->title }}</a>
+                                                </p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="col-md-6">
+                                        @foreach($communities as $key => $community)
+                                            @if($key % 2 != 0)
+                                                <p>
+                                                    <a href="{{ route('web.news.show', $community->id) }}">{{ $community->title }}</a>
+                                                </p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <p style="margin: 0 15px;">暂时没有帖子发布哦~</p>
                                 @endif
                             </div>
                         </div>

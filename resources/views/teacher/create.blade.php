@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4 help-block">
-                                支持：*.jpg, *.jpeg. *.png
+                                如：教师资格证
                             </div>
                         </div>
                         {{--教师在线描述--}}

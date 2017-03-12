@@ -243,7 +243,7 @@ class UsersController extends Controller
 
 //                $this->dispatch(new SendActivateMail($user));
                 // 设置成功闪存消息
-                Session::flash('success', '验证邮件发送成功！请注意查收哦 ^_^');
+                Session::flash('success', '验证邮件发送成功！请注意查收哦 ^_^（邮件可能被识别为垃圾邮件，请注意查收哦 ）');
                 // 成功发送后保存到缓存里，60秒内只能发送一次
                 Cache::put($cache_key, time() + 60, 1);
             }

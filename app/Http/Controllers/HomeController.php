@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Feed;
 use App\Models\Link;
 use App\Models\News;
@@ -30,7 +31,9 @@ class HomeController extends Controller
         $links = Link::getAllLinks();
         // 查找最新的动态10条
         $new_news = News::orderBy('id', 'desc')->limit(10)->get();
+        // 社区热门
+        $communities = Article::orderBy('rep_count', 'desc')->limit(10)->get();
         // 渲染视图
-        return view('home', compact('feeds', 'topics', 'news', 'users', 'links', 'new_news'));
+        return view('home', compact('feeds', 'topics', 'news', 'users', 'links', 'new_news', 'communities'));
     }
 }
