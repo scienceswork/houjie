@@ -26,9 +26,9 @@ class CoolSite extends Model
      */
     public static function getAllUser()
     {
-        $users = Cache::remember('houjie_cool_user', 1440, function () {
-            return self::select('user_id')->distinct('user_id')->get();
-        });
-        return $users;
+//        $users = Cache::remember('houjie_cool_user', 1440, function () {
+        return self::select('user_id')->distinct('user_id')->get();
+//        });
+//        return $users;
     }
 }

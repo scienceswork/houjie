@@ -23,10 +23,10 @@ class Category extends Model
     // 获取所有分类，缓存时间约为60分钟
     public static function getAllCategories()
     {
-        $data = Cache::remember('houjie_all_categories', 60, function () {
+//        $data = Cache::remember('houjie_all_categories', 60, function () {
             return self::orderBy('order', 'asc')->get();
-        });
+//        });
 
-        return $data;
+//        return $data;
     }
 }

@@ -18,10 +18,10 @@ class News extends Model
     // 获取热门浏览文章，缓存时间为10分钟
     public static function getHotNews()
     {
-        $data = Cache::remember('houjie_hot_news', 10, function () {
+//        $data = Cache::remember('houjie_hot_news', 10, function () {
             return self::orderBy('view_count', 'desc')->limit(10)->get();
-        });
-        return $data;
+//        });
+//        return $data;
     }
 
     /**
@@ -30,8 +30,8 @@ class News extends Model
      */
     public static function allNewsCount()
     {
-        return Cache::remember('houjie_all_news_count', 30, function () {
+//        return Cache::remember('houjie_all_news_count', 30, function () {
             return self::all()->count();
-        });
+//        });
     }
 }

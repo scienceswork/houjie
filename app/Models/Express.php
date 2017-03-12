@@ -26,8 +26,8 @@ class Express extends Model
      */
     public static function allExpressCount()
     {
-        return Cache::remember('houjie_all_express_count', 30, function () {
+//        return Cache::remember('houjie_all_express_count', 30, function () {
             return self::all()->count();
-        });
+//        });
     }
 }

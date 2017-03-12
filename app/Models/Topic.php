@@ -41,8 +41,8 @@ class Topic extends Model
     public static function allTopicCount()
     {
         // 缓存时间约为60分钟，每30分钟更新一次用户总数
-        return Cache::remember('houjie_all_topic_count', 30, function () {
+//        return Cache::remember('houjie_all_topic_count', 30, function () {
             return self::all()->count();
-        });
+//        });
     }
 }

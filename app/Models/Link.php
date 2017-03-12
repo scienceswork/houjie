@@ -29,11 +29,11 @@ class Link extends Model implements Sortable
     public static function getAllLinks()
     {
         // 使用缓存
-        $links = Cache::remember('houjie_all_links', 60, function () {
+//        $links = Cache::remember('houjie_all_links', 60, function () {
             // 获取所有正常的友情链接
             return self::where('is_closed', false)->orderBy('order', 'asc')->get();
-        });
+//        });
         // 返回数据
-        return $links;
+//        return $links;
     }
 }
