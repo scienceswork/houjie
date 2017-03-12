@@ -5,7 +5,7 @@
 @section('javascript')
     @parent
     {{--通过七牛cdn引入瀑布流布局js文件--}}
-    <script src="http://jq22.qiniudn.com/masonry-docs.min.js"></script>
+    <script src="{{ asset('masonry-docs.min.js') }}"></script>
     <script src="http://apps.bdimg.com/libs/imagesloaded/3.0.4/imagesloaded.pkgd.js"></script>
     <script>
         $(function () {
