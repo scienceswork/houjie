@@ -42,7 +42,11 @@
                         </div>
                     @endforeach
                 @else
-                    <p>还没有小伙伴发布酷站哦~</p>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p>还没有小伙伴发布酷站哦~</p>
+                        </div>
+                    </div>
                 @endif
             </div>
         </div>
