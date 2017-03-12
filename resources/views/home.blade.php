@@ -157,7 +157,7 @@
                                             </div>
                                             <div class="media-body">
                                                 <div class="media-content">
-                                                    <a href="#">{{ $feed->user->name }}</a>: {{ $feed->content }}
+                                                    <a href="{{ route('web.users.show', $feed->user_id) }}">{{ $feed->user->name }}</a>: {{ $feed->content }}
                                                 </div>
                                                 <div class="media-action">
                                                 <span class="timeago" data-toggle="tooltip" data-placement="top"
