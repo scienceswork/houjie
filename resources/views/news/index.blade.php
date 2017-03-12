@@ -60,11 +60,15 @@
                     热门资讯
                 </div>
                 <div class="panel-body hot-news">
-                    @foreach($hots as $hot)
-                        <p>
-                            <a href="{{ route('web.news.show', $hot->id) }}">{{ $hot->title }}</a>
-                        </p>
-                    @endforeach
+                    @if($hots->count())
+                        @foreach($hots as $hot)
+                            <p>
+                                <a href="{{ route('web.news.show', $hot->id) }}">{{ $hot->title }}</a>
+                            </p>
+                        @endforeach
+                    @else
+                        <p>管理员太懒啦，还暂时没有资讯~</p>
+                    @endif
                 </div>
             </div>
         </div>
