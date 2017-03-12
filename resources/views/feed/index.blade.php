@@ -166,7 +166,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p>暂时没有小伙伴发表说说哦~</p>
+                        <p style="margin-bottom: 0;">暂时没有小伙伴发表说说哦~</p>
                     @endif
                 </div>
             </div>
