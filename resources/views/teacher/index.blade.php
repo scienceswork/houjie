@@ -55,7 +55,7 @@
                             @endforeach
                         </div>
                     @else
-                        <p style="margin-bottom: 0;">暂时还没有教师发布了教师在线哦~</p>
+                        <p>暂时还没有教师发布了教师在线哦~</p>
                     @endif
                 </div>
             </div>
