@@ -43,11 +43,11 @@
                         <div class="form-group">
                             <label for="sex" class="col-md-2 control-label">性 别：</label>
                             <div class="col-md-6">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox1" value="1" @if($user->sex == 1) checked @endif> 男
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="1" @if($user->sex == 1) checked @endif> 男
                                 </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" id="inlineCheckbox2" value="0" @if($user->sex == 0) checked @endif> 女
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" value="2" @if($user->sex == 2) checked @endif> 女
                                 </label>
                             </div>
                         </div>

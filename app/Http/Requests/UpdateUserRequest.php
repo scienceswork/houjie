@@ -8,7 +8,8 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateUserRequest extends FormRequest
 {
     public $allow_fields = [
-        'name', 'real_name', 'phone', 'school', 'student_id', 'introduction'
+        'name', 'real_name', 'phone', 'school', 'student_id',
+        'introduction', 'sex'
     ];
 
     /**

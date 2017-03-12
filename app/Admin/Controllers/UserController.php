@@ -69,8 +69,10 @@ class UserController extends Controller
             $grid->column('sex', '性别')->display(function ($sex) {
                 if ($sex == 1) {
                     return '<span class="label label-success">男</span>';
-                } else if ($sex == 0) {
+                } else if ($sex == 2) {
                     return '<span class="label label-danger">女</span>';
+                } else {
+                    return '<span class="label label-info">保密</span>';
                 }
             })->sortable();;
             $grid->column('phone', '手机号');
@@ -118,7 +120,7 @@ class UserController extends Controller
                 $form->email('email', '邮箱')->rules('required');
                 $form->switch('sex', '性别')->states([
                     'on' => ['value' => 1, 'text' => '男', 'color' => 'success'],
-                    'off' => ['value' => 0, 'text' => '女', 'color' => 'danger']
+                    'off' => ['value' => 2, 'text' => '女', 'color' => 'danger']
                 ]);
                 $form->textarea('introduction', '个人简介');
                 $form->display('created_at', '注册时间');
