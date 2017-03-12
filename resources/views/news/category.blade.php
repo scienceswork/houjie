@@ -15,7 +15,7 @@
         <div class="col-md-9 news-all">
             <div class="panel panel-default">
                 <div class="panel-body remove-padding-horizontal">
-                    @if($news)
+                    @if($news->count())
                         <ul class="list-group row">
                             @foreach($news as $new)
                                 <li class="list-group-item ">

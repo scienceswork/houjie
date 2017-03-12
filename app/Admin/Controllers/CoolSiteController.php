@@ -97,7 +97,7 @@ class CoolSiteController extends Controller
     {
         return Admin::grid(CoolSite::class, function (Grid $grid) {
             // 只显示未审核的酷站，且按照申请日期降序
-            $grid->model()->where('verified', false)->orderBy('id', 'desc');
+            $grid->model()->orderBy('id', 'desc');
             $grid->id('ID')->sortable();
             $grid->user()->name('申请人');
             $grid->column('name', '酷站名称')->display(function ($name) {
