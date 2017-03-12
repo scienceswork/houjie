@@ -19,13 +19,13 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
     Route::get('login', 'LoginController@showLoginForm')->name('auth.login');
     Route::post('login', 'LoginController@login')->name('auth.login.store');
     Route::post('logout', 'LoginController@logout')->name('auth.logout');
-    Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('auth.password.email');
-    Route::post('password/reset', 'ResetPasswordController@reset')->name('auth.password.reset.store');
-    Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('auth.password.reset');
-    Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('auth.password.reset.token');
     Route::get('register', 'RegisterController@showRegistrationForm')->name('auth.register');
     Route::post('register', 'RegisterController@register')->name('auth.register.store');
 });
+Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('auth.password.email');
+Route::post('password/reset', 'ResetPasswordController@reset')->name('auth.password.reset.store');
+Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('auth.password.reset');
+Route::get('password/reset/{token}', 'ResetPasswordController@showResetForm')->name('auth.password.reset.token');
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index');
