@@ -91,7 +91,7 @@
                                     </p>
                                 @endforeach
                             @else
-                                <p>暂时还没有教师在线帖子哦~</p>
+                                <p style="margin-bottom: 0;">暂时还没有教师在线帖子哦~</p>
                             @endif
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                                     </p>
                                 @endforeach
                             @else
-                                <p>管理员太懒了，还没有新闻哦~</p>
+                                <p style="margin-bottom: 0;">管理员太懒了，还没有新闻哦~</p>
                             @endif
                         </div>
                     </div>
