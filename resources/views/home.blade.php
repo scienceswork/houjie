@@ -71,7 +71,7 @@
                                         @endforeach
                                     </div>
                                 @else
-                                    <p>暂时没有新闻发布哦~</p>
+                                    <p style="margin: 0 15px;">暂时没有新闻发布哦~</p>
                                 @endif
                             </div>
                         </div>
