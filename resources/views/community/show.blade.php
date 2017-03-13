@@ -24,7 +24,9 @@
                         点击：<span>{{ $article->view_count }}</span>&nbsp;&nbsp;
                         回复：<span>{{ $article->rep_count }}</span>
                     </p>
-                    {!! $article->content !!}
+                    <div class="news-content">
+                        {!! $article->content !!}
+                    </div>
                 </div>
             </div>
             {{--评论--}}
