@@ -88,20 +88,20 @@
                     <p>
                         {{ $article->user->introduction }}
                     </p>
-                    <hr>
-                    <div class="follow-info row text-center">
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">180<br>关注者</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">25<br>粉丝</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">1<br>文章</a>
-                        </div>
-                    </div>
-                    <hr>
-                    <a href="#" class="btn btn-primary text-center btn-block">关注TA</a>
+                    {{--<hr>--}}
+                    {{--<div class="follow-info row text-center">--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">180<br>关注者</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">25<br>粉丝</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">1<br>文章</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<hr>--}}
+                    {{--<a href="#" class="btn btn-primary text-center btn-block">关注TA</a>--}}
                 </div>
             </div>
         </div>

@@ -326,7 +326,9 @@ span.timeago {
 
 .news-content {
   max-width: 100%;
-  width: auto \9
+  width: auto \9;
+  word-wrap:break-word;
+  word-break:break-all;
 ;
   // 修改段落样式
   p {

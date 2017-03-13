@@ -303,6 +303,8 @@ span.timeago {
 .news-content {
   max-width: 100%;
   width: auto \9;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .news-content p {
