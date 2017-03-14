@@ -30,7 +30,21 @@ class CreateArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|between:3,255',
+            'content' => 'required|min:3',
+            'category_id' => 'required|exists:category_community,id'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => '标题为必填项',
+            'title.between' => '标题长度在3~255之间',
+            'content.required' => '内容为必填项',
+            'content.min' => '内容长度威少为3',
+            'category_id.required' => '分类为必填项',
+            'category_id.exists' => '请选择正确的分类'
         ];
     }
 

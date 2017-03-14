@@ -37,6 +37,8 @@
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        {{--引入错误信息提示--}}
+                        @include('layouts.partials._errors')
                         <form action="{{ route('web.community.store') }}" method="post">
                             {{ csrf_field() }}
                             <div class="form-group">
