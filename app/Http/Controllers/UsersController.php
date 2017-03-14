@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ResetPasswordRequest;
+use App\Http\Requests\UpdateAvatarRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Jobs\SendActivateMail;
 use App\Models\Article;
@@ -177,7 +178,7 @@ class UsersController extends Controller
     }
 
     // 修改头像提交
-    public function updateAvatar(Request $request, $id)
+    public function updateAvatar(UpdateAvatarRequest $request, $id)
     {
         // 查找用户
         $user = User::findOrFail($id);

@@ -15,6 +15,8 @@
                     </h3>
                 </div>
                 <div class="panel-body">
+                    {{--引入错误信息提示--}}
+                    @include('layouts.partials._errors')
                     <form action="{{ route('web.users.update_avatar', $user->id) }}" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
                         {{ csrf_field() }}
                         <p>请选择头像：</p>

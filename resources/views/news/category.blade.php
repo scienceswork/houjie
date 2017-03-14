@@ -35,7 +35,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p style="margin: 0;">管理员太懒啦，还暂时没有资讯~</p>
+                        <p style="margin: 15px 0;">管理员太懒啦，还暂时没有资讯~</p>
                     @endif
                 </div>
                 {{--判断是否有分页--}}
