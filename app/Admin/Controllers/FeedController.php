@@ -45,7 +45,7 @@ class FeedController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
+            $content->header('编辑说说');
             $content->description('description');
 
             $content->body($this->form()->edit($id));
@@ -61,8 +61,7 @@ class FeedController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('创建说说');
 
             $content->body($this->form());
         });
@@ -108,9 +107,9 @@ class FeedController extends Controller
         return Admin::form(Feed::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->textarea('content', '聊天内容');
+            $form->display('created_at', '发布时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 

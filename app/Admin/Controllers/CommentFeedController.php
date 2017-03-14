@@ -44,8 +44,8 @@ class CommentFeedController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('header');
-            $content->description('description');
+            $content->header('修改评论');
+//            $content->description('description');
 
             $content->body($this->form()->edit($id));
         });
@@ -105,9 +105,9 @@ class CommentFeedController extends Controller
         return Admin::form(ReplyFeed::class, function (Form $form) {
 
             $form->display('id', 'ID');
-
-            $form->display('created_at', 'Created At');
-            $form->display('updated_at', 'Updated At');
+            $form->textarea('content', '评论内容');
+            $form->display('created_at', '评论时间');
+            $form->display('updated_at', '更新时间');
         });
     }
 
