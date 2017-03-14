@@ -52,7 +52,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 visible-lg-block">
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
                 发布酷站
             </a>
