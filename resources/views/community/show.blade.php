@@ -31,6 +31,8 @@
             </div>
             {{--评论--}}
             <div class="box">
+                {{--引入错误信息提示--}}
+                @include('layouts.partials._errors')
                 <p>
                     <i class="glyphicon glyphicon-edit"></i>
                     发表评论

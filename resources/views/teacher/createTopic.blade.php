@@ -37,17 +37,20 @@
         </div>
         <div class="col-md-8">
             <div class="alert alert-warning">
-                我们希望 后街胡同 能够成为拥有浓厚健康氛围的校园社区，而实现这个目标，需要我们所有人的共同努力：友善，公平，尊重知识和事实。请严格遵守 - <a href="https://laravel-china.org/topics/3022">社区发帖和管理规范</a>
+                我们希望 后街胡同 能够成为拥有浓厚健康氛围的校园社区，而实现这个目标，需要我们所有人的共同努力：友善，公平，尊重知识和事实。请严格遵守 - <a
+                        href="https://laravel-china.org/topics/3022">社区发帖和管理规范</a>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    {{--引入错误信息提示--}}
+                    @include('layouts.partials._errors')
                     <form action="{{ route('web.teacher.topicStore', $teacher->id) }}" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <input name="name" type="text" class="form-control" placeholder="请填写标题">
                         </div>
                         <div class="form-group">
-                            <script type='text/plain'  id='ueditor' name='content' class='ueditor'></script>
+                            <script type='text/plain' id='ueditor' name='content' class='ueditor'></script>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="发布">

@@ -31,7 +31,14 @@ class CreateReplyTopicRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'reply' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'reply.required' => '评论内容不能为空'
         ];
     }
 

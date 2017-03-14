@@ -30,7 +30,14 @@ class CreateReplyArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'content' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'content.required' => '评论内容不能为空'
         ];
     }
 

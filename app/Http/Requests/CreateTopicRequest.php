@@ -22,15 +22,24 @@ class CreateTopicRequest extends FormRequest
         return true;
     }
 
+    public function rules()
+    {
+        return [
+            'name' => 'required',
+            'content' => 'required'
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules()
+    public function messages()
     {
         return [
-            //
+            'name.required' => '标题不能为空',
+            'content.required' => '内容不能为空'
         ];
     }
 
