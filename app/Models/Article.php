@@ -18,4 +18,13 @@ class Article extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * 一篇文章只能有一个分类
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category()
+    {
+        return $this->belongsTo(CategoryCommunity::class, 'category_id');
+    }
 }

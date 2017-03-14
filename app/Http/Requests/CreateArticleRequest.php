@@ -3,13 +3,14 @@
 namespace App\Http\Requests;
 
 use App\Models\Article;
+use App\Models\CategoryCommunity;
 use Illuminate\Foundation\Http\FormRequest;
 use Auth;
 
 class CreateArticleRequest extends FormRequest
 {
     protected $allow_fields = [
-        'title', 'content'
+        'title', 'content', 'category_id'
     ];
     /**
      * Determine if the user is authorized to make this request.
@@ -41,6 +42,10 @@ class CreateArticleRequest extends FormRequest
         $data['user_id'] = Auth::id();
         // 创建文章
         $article = Article::create($data);
+        // 文章所在分类自增+1
+        $category = CategoryCommunity::find($data['category_id']);
+        // 自增
+        $category->increment('news_count');
         // 返回数据
         return $article;
     }

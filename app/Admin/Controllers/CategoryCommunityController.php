@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Category;
+use App\Models\CategoryCommunity;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Tree;
 
-class CategoryController extends Controller
+class CategoryCommunityController extends Controller
 {
     use ModelForm;
 
@@ -26,7 +26,8 @@ class CategoryController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('分类管理');
-            $content->description('新闻分类管理');
+            $content->description('社区发文分类管理，文章分类请不要随意删除！');
+
             $content->body($this->tree());
         });
     }
@@ -41,7 +42,7 @@ class CategoryController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
 
-            $content->header('编辑分类');
+            $content->header('修改分类');
 
             $content->body($this->form()->edit($id));
         });
@@ -56,7 +57,7 @@ class CategoryController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('新建分类');
+            $content->header('新增分类');
 
             $content->body($this->form());
         });
@@ -69,8 +70,11 @@ class CategoryController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Category::class, function (Grid $grid) {
-
+        return Admin::grid(CategoryCommunity::class, function (Grid $grid) {
+            // 修改数据来源
+            
+            // 禁用导出按钮
+            $grid->disableExport();
             $grid->id('ID')->sortable();
 
             $grid->created_at();
@@ -85,11 +89,11 @@ class CategoryController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Category::class, function (Form $form) {
+        return Admin::form(CategoryCommunity::class, function (Form $form) {
 
             $form->display('id', 'ID');
             $form->text('title', '名称')->help('如: 韩师新闻，分类名称必须唯一，用于定义新闻分类');
-            $form->select('parent_id', '父级')->options(Category::selectOptions());;
+            $form->select('parent_id', '父级')->options(CategoryCommunity::selectOptions());;
             $form->text('slug', '缩略名')->help('如: sport，缩略名必须唯一，用于检索文章');
             $form->textarea('description', '描述')->help('简单描述分类，非必填，如为SEO优化，请填写');
             $form->display('created_at', '创建时间');
@@ -97,13 +101,10 @@ class CategoryController extends Controller
         });
     }
 
-    /**
-     * 分类树状图
-     * @return Tree
-     */
-    protected function tree()
+
+    public function tree()
     {
-        return Category::tree(function (Tree $tree) {
+        return CategoryCommunity::tree(function (Tree $tree) {
 
             $tree->branch(function ($branch) {
 
@@ -113,5 +114,4 @@ class CategoryController extends Controller
 
         });
     }
-
 }

@@ -8,7 +8,8 @@
         <div class="col-md-12">
             <ul class="breadcrumb">
                 <li><a href="{{ route('home') }}">首页</a></li>
-                <li class="active">社区</li>
+                <li><a href="{{ route('web.community.index') }}">社区</a></li>
+                <li class="active">{{ $category->title }}</li>
             </ul>
         </div>
         <div class="col-md-9 news-all">
@@ -28,8 +29,6 @@
                                     </a>
                                     <div>
                                         <a href="{{ route('web.community.show', $article->id) }}" class="new-title">
-                                            <span class="label label-default hidden-xs"
-                                                  style="position: relative;top: -1px;font-size:12px;font-weight: normal;background-color: #e5e5e5;color: #999;padding: .2em .6em .3em;    box-sizing: border-box;">{{ $article->category->title }}</span>
                                             {{ $article->title }}
                                         </a>
                                     </div>
@@ -37,7 +36,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <p>还暂时没有帖子哦~</p>
+                        <p style="margin: 15px 0;">还暂时没有帖子哦~</p>
                     @endif
                 </div>
                 {{--判断是否有分页--}}

@@ -106,6 +106,7 @@ Route::group(['prefix' => 'community'], function () {
     Route::get('/', 'CommunityController@index')->name('web.community.index'); // 社区首页
     Route::get('{id}', 'CommunityController@show')->name('web.community.show'); // 帖子展示
     Route::post('{id}', 'CommunityController@replyStore')->name('web.community.replyStore'); // 提交评论
+    Route::get('c/{id}', 'CommunityController@category')->name('web.community.category'); // 社区分类
     Route::get('create', 'CommunityController@create')->name('web.community.create')->middleware('verified_email');; // 发帖
     Route::post('create', 'CommunityController@store')->name('web.community.store')->middleware('verified_email');; // 提交发帖
 });

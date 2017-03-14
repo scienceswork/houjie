@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateArticleRequest;
 use App\Http\Requests\CreateReplyArticleRequest;
 use App\Models\Article;
+use App\Models\CategoryCommunity;
 use App\Models\Link;
 use App\Models\ReplyArticle;
 use Session;
@@ -15,7 +16,7 @@ class CommunityController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => [
-            'index', 'show'
+            'index', 'show', 'category'
         ]]);
     }
     /**
@@ -25,13 +26,15 @@ class CommunityController extends Controller
     public function index()
     {
         // 查找所有的帖子
-        $articles = Article::orderBy('id', 'desc')->get();
+        $articles = Article::orderBy('id', 'desc')->paginate(20);
         // 热门话题，评论最高的前10条
         $hotArticles = Article::orderBy('rep_count', 'desc')->limit(10)->get();
         // 查找所有友情链接
         $links = Link::getAllLinks();
+        // 查找所有分类
+        $categories = CategoryCommunity::all();
         // 渲染视图
-        return view('community.index', compact('articles', 'hotArticles', 'links'));
+        return view('community.index', compact('articles', 'hotArticles', 'links', 'categories'));
     }
 
     /**
@@ -40,7 +43,9 @@ class CommunityController extends Controller
      */
     public function create()
     {
-        return view('community.create');
+        // 查找所有分类
+        $categories = CategoryCommunity::all();
+        return view('community.create', compact('categories'));
     }
 
     /**
@@ -75,6 +80,12 @@ class CommunityController extends Controller
         return view('community.show', compact('article', 'replies'));
     }
 
+    /**
+     * 提交评论
+     * @param CreateReplyArticleRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function replyStore(CreateReplyArticleRequest $request, $id)
     {
         // 创建评论
@@ -83,5 +94,20 @@ class CommunityController extends Controller
         Session::flash('success', '恭喜你评论成功~');
         // 重定向路由
         return redirect()->route('web.community.show', $id);
+    }
+
+    public function category($id)
+    {
+        // 查找分类
+        $category = CategoryCommunity::findOrFail($id);
+        // 查找分类下的文章
+        $articles = Article::where('category_id', $id)->orderBy('id', 'desc')->paginate(20);
+        // 热门话题，评论最高的前10条
+        $hotArticles = Article::where('category_id', $id)->orderBy('rep_count', 'desc')->limit(10)->get();
+        // 查找所有友情链接
+        $links = Link::getAllLinks();
+        // 查找所有分类
+        $categories = CategoryCommunity::all();
+        return view('community.category', compact('category', 'articles', 'hotArticles', 'links', 'categories'));
     }
 }
