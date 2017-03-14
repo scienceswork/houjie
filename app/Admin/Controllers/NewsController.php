@@ -107,7 +107,7 @@ class NewsController extends Controller
 //            $form->display('id', 'ID');
             $form->text('title', '新闻标题');
             $form->text('author', '作者');
-            $form->select('category_id', '分类')->options(getCategory());
+            $form->select('category_id', '分类')->options(getComCategory());
             $form->editor('content', '内容');
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');

@@ -53,6 +53,17 @@ function getCategory()
     return $categories;
 }
 
+function getComCategory()
+{
+    $all = \App\Models\CategoryCommunity::all()->toArray();
+    $categories = [];
+    // 循环组装
+    foreach ($all as $category) {
+        $categories[$category['id']] = $category['title'];
+    }
+    return $categories;
+}
+
 function getTree($data, $parent_id = 0, $count = 1)
 {
     // 定义静态变量，使用递归实现取出树结构
