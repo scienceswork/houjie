@@ -5,8 +5,8 @@ namespace App\Admin\Controllers;
 use App\Admin\Extensions\DeleteRow;
 use App\Admin\Extensions\EditRow;
 use App\Models\Feed;
-
 use App\Models\ReplyFeed;
+
 use App\Models\VoteUpFeed;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -15,7 +15,7 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 
-class FeedController extends Controller
+class CommentFeedController extends Controller
 {
     use ModelForm;
 
@@ -28,9 +28,8 @@ class FeedController extends Controller
     {
         return Admin::content(function (Content $content) {
 
-            $content->header('聊天管理');
-            $content->description('管理广场聊天');
-
+            $content->header('评论管理');
+            $content->description('管理广场说说评论');
             $content->body($this->grid());
         });
     }
@@ -75,7 +74,7 @@ class FeedController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(Feed::class, function (Grid $grid) {
+        return Admin::grid(ReplyFeed::class, function (Grid $grid) {
             // 修改数据来源
             $grid->model()->orderBy('id', 'desc');
             // 禁用创建按钮
@@ -90,11 +89,9 @@ class FeedController extends Controller
                 $actions->append(new DeleteRow($actions->getResource(), $actions->getKey()));
             });
             $grid->id('ID')->sortable();
-            $grid->user()->name('发布者');
-            $grid->column('content', '说说内容');
-            $grid->column('vote_up_count', '点赞数');
-            $grid->column('rep_count', '评论数');
-            $grid->created_at('发布时间');
+            $grid->user()->name('评论人');
+            $grid->column('content', '评论内容');
+            $grid->created_at('评论时间');
         });
     }
 
@@ -105,7 +102,7 @@ class FeedController extends Controller
      */
     protected function form()
     {
-        return Admin::form(Feed::class, function (Form $form) {
+        return Admin::form(ReplyFeed::class, function (Form $form) {
 
             $form->display('id', 'ID');
 
@@ -126,12 +123,13 @@ class FeedController extends Controller
             // 使用事务来删除
             \DB::transaction(function () use ($that, $id) {
                 // 删除该数据
-                $feed = Feed::find($id);
-                // 删除评论
-                ReplyFeed::where('feed_id', $id)->delete();
-                // 删除点赞
-                VoteUpFeed::where('feed_id', $id)->delete();
-                $feed->delete();
+                $reply = ReplyFeed::find($id);
+                // 说说留言数-1
+                $feed = Feed::find($reply->feed_id);
+                // 减1
+                $feed->rep_count--;
+                $feed->save();
+                $reply->delete();
 
             });
             return response()->json([

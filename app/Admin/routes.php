@@ -35,5 +35,7 @@ Route::group([
     $router->resource('category_community', 'CategoryCommunityController');
     // 广场说说
     $router->resource('feed', 'FeedController');
+    // 说说评论管理
+    $router->resource('comment_feed', 'CommentFeedController');
 });
 Admin::registerHelpersRoutes();
