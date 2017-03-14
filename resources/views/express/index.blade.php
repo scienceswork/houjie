@@ -78,7 +78,7 @@
                     type: 1,
                     title: false, // 不显示标题栏
                     closeBtn: false, // 不显示关闭按钮
-                    area: '520px;',
+//                    area: '520px;',
                     id: 'LAY_layuipro',//设定一个id，防止重复弹出
                     resize: false,
                     btn: ['立即表白', '还没想好'],
