@@ -5,6 +5,10 @@
                 <i class="glyphicon glyphicon-tasks"></i>
                 &nbsp;个人信息
             </a>
+            <a href="{{ route('web.users.community', $user->id) }}" class="list-group-item {{ navViewActive('web.users.community') }}">
+                <i class="glyphicon glyphicon-folder-close"></i>
+                &nbsp;我的社区
+            </a>
             <a href="{{ route('web.users.edit_avatar', $user->id) }}" class="list-group-item {{ navViewActive('web.users.edit_avatar') }}">
                 <i class="glyphicon glyphicon-picture"></i>
                 &nbsp;修改头像

@@ -6,6 +6,7 @@ use App\Admin\Extensions\DeleteRow;
 use App\Admin\Extensions\EditRow;
 use App\Models\Article;
 
+use App\Models\CategoryCommunity;
 use App\Models\ReplyArticle;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -126,9 +127,16 @@ class ArticleController extends Controller
             // 使用事务来删除
             \DB::transaction(function () use ($that, $id) {
                 // 删除该数据
-                $that->form()->destroy($id);
-                // 删除文章的评论
+                $article = Article::find($id);
+                // 删除评论
                 ReplyArticle::where('article_id', $id)->delete();
+                // 分类文章数-1
+                $category = CategoryCommunity::find($article->category_id);
+                // 减1
+                $category->news_count--;
+                $category->save();
+                $article->delete();
+
             });
             return response()->json([
                 'status' => true,

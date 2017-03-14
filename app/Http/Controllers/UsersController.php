@@ -6,6 +6,7 @@ use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Jobs\SendActivateMail;
 use App\Models\Article;
+use App\Models\CategoryCommunity;
 use App\Models\CoolSite;
 use App\Models\Feed;
 use App\Models\ReplyArticle;
@@ -250,5 +251,54 @@ class UsersController extends Controller
         }
         // 重定向路由
         return redirect()->route('home');
+    }
+
+    /**
+     * 我的社区
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function community($id)
+    {
+        // 查找用户
+        $user = User::findOrFail($id);
+        // 检测是否有权限修改
+        $this->authorize('update', $user);
+        // 查找用户的所有帖子
+        $articles = Article::where('user_id', $id)->orderBy('id', 'desc')->get();
+        // 渲染视图
+        return view('users.community', compact('articles', 'user'));
+    }
+
+
+    public function del($id)
+    {
+        // 查找文章
+        $article = Article::findOrFail($id);
+        // 判断是否有权限修改
+        $this->authorize('update', $article);
+        // 使用事务来删除
+        try {
+            // 使用事务来删除
+            \DB::transaction(function () use ($id) {
+                // 删除该数据
+                $article = Article::find($id);
+                // 删除评论
+                ReplyArticle::where('article_id', $id)->delete();
+                // 分类文章数-1
+                $category = CategoryCommunity::find($article->category_id);
+                // 减1
+                $category->news_count--;
+                $category->save();
+                $article->delete();
+
+            });
+            // 删除成功
+            Session::flash('success', '恭喜你删帖成功');
+            return redirect()->route('web.users.community', Auth::id());
+        } catch (\Exception $e) {
+            // 删除失败
+            return redirect()->route('web.users.community', Auth::id());
+        }
     }
 }

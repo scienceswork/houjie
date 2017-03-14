@@ -82,6 +82,12 @@
                                 {{--</a>--}}
                             {{--</li>--}}
                             <li>
+                                <a href="{{ route('web.users.community', Auth::user()->id) }}">
+                                    <i class="glyphicon glyphicon-folder-close"></i>
+                                    我的社区
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('web.users.edit', Auth::user()->id) }}">
                                     <i class="glyphicon glyphicon-cog"></i>
                                     账户设置

@@ -32,7 +32,9 @@ Route::get('/home', 'HomeController@index');
 
 // 用户
 Route::get('users/{id}', 'UsersController@show')->name('web.users.show');
+Route::get('users/{id}/community', 'UsersController@community')->name('web.users.community');
 Route::get('users/{id}/article', 'UsersController@article')->name('web.users.article');
+Route::get('users/{id}/article/del', 'UsersController@del')->name('web.users.articleDel');
 Route::get('users/{id}/feed', 'UsersController@feed')->name('web.users.feed');
 Route::get('users/{id}/vote_feed', 'UsersController@voteFeed')->name('web.users.vote');
 Route::get('users/{id}/cool', 'UsersController@cool')->name('web.users.cool');

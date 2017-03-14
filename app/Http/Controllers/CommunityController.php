@@ -96,6 +96,11 @@ class CommunityController extends Controller
         return redirect()->route('web.community.show', $id);
     }
 
+    /**
+     * 分类
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function category($id)
     {
         // 查找分类
