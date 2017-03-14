@@ -9,8 +9,10 @@
     <script src="http://apps.bdimg.com/libs/imagesloaded/3.0.4/imagesloaded.pkgd.js"></script>
     <script>
         $(function () {
-            $('.masonry').masonry({
-                itemSelector: '.item'
+            $('.masonry').imagesLoaded(function () {
+                $('.masonry').masonry({
+                    itemSelector: '.item'
+                });
             });
         });
     </script>
@@ -52,7 +54,7 @@
                 @endif
             </div>
         </div>
-        <div class="col-md-3 visible-lg-block">
+        <div class="col-md-3">
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;">
                 发布酷站
             </a>
