@@ -53,6 +53,10 @@ function getCategory()
     return $categories;
 }
 
+/**
+ * 获取社区分类
+ * @return array
+ */
 function getComCategory()
 {
     $all = \App\Models\CategoryCommunity::all()->toArray();

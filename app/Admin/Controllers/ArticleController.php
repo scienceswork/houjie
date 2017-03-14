@@ -110,7 +110,7 @@ class ArticleController extends Controller
     {
         return Admin::form(Article::class, function (Form $form) {
             $form->text('title', '标题');
-            $form->select('category_id', '分类')->options(getCategory());
+            $form->select('category_id', '分类')->options(getComCategory());
             $form->editor('content', '内容');
             $form->display('created_at', '发布时间');
         });
