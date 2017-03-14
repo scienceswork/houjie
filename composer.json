@@ -12,6 +12,7 @@
         "jrean/laravel-user-verification": "^3.0",
         "laravel/framework": "5.3.30",
         "latrell/alipay": "dev-master",
+        "mews/purifier": "^2.0",
         "orangehill/iseed": "dev-master",
         "overtrue/laravel-wechat": "~3.0",
         "predis/predis": "1.0.*",

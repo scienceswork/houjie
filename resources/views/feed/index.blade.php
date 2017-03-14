@@ -29,6 +29,8 @@
                     广场说说
                 </div>
                 <div class="panel-body">
+                    {{--引入错误信息提示--}}
+                    @include('layouts.partials._errors')
                     @if($feeds->count())
                         <ul class="media-list feed-list">
                             @foreach($feeds as $feed)

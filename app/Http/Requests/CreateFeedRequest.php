@@ -29,7 +29,14 @@ class CreateFeedRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'content' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'content.required' => '内容不能为空'
         ];
     }
 
