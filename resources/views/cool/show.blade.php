@@ -66,22 +66,22 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    {{--<hr>--}}
                     {{--粉丝--}}
-                    <div class="follow-info row text-center">
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">180</a>
-                            <a href="#" class="text">关注者</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">25</a>
-                            <a href="#" class="text">粉丝</a>
-                        </div>
-                        <div class="col-xs-4">
-                            <a href="#" class="counter">1</a>
-                            <a href="#" class="text">文章</a>
-                        </div>
-                    </div>
+                    {{--<div class="follow-info row text-center">--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">180</a>--}}
+                            {{--<a href="#" class="text">关注者</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">25</a>--}}
+                            {{--<a href="#" class="text">粉丝</a>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-xs-4">--}}
+                            {{--<a href="#" class="counter">1</a>--}}
+                            {{--<a href="#" class="text">文章</a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <a href="{{ route('web.cool.create') }}" class="btn btn-primary btn-block" style="margin-bottom: 20px;color:#fff;">
