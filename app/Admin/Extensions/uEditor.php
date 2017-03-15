@@ -20,7 +20,7 @@ class uEditor extends Field
 
     // js资源
     protected static $js = [
-        '/ueditor/ueditor.config.js',
+        '/ueditor/ueditor.admin.config.js',
         '/ueditor/ueditor.all.min.js',
         '/ueditor/lang/zh-cn/zh-cn.js'
     ];
